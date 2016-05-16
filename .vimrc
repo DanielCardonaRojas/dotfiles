@@ -41,7 +41,7 @@ nmap <silent> <leader>sj :rightbelow new<CR>
 " }}}
 " Plug plugins {{{
 call plug#begin()
-
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'

@@ -24,6 +24,8 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 
 - Hoogle: Lets you use the Hoogle search engine to lookup Haskell functions and types.
 
+- Fugitive: Lets you call git commands, from within vim. 
+
 ## Key bindings 
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
@@ -34,7 +36,7 @@ Leader is a custom defined key that is mapped to the ',' key so basically typing
 
 ## Basic Settings
 
-# Vim useful commands
+### Vim useful commands
 
 Some of the features I've loved most learning Vim:
 
@@ -54,6 +56,13 @@ Remove so its named reveal.js only.
 ```$
 pandoc -s -S -t revealjs -o test.html revealjsPandoc.md -V theme=blood
 ```
+
+Theme can be chosen from one of [revealjs themes](). I liked these themes:
+
+- solarized
+- blood
+- moon
+- beige
 
 To create html from markdown
 
