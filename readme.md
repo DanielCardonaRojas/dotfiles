@@ -4,8 +4,17 @@ Here I will write an overview of the features I've learned about in vim and reca
 
 I will also cover some configurations of my simple vimrc although I am trying to have it as organized as possible. So it should be self documented.
 
-# VIMRC
-A brief overview of my vimrc file.
+# Installation
+
+To fully use this vimrc we have to do the following: 
+
+- Install Plug (a minimalistic vim plugin manager) running the shell command.
+- Install Mac terminal solarized [profile][solarizedTerminal].
+- Install Pandoc to do markdown conversions.
+
+After this has been done then typing: :PlugInstall
+
+
 
 ## Plugins
 Plugins used in this vimrc are: 
@@ -68,3 +77,7 @@ To create html from markdown
 
 ```
 pandoc input.md -s -o output.html
+
+# Other settings
+
+To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
