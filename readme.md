@@ -9,7 +9,7 @@ I will also cover some configurations of my simple vimrc although I am trying to
 To fully use this vimrc we have to do the following: 
 
 - Install Plug (a minimalistic vim plugin manager) running the shell command.
-- Install Mac terminal solarized [profile][solarizedTerminal], downloading the solazirized.zip from [here][solarizedTerminal]. There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
+- Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
 
 - Install Pandoc to do markdown conversions.
 
@@ -82,4 +82,3 @@ pandoc input.md -s -o output.html
 
 To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 
-[solarizedTerminal]: <http://ethanschoonover.com/solarized>
