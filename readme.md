@@ -9,12 +9,11 @@ I will also cover some configurations of my simple vimrc although I am trying to
 To fully use this vimrc we have to do the following: 
 
 - Install Plug (a minimalistic vim plugin manager) running the shell command.
-- Install Mac terminal solarized [profile][solarizedTerminal].
+- Install Mac terminal solarized [profile][solarizedTerminal], downloading the solazirized.zip from [here][solarizedTerminal]. There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
+
 - Install Pandoc to do markdown conversions.
 
 After this has been done then typing: :PlugInstall
-
-
 
 ## Plugins
 Plugins used in this vimrc are: 
@@ -36,6 +35,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 - Fugitive: Lets you call git commands, from within vim. 
 
 ## Key bindings 
+
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
 
@@ -81,3 +81,5 @@ pandoc input.md -s -o output.html
 # Other settings
 
 To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
+
+[solarizedTerminal]: <http://ethanschoonover.com/solarized>
