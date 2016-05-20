@@ -79,6 +79,7 @@ To create html from markdown
 
 ```
 pandoc input.md -s -o output.html
+```
 
 # Other settings
 
