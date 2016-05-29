@@ -36,6 +36,30 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 
 - Fugitive: Lets you call git commands, from within vim. 
 
+## Plugin Configuration
+
+| Action | Command|
+|:------:|:------:|
+|Write file | ,w |
+|Edit vimrc | ,ev |
+|Close Split | ,cw |
+|Show directory | ,f|
+|Run a terminal command  | ctr-space |
+|Move to right split | ,h|
+|Move to left split | ,l|
+|Move to upper split | ,k|
+|Move to lower split | ,j|
+|Create right split | ,sh|
+|Create left split | ,sl|
+|Create upper split | ,sk|
+|Create lower split | ,sj|
+|Toggle spell checking | ,ss|
+|Choose spell language | ,sc|
+|Paste from OS clipboard |,p|
+|Copy into OS clipboard |,y|
+|Comment line | ,cc|
+
+
 ## Key bindings 
 
 ### Window Splits
@@ -84,4 +108,5 @@ pandoc input.md -s -o output.html
 # Other settings
 
 To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
+
 

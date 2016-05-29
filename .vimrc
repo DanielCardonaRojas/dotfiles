@@ -1,12 +1,13 @@
 " Basic Settings {{{
- set foldmethod=marker
- set number
- set cursorline
- let mapleader = ","
- set softtabstop=2
+set foldmethod=marker
+set number
+set cursorline
+let mapleader = ","
+set softtabstop=2
  " Generic Configurations
- set noswapfile
- set encoding=utf-8
+set noswapfile
+set encoding=utf-8
+
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
@@ -14,11 +15,10 @@ nnoremap <NUL> :!
 " Easy access to vimrc (this file)
 nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
 
-
-" Key maps for Normal Mode
-
 nnoremap <leader>w :w<CR>
-nnoremap <leader>c :close<CR>
+
+" Close split window
+nnoremap <leader>cw :close<CR>
 
 " Copy/Paste from/to OS Clipboard
 nnoremap <leader>p "*p
@@ -27,7 +27,6 @@ nnoremap <leader>y "*y
 nnoremap <leader>d "_d
 
 " Move Cursor around window splits
-
 nnoremap <leader>l <c-w>l
 nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
@@ -46,8 +45,11 @@ nnoremap <leader>< 10<c-w><
 nnoremap <leader>K 5<c-w>+
 nnoremap <leader>J 5<c-w>-
 "Defatul to case insensitive search
-
 nnoremap / /\
+
+" Toggle Spell Checking [s and ]s to jum to mispelled words 
+nnoremap <leader>ss :setlocal spell!<cr>
+nnoremap <leader>sc :setlocal spell spelllang=
 " }}}
 " Plug plugins {{{
 call plug#begin()
@@ -58,7 +60,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'danielmiessler/VimBlog'
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -110,11 +112,15 @@ set laststatus=2
 let g:airline_powerline_fonts = 1 "Very important to get the right look.
 
 " HOOGLE CONFIGURATION
-nnoremap <leader>sh :Hoogle 
-nnoremap <leader>ch :HoogleClose<CR>
-nnoremap <silent> <leader>ih :HoogleInfo<CR>
-nnoremap <silent> <leader>Ih :HoogleInfo
-nnoremap <silent> <leader>kH :Hoogle<CR>
+nnoremap <silent> <leader>Hi :HoogleInfo<CR>
+nnoremap <silent> <leader>HI :HoogleInfo 
+nnoremap <silent> <leader>HH :Hoogle<CR>
+nnoremap <silent> <leader>HC :HoogleClose<CR>
+
+" FUGITIVE CONFIGURATION
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+
 " }}}
 " Interaction with external Programs {{{
 
