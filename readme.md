@@ -38,6 +38,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 
 ## Plugin Configuration
 
+## Key bindings for this vimrc
 | Action | Command|
 |:------:|:------:|
 |Write file | ,w |
@@ -53,14 +54,23 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Create left split | ,sl|
 |Create upper split | ,sk|
 |Create lower split | ,sj|
+|Increment vertical split size | ,> |
+|Decrement vertical split size | ,< |
+|Increment horizontal split size | ,K |
+|Decrement horizontal split size | ,J |
 |Toggle spell checking | ,ss|
 |Choose spell language | ,sc|
 |Paste from OS clipboard |,p|
 |Copy into OS clipboard |,y|
 |Comment line | ,cc|
 
+### Other useful Vim Native key bindings
 
-## Key bindings 
+| Action | Command|
+|:------:|:------:|
+|Autocompletion | ctr-n |
+|Uppercase | gU[motion] |
+|Jump between paragraphs | {} |
 
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
