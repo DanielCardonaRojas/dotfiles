@@ -36,6 +36,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 
 - Fugitive: Lets you call git commands, from within vim. 
 
+- TagBar/ctags: ctags indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
 ## Plugin Configuration
 
 ## Key bindings for this vimrc
@@ -63,7 +64,8 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Paste from OS clipboard |,p|
 |Copy into OS clipboard |,y|
 |Comment line | ,cc|
-
+|Toggle TagBar| ,tt|
+|Replace all ocurrances of word under cursor | ,S |
 ### Other useful Vim Native key bindings
 
 | Action | Command|
@@ -71,7 +73,9 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Autocompletion | ctr-n |
 |Uppercase | gU[motion] |
 |Jump between paragraphs | {} |
-
+|Spell correction | z= |
+|Close code fold | zc |
+|Open code fold | zo |
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
 

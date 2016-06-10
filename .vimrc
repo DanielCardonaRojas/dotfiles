@@ -3,7 +3,10 @@ set foldmethod=marker
 set number
 set cursorline
 let mapleader = ","
-set softtabstop=2
+" With expandtab a tab is replaced with softtabstop value of spaces
+set softtabstop=4
+set tabstop=4
+set expandtab
  " Generic Configurations
 set noswapfile
 set encoding=utf-8
@@ -15,6 +18,9 @@ nnoremap <NUL> :!
 " Easy access to vimrc (this file)
 nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
 
+" Open file prompt with current path
+nmap <leader>E :e <C-R>=expand("%:p:h") . '/'<CR>
+
 nnoremap <leader>w :w<CR>
 
 " Close split window
@@ -23,6 +29,7 @@ nnoremap <leader>cw :close<CR>
 " Copy/Paste from/to OS Clipboard
 nnoremap <leader>p "*p
 nnoremap <leader>y "*y
+vnoremap <leader>y "*y
 " Delete into blackhole register
 nnoremap <leader>d "_d
 
@@ -50,11 +57,15 @@ nnoremap / /\
 " Toggle Spell Checking [s and ]s to jum to mispelled words 
 nnoremap <leader>ss :setlocal spell!<cr>
 nnoremap <leader>sc :setlocal spell spelllang=
+
+" Replace word under cursor
+nnoremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " }}}
 " Plug plugins {{{
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'danielmiessler/VimBlog'
@@ -63,10 +74,14 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'Twinside/vim-hoogle'
 Plug 'mattn/emmet-vim'
+
+" Just testing out
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
+
 " }}}
 " Plugin Configurations {{{
 
@@ -121,6 +136,18 @@ nnoremap <silent> <leader>HC :HoogleClose<CR>
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 
+"SYNTASTIC CONFIGURATION
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" TAGBAR CONFIGURATION
+nmap <leader>tt :TagbarToggle<CR>
 " }}}
 " Interaction with external Programs {{{
 
