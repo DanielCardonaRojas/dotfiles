@@ -39,6 +39,11 @@ nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 
+"Move around tabs 
+nnoremap tn :tabnew<space>
+nnoremap th :tabprev<CR>
+nnoremap tl :tabnext<CR>
+
 " Open window splits in various places
 nmap <silent> <leader>sh :leftabove  vnew<CR>
 nmap <silent> <leader>sl :rightbelow vnew<CR>
@@ -51,6 +56,7 @@ nnoremap <leader>< 10<c-w><
 
 nnoremap <leader>K 5<c-w>+
 nnoremap <leader>J 5<c-w>-
+
 "Defatul to case insensitive search
 nnoremap / /\
 

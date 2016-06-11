@@ -8,12 +8,10 @@ I will also cover some configurations of my simple vimrc although I am trying to
 
 To fully use this vimrc we have to do the following: 
 
-- Install Plug (a minimalistic vim plugin manager) running the shell command. 
-`curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+- Install Plug (a minimalistic vim plugin manager) running the shell command. paste the curl command from [here](https://github.com/junegunn/vim-plug)
 - Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
-
 - Install Pandoc to do markdown conversions.
+- Check to have at least an old version of ctags 
 
 After this has been done then typing: :PlugInstall
 
@@ -25,28 +23,29 @@ Look at the repository [here] (https://github.com/SirVer/ultisnips)
 
 - Solarized theme: Seems to be one of the most popular themes.
 
-- Airline: Gives a nice look to the status bar in vim. Its a replacement of an
+- [Airline](https://github.com/vim-airline/vim-airline): Gives a nice look to the status bar in vim. Its a replacement of an
 older plugin called Powerline, take a look at the repository [here] (https://github.com/vim-airline/vim-airline)
 
-- Emmet: To do HTML templating very fast.
+- [Emmet](http://mattn.github.io/emmet-vim/): To do HTML templating very fast.
 
-- NerdTree: Power Vim with directory navigation.
+- [NerdTree](https://github.com/scrooloose/nerdtree): Power Vim with directory navigation.
 
 - Hoogle: Lets you use the Hoogle search engine to lookup Haskell functions and types.
 
 - Fugitive: Lets you call git commands, from within vim. 
 
 - TagBar/ctags: ctags indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
+
+- [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
 ## Plugin Configuration
 
-## Key bindings for this vimrc
+### Key bindings for this vimrc
 | Action | Command|
 |:------:|:------:|
 |Write file | ,w |
 |Edit vimrc | ,ev |
 |Close Split | ,cw |
 |Show directory | ,f|
-|Run a terminal command  | ctr-space |
 |Move to right split | ,h|
 |Move to left split | ,l|
 |Move to upper split | ,k|
@@ -63,10 +62,27 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Choose spell language | ,sc|
 |Paste from OS clipboard |,p|
 |Copy into OS clipboard |,y|
+|Run a terminal command  | ctr-space |
+
+### Other mappings
+
+| Action | Command|
+|:------:|:------:|
+| new tab | tn |
+| move to next tab | tl |
+| move to prev tab | th |
+
+### Plugin Key Bindings
 |Comment line | ,cc|
 |Toggle TagBar| ,tt|
 |Replace all ocurrances of word under cursor | ,S |
-### Other useful Vim Native key bindings
+|Ctrlp fuzzy search | ctrl+p |
+|Ctrlp open file in new tab | ctrl+t |
+|Ctrlp open file in vsplit | ctrl+v |
+|Ctrlp open file in horizontal split | ctrl+s |
+
+
+### Native Vim key bindings
 
 | Action | Command|
 |:------:|:------:|
@@ -76,6 +92,10 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Spell correction | z= |
 |Close code fold | zc |
 |Open code fold | zo |
+|Open file in new tab | :tabe <file_name> |
+|Jump to next tab | gt |
+|Jump to prev tab | gT |
+
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
 
@@ -94,7 +114,8 @@ this lets you compile programs easily, or do anything else. For example convert 
 
 **Pandoc Integration**
 
-To create html from markdown run 
+To create html from markdown run :PandocMD html, the first argument to :PandocMD is the value for the -t flag witch you would 
+normally pass to the command line program. This is just so different type of documents can be rendered.
 
 To create revealjs deck of slides
 
