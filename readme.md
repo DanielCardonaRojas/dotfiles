@@ -73,8 +73,10 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 | move to prev tab | th |
 
 ### Plugin Key Bindings
+| Action | Command|
+|:------:|:------:|
 |Comment line | ,cc|
-|Toggle TagBar| ,tt|
+|Toggle TagBar| ,tt |
 |Replace all ocurrances of word under cursor | ,S |
 |Ctrlp fuzzy search | ctrl+p |
 |Ctrlp open file in new tab | ctrl+t |
@@ -105,7 +107,7 @@ Leader is a custom defined key that is mapped to the ',' key so basically typing
 
 ## Basic Settings
 
-### Vim useful commands
+### Useful external commands and tools
 
 Some of the features I've loved most learning Vim:
 
