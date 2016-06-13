@@ -5,6 +5,7 @@ set cursorline
 let mapleader = ","
 " With expandtab a tab is replaced with softtabstop value of spaces
 set softtabstop=4
+set shiftwidth=4
 set tabstop=4
 set expandtab
  " Generic Configurations
@@ -43,6 +44,7 @@ nnoremap <leader>k <c-w>k
 nnoremap tn :tabnew<space>
 nnoremap th :tabprev<CR>
 nnoremap tl :tabnext<CR>
+nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
 
 " Open window splits in various places
 nmap <silent> <leader>sh :leftabove  vnew<CR>
@@ -71,6 +73,7 @@ nnoremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
@@ -149,7 +152,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " TAGBAR CONFIGURATION

@@ -37,6 +37,8 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 - TagBar/ctags: ctags indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
 
 - [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
+
+- [Vim-surround](https://github.com/tpope/vim-surround): Is a plugin for ease of wrapping words in parentheses, brackets, quotes.
 ## Plugin Configuration
 
 ### Key bindings for this vimrc
@@ -82,7 +84,9 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Ctrlp open file in new tab | ctrl+t |
 |Ctrlp open file in vsplit | ctrl+v |
 |Ctrlp open file in horizontal split | ctrl+s |
-
+|Surround word with ' | ysiw' |
+|Delete surrounding quotes | ds' |
+|Delete surrounding html tag | dst |
 
 ### Native Vim key bindings
 
