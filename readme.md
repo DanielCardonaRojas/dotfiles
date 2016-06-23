@@ -6,6 +6,22 @@ I will also cover some configurations of my simple vimrc although I am trying to
 
 # Installation
 
+Do the following: 
+
+1. Move to home directory 
+> cd ~
+
+2. initialize a git repository and point it to the remote repository 
+git init && git remote add origin https://github.com/DanielCardonaRojas/dotfiles
+
+3. Sync with master
+> git pull origin master
+
+4. Ignore other files and make adding files only available with the force flag
+> echo "\*" > .gitignore
+
+5. Now to add a file git add -f <fileName>
+
 To fully use this vimrc we have to do the following: 
 
 - Install Plug (a minimalistic vim plugin manager) running the shell command. paste the curl command from [here](https://github.com/junegunn/vim-plug)
