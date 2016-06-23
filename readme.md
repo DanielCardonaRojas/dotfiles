@@ -34,7 +34,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 
 - Fugitive: Lets you call git commands, from within vim. 
 
-- TagBar/ctags: ctags indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
+- TagBar/ctags: *ctags* indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
 
 - [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
 
@@ -81,9 +81,6 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Toggle TagBar| ,tt |
 |Replace all ocurrances of word under cursor | ,S |
 |Ctrlp fuzzy search | ctrl+p |
-|Ctrlp open file in new tab | ctrl+t |
-|Ctrlp open file in vsplit | ctrl+v |
-|Ctrlp open file in horizontal split | ctrl+s |
 |Surround word with ' | ysiw' |
 |Delete surrounding quotes | ds' |
 |Delete surrounding html tag | dst |
@@ -101,6 +98,15 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Open file in new tab | :tabe <file_name> |
 |Jump to next tab | gt |
 |Jump to prev tab | gT |
+
+### Context sensitive Key bindings
+| Context | Action | Command|
+|:------:|:------:|:------:|
+| CtrlP open | ctrl-f | Toggle files, most recently used, etc |
+|NERDTree open | t | opens file in new tab
+| CtrlP open | file in new tab | ctrl+t |
+| CtrlP open | file in vsplit | ctrl+v |
+| CtrlP open | file in horizontal split | ctrl+s |
 
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
@@ -150,4 +156,6 @@ pandoc input.md -s -o output.html
 
 To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 
-
+# TMUX 
+If working with tmux its important to make these changes, for key bindings to work.
+[link](http://superuser.com/questions/660013/resizing-pane-is-not-working-for-tmux-on-mac)

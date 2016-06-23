@@ -8,7 +8,11 @@ set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 set expandtab
- " Generic Configurations
+" Set tabs/indentation by filetype
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype python setlocal ts=8 sw=4 sts=4 noexpandtab
+
+" Generic Configurations
 set noswapfile
 set encoding=utf-8
 
@@ -60,7 +64,7 @@ nnoremap <leader>K 5<c-w>+
 nnoremap <leader>J 5<c-w>-
 
 "Defatul to case insensitive search
-nnoremap / /\
+nnoremap / /\c
 
 " Toggle Spell Checking [s and ]s to jum to mispelled words 
 nnoremap <leader>ss :setlocal spell!<cr>
@@ -89,6 +93,7 @@ Plug 'mattn/emmet-vim'
 " Just testing out
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 " }}}
@@ -99,7 +104,7 @@ call plug#end()
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-N>"
 
  " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -134,6 +139,7 @@ colorscheme solarized
 " AIRLINE COFIGURATION
 set laststatus=2 
 let g:airline_powerline_fonts = 1 "Very important to get the right look.
+let g:airline#extensions#tabline#enabled = 1
 
 " HOOGLE CONFIGURATION
 nnoremap <silent> <leader>Hi :HoogleInfo<CR>
