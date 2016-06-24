@@ -26,7 +26,7 @@ To fully use this vimrc we have to do the following:
 
 - Install Plug (a minimalistic vim plugin manager) running the shell command. paste the curl command from [here](https://github.com/junegunn/vim-plug)
 - Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
-- Install Pandoc to do markdown conversions.
+- Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
 - Check to have at least an old version of ctags 
 
 After this has been done then typing: :PlugInstall
@@ -100,6 +100,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Surround word with ' | ysiw' |
 |Delete surrounding quotes | ds' |
 |Delete surrounding html tag | dst |
+|Most recently used files CtrlP | ,m |
 
 ### Native Vim key bindings
 

@@ -135,6 +135,7 @@ nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
 syntax enable
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
  
 " AIRLINE COFIGURATION
 set laststatus=2 
@@ -161,6 +162,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+" CtrlP CONFIGURATION
+nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 " TAGBAR CONFIGURATION
 nmap <leader>tt :TagbarToggle<CR>
 " }}}
