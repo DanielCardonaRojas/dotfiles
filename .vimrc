@@ -2,6 +2,7 @@
 set foldmethod=marker
 set number
 set cursorline
+
 let mapleader = ","
 " With expandtab a tab is replaced with softtabstop value of spaces
 set softtabstop=4
@@ -172,4 +173,10 @@ nmap <leader>tt :TagbarToggle<CR>
 " Generate Html from markdown with pandoc
 command! -nargs=1 PandocMD execute "!pandoc % -f markdown -t " <q-args> " -s -o %.html"
 
+" }}}
+" {{{ Overrides
+
+"Change number line colors" 
+hi CursorLineNr term=bold ctermfg=154 gui=bold"
+hi LineNr ctermfg=196 guifg=#2b506e guibg=#000000"
 " }}}
