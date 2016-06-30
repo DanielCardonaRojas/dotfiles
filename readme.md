@@ -31,6 +31,8 @@ To fully use this vimrc we have to do the following:
 
 After this has been done then typing: :PlugInstall
 
+Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
+
 ## Plugins
 Plugins used in this vimrc are: 
 
@@ -81,6 +83,8 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Paste from OS clipboard |,p|
 |Copy into OS clipboard |,y|
 |Run a terminal command  | ctr-space |
+|Paste yank buffer to vim command  | ,r0 |
+|Paste yank buffer to terminal command  | ,R0 |
 
 ### Other mappings
 

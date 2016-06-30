@@ -140,7 +140,7 @@ nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
 syntax enable
 set background=dark
 colorscheme solarized
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
  
 " AIRLINE COFIGURATION
 set laststatus=2 
