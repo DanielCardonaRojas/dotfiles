@@ -39,6 +39,10 @@ vnoremap <leader>y "*y
 " Delete into blackhole register
 nnoremap <leader>d "_d
 
+" Paste a register into vim command (0-yanked,"-default)                               
+nnoremap <leader>r :<space><c-r>                                                    
+nnoremap <leader>R :!<space><c-r>  
+
 " Move Cursor around window splits
 nnoremap <leader>l <c-w>l
 nnoremap <leader>h <c-w>h
