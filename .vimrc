@@ -183,4 +183,8 @@ command! -nargs=1 PandocMD execute "!pandoc % -f markdown -t " <q-args> " -s -o 
 "Change number line colors" 
 hi CursorLineNr term=bold ctermfg=154 gui=bold"
 hi LineNr ctermfg=196 guifg=#2b506e guibg=#000000"
+
+" Get highlighting of .md as markdown not modula 2
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
 " }}}
