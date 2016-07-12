@@ -9,18 +9,22 @@ I will also cover some configurations of my simple vimrc although I am trying to
 Do the following: 
 
 1. Move to home directory 
-> cd ~
+```shell
+cd ~
+```
 
 2. initialize a git repository and point it to the remote repository 
 git init && git remote add origin https://github.com/DanielCardonaRojas/dotfiles
 
 3. Sync with master
-> git pull origin master
+```shell
+git pull origin master
+```
 
-4. Ignore other files and make adding files only available with the force flag
-> echo "\*" > .gitignore
-
-5. Now to add a file git add -f <fileName>
+5. Now to add a file 
+```shell
+git add -f <fileName>
+```
 
 To fully use this vimrc we have to do the following: 
 
@@ -83,6 +87,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |Paste from OS clipboard |,p|
 |Copy into OS clipboard |,y|
 |Run a terminal command  | ctr-space |
+|Replace all ocurrances of word under cursor | ,S |
 |Paste yank buffer to vim command  | ,r0 |
 |Paste yank buffer to terminal command  | ,R0 |
 
@@ -99,11 +104,11 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 |:------:|:------:|
 |Comment line | ,cc|
 |Toggle TagBar| ,tt |
-|Replace all ocurrances of word under cursor | ,S |
 |Ctrlp fuzzy search | ctrl+p |
 |Surround word with ' | ysiw' |
 |Delete surrounding quotes | ds' |
 |Delete surrounding html tag | dst |
+|Surround visual selection in quotes | v<motion>S' |
 |Most recently used files CtrlP | ,m |
 
 ### Native Vim key bindings
@@ -169,7 +174,7 @@ Theme can be chosen from one of [revealjs themes](). I liked these themes:
 
 To create html from markdown
 
-```
+```shell
 pandoc input.md -s -o output.html
 ```
 
@@ -180,3 +185,9 @@ To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 # TMUX 
 If working with tmux its important to make these changes, for key bindings to work.
 [link](http://superuser.com/questions/660013/resizing-pane-is-not-working-for-tmux-on-mac)
+
+# TODO
+
+- Make copy and paste to systems clipboard work on other platforms besides mac
+- Add youcompleteme with easy configuration.
+- May add a installation script
