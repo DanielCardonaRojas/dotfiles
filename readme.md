@@ -35,15 +35,27 @@ To fully use this vimrc we have to do the following:
 - Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
 - Check to have at least an old version of ctags 
 - Install YouCompleteMe since where using Vim-Plug. (Not tested yet)
-To se a OS specific setup of more detailed see [YCM repo](https://github.com/Valloric/YouCompleteMe) 
+To see a OS specific setup or more detailed explanation see [YCM repo](https://github.com/Valloric/YouCompleteMe) 
+Also to give support to other languages see [YCM repo](https://github.com/Valloric/YouCompleteMe)
+
+For mac: 
+
 ```shell
 brew install cmake
-cd ~/.vim/pluggd/YouCompleteMe
+```
+For ubuntu:
+
+```shell
+sudo apt-get install cmake
+sudo apt-get install python-dev python3-dev
+```
+
+After this has been done enter vim and type: ":PlugInstall"
+``` shell
+cd ~/.vim/plugged/YouCompleteMe
 git submodule update --init --recursive
 ./install.py --clang-completer 
 ```
-
-After this has been done then typing: :PlugInstall
 
 Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
 
