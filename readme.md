@@ -14,7 +14,9 @@ cd ~
 ```
 
 2. initialize a git repository and point it to the remote repository 
+```shell
 git init && git remote add origin https://github.com/DanielCardonaRojas/dotfiles
+```
 
 3. Sync with master
 ```shell
@@ -32,10 +34,19 @@ To fully use this vimrc we have to do the following:
 - Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
 - Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
 - Check to have at least an old version of ctags 
+- Install YouCompleteMe since where using Vim-Plug. (Not tested yet)
+To se a OS specific setup of more detailed see [YCM repo](https://github.com/Valloric/YouCompleteMe) 
+```shell
+brew install cmake
+cd ~/.vim/pluggd/YouCompleteMe
+git submodule update --init --recursive
+./install.py --clang-completer 
+```
 
 After this has been done then typing: :PlugInstall
 
 Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
+
 
 ## Plugins
 Plugins used in this vimrc are: 
@@ -191,3 +202,5 @@ If working with tmux its important to make these changes, for key bindings to wo
 - Make copy and paste to systems clipboard work on other platforms besides mac
 - Add youcompleteme with easy configuration.
 - May add a installation script
+- Emmet use instrucions 
+- Ultisnips basic usage
