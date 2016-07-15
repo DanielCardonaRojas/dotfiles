@@ -20,7 +20,7 @@ set encoding=utf-8
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
-nnoremap <NUL> :! 
+"nnoremap <NUL> :! 
 " Easy access to vimrc (this file)
 nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
 
@@ -76,7 +76,7 @@ nnoremap <leader>ss :setlocal spell!<cr>
 nnoremap <leader>sc :setlocal spell spelllang=
 
 " Replace word under cursor
-nnoremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+noremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " }}}
 " Plug plugins {{{
 call plug#begin()
@@ -98,6 +98,7 @@ Plug 'mattn/emmet-vim'
 " Just testing out
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -107,7 +108,7 @@ call plug#end()
 " ULTISNIPS CONFIGURATION
 " Trigger configuration. Do not use <tab> if you use Valloric/YouCompleteMe.
 
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-N>"
 
@@ -133,8 +134,8 @@ function! ToggleFindNerd()
 endfunction
 
 " If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
+nmap <silent> <leader>F <ESC>:call ToggleFindNerd()<CR>
+nmap <silent> <leader>f <ESC>:NERDTreeToggle<CR>
 
 " THEME COLOR SCHEME SETUP (SOLARIZED)
 syntax enable
