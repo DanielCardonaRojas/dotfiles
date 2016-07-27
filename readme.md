@@ -88,8 +88,11 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 There are two available colorschemes solarized and monokai, to switch between the two do:
 > :colorscheme solarized
 > :colorscheme monokai
+
 To select black solarized scheme do
+
 > :set background=dark
+
 ## Plugin Configuration
 
 ### Key bindings for this vimrc
