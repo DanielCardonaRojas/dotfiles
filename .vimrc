@@ -80,25 +80,31 @@ noremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " }}}
 " Plug plugins {{{
 call plug#begin()
+
+" Miscelanious
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" Color schemes and GUI
 Plug 'altercation/vim-colors-solarized'
-Plug 'danielmiessler/VimBlog'
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter'
+Plug 'crusoexia/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Twinside/vim-hoogle'
-Plug 'mattn/emmet-vim'
 
-" Just testing out
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdcommenter'
+Plug 'Twinside/vim-hoogle'
+
+" Code completion and snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
+Plug 'Valloric/YouCompleteMe'
+" Navigating, searching and code completion
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
 
@@ -109,8 +115,8 @@ call plug#end()
 " Trigger configuration. Do not use <tab> if you use Valloric/YouCompleteMe.
 
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-N>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s-j>"
 
  " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -141,6 +147,7 @@ nmap <silent> <leader>f <ESC>:NERDTreeToggle<CR>
 syntax enable
 set background=dark
 colorscheme solarized
+set t_Co=256
 " let g:solarized_termcolors=256
  
 " AIRLINE COFIGURATION

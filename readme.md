@@ -84,6 +84,12 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 - [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
 
 - [Vim-surround](https://github.com/tpope/vim-surround): Is a plugin for ease of wrapping words in parentheses, brackets, quotes.
+## Colorschemes 
+There are two available colorschemes solarized and monokai, to switch between the two do:
+> :colorscheme solarized
+> :colorscheme monokai
+To select black solarized scheme do
+> :set background=dark
 ## Plugin Configuration
 
 ### Key bindings for this vimrc
