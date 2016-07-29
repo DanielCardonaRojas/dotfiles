@@ -17,6 +17,8 @@ autocmd Filetype python setlocal ts=8 sw=4 sts=4 noexpandtab
 set noswapfile
 set encoding=utf-8
 
+" Cursor
+let g:loaded_matchparen=1
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
@@ -48,6 +50,10 @@ nnoremap <leader>l <c-w>l
 nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
+
+" Swaping lines, words etc
+nnoremap <c-s-j> :move +1<CR>
+nnoremap <c-s-k> :move -2<CR>
 
 "Move around tabs 
 nnoremap tn :tabnew<space>

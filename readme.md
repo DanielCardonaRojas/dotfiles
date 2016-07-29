@@ -58,6 +58,7 @@ git submodule update --init --recursive
 ```
 
 Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
+on mac edit vimrc (,ev) line with "let g:solarized_termcolors=256" uncommenting it.
 
 
 ## Plugins
@@ -114,6 +115,8 @@ To select black solarized scheme do
 |Decrement vertical split size | ,< |
 |Increment horizontal split size | ,K |
 |Decrement horizontal split size | ,J |
+|Swap current line with upper | Ctr+Shift+k |
+|Swap current line with lower | Ctr+Shift+j |
 |Toggle spell checking | ,ss|
 |Choose spell language | ,sc|
 |Paste from OS clipboard |,p|
