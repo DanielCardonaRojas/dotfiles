@@ -74,6 +74,11 @@ nnoremap <leader>< 10<c-w><
 nnoremap <leader>K 5<c-w>+
 nnoremap <leader>J 5<c-w>-
 
+" Inner line movement so (yil will yank from first to last nonblank char.
+vnoremap <silent> al :<c-u>norm!0v$h<cr>
+vnoremap <silent> il :<c-u>norm!^vg_<cr>
+onoremap <silent> al :norm val<cr>
+onoremap <silent> il :norm vil<cr>
 "Defatul to case insensitive search
 nnoremap / /\c
 

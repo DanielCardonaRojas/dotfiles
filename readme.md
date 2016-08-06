@@ -62,8 +62,7 @@ on mac edit vimrc (,ev) line with "let g:solarized_termcolors=256" uncommenting 
 
 
 ## Plugins
-Plugins used in this vimrc are: 
-
+    
 - Ultisnips: Lets you create snippets for different file formats.
 Look at the repository [here] (https://github.com/SirVer/ultisnips)
 
@@ -133,6 +132,10 @@ To select black solarized scheme do
 | new tab | tn |
 | move to next tab | tl |
 | move to prev tab | th |
+| yank inside line | yil |
+| select inside line | yil |
+| yank line without new line char | yil |
+| select line without new line char | yil |
 
 ### Plugin Key Bindings
 | Action | Command|
