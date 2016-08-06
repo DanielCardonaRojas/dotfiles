@@ -133,9 +133,9 @@ To select black solarized scheme do
 | move to next tab | tl |
 | move to prev tab | th |
 | yank inside line | yil |
-| select inside line | yil |
-| yank line without new line char | yil |
-| select line without new line char | yil |
+| select inside line | vil |
+| yank line without new line char | yal |
+| select line without new line char | val |
 
 ### Plugin Key Bindings
 | Action | Command|
