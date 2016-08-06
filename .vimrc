@@ -112,6 +112,8 @@ Plug 'Twinside/vim-hoogle'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'raimondi/delimitmate'
+
 " Navigating, searching and code completion
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
