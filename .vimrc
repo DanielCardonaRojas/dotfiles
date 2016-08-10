@@ -5,13 +5,15 @@ set cursorline
 
 let mapleader = ","
 " With expandtab a tab is replaced with softtabstop value of spaces
+" Tabstop = Width of tab char, expandtab replace tabs with spaces
+" shiftwidth = number of columns when indenting in normal mode
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 set expandtab
 " Set tabs/indentation by filetype
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype python setlocal ts=8 sw=4 sts=4 noexpandtab
+autocmd Filetype python setlocal ts=8 sw=4 sts=8 noexpandtab
 
 " Generic Configurations
 set noswapfile
@@ -118,7 +120,7 @@ Plug 'raimondi/delimitmate'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " }}}
@@ -167,6 +169,8 @@ set t_Co=256
 set laststatus=2 
 let g:airline_powerline_fonts = 1 "Very important to get the right look.
 let g:airline#extensions#tabline#enabled = 1
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " HOOGLE CONFIGURATION
 nnoremap <silent> <leader>Hi :HoogleInfo<CR>
