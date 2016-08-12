@@ -21,6 +21,12 @@ set encoding=utf-8
 
 " Cursor
 let g:loaded_matchparen=1
+
+
+" Toggle highlight.
+let hlstate=0
+nnoremap <F4> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
+
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
