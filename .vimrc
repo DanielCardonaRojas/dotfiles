@@ -24,9 +24,8 @@ let g:loaded_matchparen=1
 
 
 " Toggle highlight.
-let hlstate=0
-nnoremap <F4> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
-
+set hlsearch!
+nnoremap <F3> :set hlsearch!<CR>
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
