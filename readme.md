@@ -9,21 +9,25 @@ I will also cover some configurations of my simple vimrc although I am trying to
 Do the following: 
 
 1. Move to home directory 
+
 ```shell
 cd ~
 ```
 
 2. initialize a git repository and point it to the remote repository 
+
 ```shell
 git init && git remote add origin https://github.com/DanielCardonaRojas/dotfiles
 ```
 
 3. Sync with master
+
 ```shell
 git pull origin master
 ```
 
 5. Now to add a file 
+
 ```shell
 git add -f <fileName>
 ```
@@ -74,6 +78,8 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 - [Emmet](http://mattn.github.io/emmet-vim/): To do HTML templating very fast.
 
 - [NerdTree](https://github.com/scrooloose/nerdtree): Power Vim with directory navigation.
+- [Gundo](https://github.com/sjl/gundo.vim): Graphical undo lets you visualize then undo tree.
+- [EasyMotion](): Easy motion lets you move fast to any word on screen.
 
 - Hoogle: Lets you use the Hoogle search engine to lookup Haskell functions and types.
 
@@ -114,8 +120,8 @@ To select black solarized scheme do
 |Decrement vertical split size | ,< |
 |Increment horizontal split size | ,K |
 |Decrement horizontal split size | ,J |
-|Swap current line with upper | Ctr+Shift+k |
-|Swap current line with lower | Ctr+Shift+j |
+|Swap current line with upper | K |
+|Swap current line with lower | J |
 |Toggle spell checking | ,ss|
 |Choose spell language | ,sc|
 |Paste from OS clipboard |,p|
@@ -148,6 +154,8 @@ To select black solarized scheme do
 |Delete surrounding html tag | dst |
 |Surround visual selection in quotes | v<motion>S' |
 |Most recently used files CtrlP | ,m |
+|Jump to any word with EasyMotion | ,,w |
+|Show/Hide undo tree (Gundo) | F5 |
 
 ### Native Vim key bindings
 

@@ -59,8 +59,8 @@ nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 
 " Swaping lines, words etc
-nnoremap <c-s-j> :move +1<CR>
-nnoremap <c-s-k> :move -2<CR>
+nnoremap J :move +1<CR>
+nnoremap K :move -2<CR>
 
 "Move around tabs 
 nnoremap tn :tabnew<space>
@@ -104,6 +104,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
+Plug 'sjl/gundo.vim'
 
 " Color schemes and GUI
 Plug 'altercation/vim-colors-solarized'
@@ -201,6 +202,10 @@ let g:syntastic_check_on_wq = 0
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 " TAGBAR CONFIGURATION
 nmap <leader>tt :TagbarToggle<CR>
+
+"GUNDO CONFIGURATION
+nnoremap <F5> :GundoToggle<CR>
+
 " }}}
 " Interaction with external Programs {{{
 
