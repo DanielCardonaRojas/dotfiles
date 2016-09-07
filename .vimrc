@@ -29,7 +29,7 @@ nnoremap <F3> :set hlsearch!<CR>
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
-"nnoremap <NUL> :! 
+nnoremap <NUL> :! 
 " Easy access to vimrc (this file)
 nnoremap <leader>ev :vsplit $MYVIMRC<CR> 
 
@@ -109,6 +109,7 @@ Plug 'sjl/gundo.vim'
 " Color schemes and GUI
 Plug 'altercation/vim-colors-solarized'
 Plug 'crusoexia/vim-monokai'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -167,9 +168,12 @@ nmap <silent> <leader>f <ESC>:NERDTreeToggle<CR>
 " THEME COLOR SCHEME SETUP (SOLARIZED)
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "soft"
 set t_Co=256
 " let g:solarized_termcolors=256
+
  
 " AIRLINE COFIGURATION
 set laststatus=2 
@@ -216,8 +220,8 @@ command! -nargs=1 PandocMD execute "!pandoc % -f markdown -t " <q-args> " -s -o 
 " {{{ Overrides
 
 "Change number line colors" 
-hi CursorLineNr term=bold ctermfg=154 gui=bold"
-hi LineNr ctermfg=196 guifg=#2b506e guibg=#000000"
+"hi CursorLineNr term=bold ctermfg=154 gui=bold"
+"hi LineNr ctermfg=196 guifg=#2b506e guibg=#000000"
 
 " Get highlighting of .md as markdown not modula 2
 autocmd BufNewFile,BufRead *.md set filetype=markdown

@@ -71,7 +71,7 @@ To fully use this vimrc we have to do the following:
 - Ultisnips: Lets you create snippets for different file formats.
 Look at the repository [here] (https://github.com/SirVer/ultisnips)
 
-- Solarized theme: Seems to be one of the most popular themes.
+- Three themes are used in this vimrc [Solarized](http://ethanschoonover.com/solarized), [Monokai](https://github.com/crusoexia/vim-monokai) and [Gruvbox](https://github.com/morhetz/gruvbox/wiki/Configuration).
 
 - [Airline](https://github.com/vim-airline/vim-airline): Gives a nice look to the status bar in vim. Its a replacement of an
 older plugin called Powerline, take a look at the repository [here] (https://github.com/vim-airline/vim-airline)
