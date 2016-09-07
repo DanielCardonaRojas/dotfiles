@@ -118,7 +118,7 @@ Plug 'Twinside/vim-hoogle'
 
 " Code completion and snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'mattn/emmet-vim'
+Plug 'rstacruz/sparkup'
 Plug 'Valloric/YouCompleteMe'
 Plug 'raimondi/delimitmate'
 
@@ -136,8 +136,8 @@ call plug#end()
 " Trigger configuration. Do not use <tab> if you use Valloric/YouCompleteMe.
 
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-s-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
  " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
