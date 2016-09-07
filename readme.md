@@ -26,19 +26,12 @@ git init && git remote add origin https://github.com/DanielCardonaRojas/dotfiles
 git pull origin master
 ```
 
-5. Now to add a file 
+4. Install Plug (a minimalistic vim plugin manager) running the shell command. paste the curl command from [here](https://github.com/junegunn/vim-plug)
 
-```shell
-git add -f <fileName>
-```
+5. After this has been done enter vim and type: ":PlugInstall" this will download and install all plugins.
 
-To fully use this vimrc we have to do the following: 
+6. Install YouCompleteMe since where using Vim-Plug. 
 
-- Install Plug (a minimalistic vim plugin manager) running the shell command. paste the curl command from [here](https://github.com/junegunn/vim-plug)
-- Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
-- Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
-- Check to have at least an old version of ctags 
-- Install YouCompleteMe since where using Vim-Plug. (Not tested yet)
 To see a OS specific setup or more detailed explanation see [YCM repo](https://github.com/Valloric/YouCompleteMe) 
 Also to give support to other languages see [YCM repo](https://github.com/Valloric/YouCompleteMe)
 
@@ -54,18 +47,26 @@ sudo apt-get install cmake
 sudo apt-get install python-dev python3-dev
 ```
 
-After this has been done enter vim and type: ":PlugInstall"
 ``` shell
 cd ~/.vim/plugged/YouCompleteMe
 git submodule update --init --recursive
 ./install.py --clang-completer 
 ```
 
+
+**Not needed with macvim or linux terminals**
+
 Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
 on mac edit vimrc (,ev) line with "let g:solarized_termcolors=256" uncommenting it.
 
+To fully use this vimrc we have to do the following: 
 
-## Plugins
+- Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
+- Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
+- Check to have at least an old version of ctags 
+
+## [Plugins](http://vimawesome.com/)
+
     
 - Ultisnips: Lets you create snippets for different file formats.
 Look at the repository [here] (https://github.com/SirVer/ultisnips)
@@ -75,7 +76,7 @@ Look at the repository [here] (https://github.com/SirVer/ultisnips)
 - [Airline](https://github.com/vim-airline/vim-airline): Gives a nice look to the status bar in vim. Its a replacement of an
 older plugin called Powerline, take a look at the repository [here] (https://github.com/vim-airline/vim-airline)
 
-- [Emmet](http://mattn.github.io/emmet-vim/): To do HTML templating very fast.
+- [Sparkup](https://github.com/rstacruz/sparkup): To do HTML templating very fast.
 
 - [NerdTree](https://github.com/scrooloose/nerdtree): Power Vim with directory navigation.
 - [Gundo](https://github.com/sjl/gundo.vim): Graphical undo lets you visualize then undo tree.
@@ -156,6 +157,13 @@ To select black solarized scheme do
 |Most recently used files CtrlP | ,m |
 |Jump to any word with EasyMotion | ,,w |
 |Show/Hide undo tree (Gundo) | F5 |
+|Sparkup expand | ctrl+e |
+|Sparkup jump to next edit point in insert mode | ctrl+n |
+|Ultisnip expand snippet | ctrl+j |
+|Ultisnip jump to next edit point | ctrl+b |
+|Ultisnip jump to previous edit point | ctrl+z |
+
+
 
 ### Native Vim key bindings
 
@@ -222,6 +230,14 @@ To create html from markdown
 
 ```shell
 pandoc input.md -s -o output.html
+```
+
+#Notes
+
+To add other files to the repository:
+
+```shell
+git add -f <fileName>
 ```
 
 # Other settings
