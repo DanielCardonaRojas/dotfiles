@@ -19,8 +19,9 @@ autocmd Filetype python setlocal ts=8 sw=4 sts=8 noexpandtab
 set noswapfile
 set encoding=utf-8
 
-" Cursor
+" Cursor/Mouse
 let g:loaded_matchparen=1
+set mouse=n
 
 
 " Toggle highlight.

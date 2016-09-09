@@ -147,7 +147,8 @@ To select black solarized scheme do
 ### Plugin Key Bindings
 | Action | Command|
 |:------:|:------:|
-|Comment line | ,cc|
+|Comment line | ,c<space>|
+|Change comment style | ,ca |
 |Toggle TagBar| ,tt |
 |Ctrlp fuzzy search | ctrl+p |
 |Surround word with ' | ysiw' |
