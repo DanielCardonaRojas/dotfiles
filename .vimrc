@@ -107,13 +107,18 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 
-" Color schemes and GUI
+" Color Schemes, GUI, Code Display
 Plug 'altercation/vim-colors-solarized'
 Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'yggdroot/indentline'
+
+"Syntax
+Plug 'travitch/hasksyn'
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdcommenter'
@@ -221,6 +226,34 @@ function! s:filter_header(lines) abort
 endfunction
 let g:startify_custom_header = s:filter_header(map(startify#fortune#cowsay(), '"   ".v:val'))
 
+" RAINBOW PARENTHESES CONFIGURATION
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+"au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesActivate
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 " }}}
 " Interaction with external Programs {{{
 
