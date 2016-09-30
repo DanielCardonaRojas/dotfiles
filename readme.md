@@ -1,8 +1,6 @@
-# Vim Learning progress/recap
+# Dotfiles
 
-Here I will write an overview of the features I've learned about in vim and recap on the most useful tips and tricks learned so far.
-
-I will also cover some configurations of my simple vimrc although I am trying to have it as organized as possible. So it should be self documented.
+Mostly vim setup documentation, but also some notes on tmux and zsh configs.
 
 # Installation
 
@@ -34,6 +32,9 @@ git pull origin master
 
 To see a OS specific setup or more detailed explanation see [YCM repo](https://github.com/Valloric/YouCompleteMe) 
 Also to give support to other languages see [YCM repo](https://github.com/Valloric/YouCompleteMe)
+
+
+7. Install tmux plugin [manager](https://github.com/tmux-plugins/tpm) needed to install tmux-resurrect
 
 For mac: 
 
@@ -81,6 +82,9 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 - [NerdTree](https://github.com/scrooloose/nerdtree): Power Vim with directory navigation.
 - [Gundo](https://github.com/sjl/gundo.vim): Graphical undo lets you visualize then undo tree.
 - [EasyMotion](): Easy motion lets you move fast to any word on screen.
+- [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
+- [Rainbow Parentheses](http://vimawesome.com/plugin/rainbow-parentheses-vim): Colors parentheses, braces, brackets based on indentation.
+- [Vim-surround](https://github.com/tpope/vim-surround): Is a plugin for ease of wrapping words in parentheses, brackets, quotes.
 
 - Hoogle: Lets you use the Hoogle search engine to lookup Haskell functions and types.
 
@@ -88,11 +92,10 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 
 - TagBar/ctags: *ctags* indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
 
-- [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
 
-- [Vim-surround](https://github.com/tpope/vim-surround): Is a plugin for ease of wrapping words in parentheses, brackets, quotes.
 ## Colorschemes 
 There are two available colorschemes solarized and monokai, to switch between the two do:
+> :colorscheme gruvbox
 > :colorscheme solarized
 > :colorscheme monokai
 
@@ -137,12 +140,15 @@ To select black solarized scheme do
 | Action | Command|
 |:------:|:------:|
 | new tab | tn |
+| move to next buffer | Tl |
+| move to prev buffer | Th |
 | move to next tab | tl |
 | move to prev tab | th |
 | yank inside line | yil |
 | select inside line | vil |
 | yank line without new line char | yal |
 | select line without new line char | val |
+| Show/Hide highlight matches | F3 |
 
 ### Plugin Key Bindings
 | Action | Command|
@@ -163,7 +169,9 @@ To select black solarized scheme do
 |Ultisnip expand snippet | ctrl+j |
 |Ultisnip jump to next edit point | ctrl+b |
 |Ultisnip jump to previous edit point | ctrl+z |
-
+|EasyMotion jump to firt letter of any word after cursor | ,,w |
+|EasyMotion jump to firt letter of any word before cursor | ,,b |
+|EasyMotion jump to any letter of any word after cursor | ,,f<someLetter> |
 
 
 ### Native Vim key bindings
@@ -176,9 +184,12 @@ To select black solarized scheme do
 |Spell correction | z= |
 |Close code fold | zc |
 |Open code fold | zo |
+|Open/close all folds | zR , zM|
 |Open file in new tab | :tabe <file_name> |
 |Jump to next tab | gt |
 |Jump to prev tab | gT |
+|repeat last f or t command | ; |
+
 
 ### Context sensitive Key bindings
 | Context | Action | Command|
@@ -187,7 +198,8 @@ To select black solarized scheme do
 |NERDTree open | t | opens file in new tab
 | CtrlP open | file in new tab | ctrl+t |
 | CtrlP open | file in vsplit | ctrl+v |
-| CtrlP open | file in horizontal split | ctrl+s |
+| CtrlP open | file in horizontal split | ctrl+s ctrl+x |
+| CtrlP open | move up and down | ctrl+k ctrl+j |
 
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
@@ -246,6 +258,7 @@ git add -f <fileName>
 To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 
 # TMUX 
+
 If working with tmux its important to make these changes, for key bindings to work.
 [link](http://superuser.com/questions/660013/resizing-pane-is-not-working-for-tmux-on-mac)
 

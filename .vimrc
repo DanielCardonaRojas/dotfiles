@@ -1,5 +1,4 @@
 " Basic Settings {{{
-set foldmethod=marker
 set number
 set cursorline
 
@@ -27,6 +26,17 @@ set mouse=n
 " Toggle highlight.
 set hlsearch!
 nnoremap <F3> :set hlsearch!<CR>
+
+" Code Folding
+"set foldmethod=marker
+autocmd Filetype vim setlocal foldmethod=marker
+autocmd Filetype javascript setlocal foldmethod=syntax foldlevelstart=1
+
+"let javaScript_fold=1         " JavaScript
+"let perl_fold=1               " Perl
+"let php_folding=1             " PHP
+"let vimsyn_folding='af'       " Vim script
+
  " }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
@@ -63,8 +73,10 @@ nnoremap <leader>k <c-w>k
 nnoremap J :move +1<CR>
 nnoremap K :move -2<CR>
 
-"Move around tabs 
+"Navigate through tabs and buffers
 nnoremap tn :tabnew<space>
+nnoremap Th :bprev<CR>
+nnoremap Tl :bnext<CR>
 nnoremap th :tabprev<CR>
 nnoremap tl :tabnext<CR>
 nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
