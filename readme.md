@@ -162,6 +162,7 @@ To select black solarized scheme do
 |Delete surrounding html tag | dst |
 |Surround visual selection in quotes | v<motion>S' |
 |Most recently used files CtrlP | ,m |
+|CtrlP on the current files directory | ,<space> |
 |Jump to any word with EasyMotion | ,,w |
 |Show/Hide undo tree (Gundo) | F5 |
 |Sparkup expand | ctrl+e |
@@ -189,6 +190,7 @@ To select black solarized scheme do
 |Jump to next tab | gt |
 |Jump to prev tab | gT |
 |repeat last f or t command | ; |
+|repeat last : command | @: |
 
 
 ### Context sensitive Key bindings
@@ -265,6 +267,7 @@ If working with tmux its important to make these changes, for key bindings to wo
 # TODO
 
 - Make copy and paste to systems clipboard work on other platforms besides mac
+- Change some bindings to prefer switching between buffers rather then tabs (like tl and th for navigating between tabs.)
 - Add youcompleteme with easy configuration.
 - May add a installation script
 - Emmet use instrucions 

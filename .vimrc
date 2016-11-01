@@ -223,6 +223,8 @@ let g:syntastic_check_on_wq = 0
 
 " CtrlP CONFIGURATION
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
+nnoremap <silent> <leader><Space> :CtrlPCurFile<CR>
+
 " TAGBAR CONFIGURATION
 nmap <leader>tt :TagbarToggle<CR>
 
