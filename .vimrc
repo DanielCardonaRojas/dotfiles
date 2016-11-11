@@ -1,4 +1,5 @@
 " Basic Settings {{{
+" To source this file do :source % while focused on it.
 set number
 set cursorline
 
@@ -73,12 +74,6 @@ nnoremap <leader>k <c-w>k
 nnoremap J :move +1<CR>
 nnoremap K :move -2<CR>
 
-"Navigate through tabs and buffers
-nnoremap tn :tabnew<space>
-nnoremap Th :bprev<CR>
-nnoremap Tl :bnext<CR>
-nnoremap th :tabprev<CR>
-nnoremap tl :tabnext<CR>
 nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
 
 " Open window splits in various places
@@ -118,6 +113,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-unimpaired'
 
 " Color Schemes, GUI, Code Display
 Plug 'altercation/vim-colors-solarized'

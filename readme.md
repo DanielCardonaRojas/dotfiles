@@ -76,18 +76,16 @@ Look at the repository [here] (https://github.com/SirVer/ultisnips)
 
 - [Airline](https://github.com/vim-airline/vim-airline): Gives a nice look to the status bar in vim. Its a replacement of an
 older plugin called Powerline, take a look at the repository [here] (https://github.com/vim-airline/vim-airline)
-
-- [Sparkup](https://github.com/rstacruz/sparkup): To do HTML templating very fast.
-
+- [Sparkup](https://github.com/rstacruz/sparkup): Lets you write html code faster.
 - [NerdTree](https://github.com/scrooloose/nerdtree): Power Vim with directory navigation.
 - [Gundo](https://github.com/sjl/gundo.vim): Graphical undo lets you visualize then undo tree.
-- [EasyMotion](): Easy motion lets you move fast to any word on screen.
+- [EasyMotion](https://github.com/easymotion/vim-easymotion): Easy motion lets you move fast to any word on screen. Very cool
 - [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
 - [Rainbow Parentheses](http://vimawesome.com/plugin/rainbow-parentheses-vim): Colors parentheses, braces, brackets based on indentation.
 - [Vim-surround](https://github.com/tpope/vim-surround): Is a plugin for ease of wrapping words in parentheses, brackets, quotes.
+- [vim-unimpaired](https://github.com/tpope/vim-unimpaired): Some useful command starting by `[` or `]`, like move through tabs and buffers.
 
 - Hoogle: Lets you use the Hoogle search engine to lookup Haskell functions and types.
-
 - Fugitive: Lets you call git commands, from within vim. 
 
 - TagBar/ctags: *ctags* indexes files to extract locations of functions, class variable definitions. Tagbar lets you navigate through these breakpoints.
@@ -140,10 +138,6 @@ To select black solarized scheme do
 | Action | Command|
 |:------:|:------:|
 | new tab | tn |
-| move to next buffer | Tl |
-| move to prev buffer | Th |
-| move to next tab | tl |
-| move to prev tab | th |
 | yank inside line | yil |
 | select inside line | vil |
 | yank line without new line char | yal |
@@ -154,54 +148,56 @@ To select black solarized scheme do
 | Action | Command|
 |:------:|:------:|
 |Comment line | ,c<space>|
-|Change comment style | ,ca |
-|Toggle TagBar| ,tt |
-|Ctrlp fuzzy search | ctrl+p |
-|Surround word with ' | ysiw' |
-|Delete surrounding quotes | ds' |
-|Delete surrounding html tag | dst |
-|Surround visual selection in quotes | v<motion>S' |
-|Most recently used files CtrlP | ,m |
-|CtrlP on the current files directory | ,<space> |
-|Jump to any word with EasyMotion | ,,w |
-|Show/Hide undo tree (Gundo) | F5 |
-|Sparkup expand | ctrl+e |
-|Sparkup jump to next edit point in insert mode | ctrl+n |
-|Ultisnip expand snippet | ctrl+j |
-|Ultisnip jump to next edit point | ctrl+b |
-|Ultisnip jump to previous edit point | ctrl+z |
-|EasyMotion jump to firt letter of any word after cursor | ,,w |
-|EasyMotion jump to firt letter of any word before cursor | ,,b |
-|EasyMotion jump to any letter of any word after cursor | ,,f<someLetter> |
-
-
-### Native Vim key bindings
-
-| Action | Command|
-|:------:|:------:|
-|Autocompletion | ctr-n |
-|Uppercase | gU[motion] |
-|Jump between paragraphs | {} |
-|Spell correction | z= |
-|Close code fold | zc |
-|Open code fold | zo |
-|Open/close all folds | zR , zM|
-|Open file in new tab | :tabe <file_name> |
-|Jump to next tab | gt |
-|Jump to prev tab | gT |
-|repeat last f or t command | ; |
-|repeat last : command | @: |
-
+| Change comment style | ,ca |
+| Tagbar Toggle | ,tt |
+| Delete surrounding quotes | ds' |
+| Delete surrounding html tag | dst |
+| Surround word with ' | ysiw' |
+| Surround visual selection in quotes | v<motion>S' |
+| Ctrlp fuzzy search | ctrl+p |
+| CtrlP Most recently used files | ,m |
+| CtrlP on the current files directory | ,<space> |
+| EasyMotion Jump to any word with | ,,w |
+| Gundo Show/Hide undo tree (Gundo) | F5 |
+| Sparkup expand | ctrl+e |
+| Sparkup jump to next edit point in insert mode | ctrl+n |
+| Ultisnip expand snippet | ctrl+j |
+| Ultisnip jump to next edit point | ctrl+b |
+| Ultisnip jump to previous edit point | ctrl+z |
+| EasyMotion jump to firt letter of any word after cursor | ,,w |
+| EasyMotion jump to firt letter of any word before cursor | ,,b |
+| EasyMotion jump to any letter of any word after cursor | ,,f<someLetter> |
+| Unimpaired move left through buffers | [b  |
+| Unimpaired move right through buffers | ]b  |
 
 ### Context sensitive Key bindings
 | Context | Action | Command|
 |:------:|:------:|:------:|
 | CtrlP open | ctrl-f | Toggle files, most recently used, etc |
-|NERDTree open | t | opens file in new tab
+| NERDTree open | t | opens file in new tab
 | CtrlP open | file in new tab | ctrl+t |
 | CtrlP open | file in vsplit | ctrl+v |
 | CtrlP open | file in horizontal split | ctrl+s ctrl+x |
 | CtrlP open | move up and down | ctrl+k ctrl+j |
+
+### Native Vim key bindings
+
+| Action | Command|
+|:------:|:------:|
+| Autocompletion | ctr-n |
+| Uppercase | gU[motion] |
+| Jump between paragraphs | {} |
+| Spell correction | z= |
+| Close code fold | zc |
+| Open code fold | zo |
+| Open/close all folds | zR , zM|
+| Open file in new tab | :tabe <file_name> |
+| Jump to next tab | gt |
+| Jump to prev tab | gT |
+| Repeat last f or t command | ; |
+| Repeat last : command | @: |
+
+
 
 ### Window Splits
 Vim can do window splits to any order. So having key bindings to do this fase is very important.
@@ -264,11 +260,61 @@ To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 If working with tmux its important to make these changes, for key bindings to work.
 [link](http://superuser.com/questions/660013/resizing-pane-is-not-working-for-tmux-on-mac)
 
+### Keybindings
+
+List all sessions
+```shell
+tmux ls
+```
+
+Start a new session with a name
+```shell
+tmux new -s myname
+```
+
+Attach to an existing session
+```shell
+tmux a -t myname
+```
+
+Kill a session
+```shell
+tmux kill-session -t myname
+```
+
+Prefix = Ctrl + b
+
+| Action | Command|
+|:------:|:------:|
+| Tmux resurrect save | prefix + Ctrl-s |
+| Tmux resurrect restore | prefix + Ctrl-r |
+
+c  create window
+w  list windows
+n  next window
+p  previous window
+f  find window
+,  name window
+&  kill window
+
+%  vertical split
+"  horizontal split
+x  kill pane
+
+**Moving between splits**
+h move to left pane
+l move to right pane
+k move to top pane
+j move to bottom pane
+
+J move horizontal split line down
+K move horizontal split line up
+H move vertical split line left
+L move vertical split line right
+
 # TODO
 
 - Make copy and paste to systems clipboard work on other platforms besides mac
-- Change some bindings to prefer switching between buffers rather then tabs (like tl and th for navigating between tabs.)
 - Add youcompleteme with easy configuration.
 - May add a installation script
-- Emmet use instrucions 
-- Ultisnips basic usage
+- Ultisnips save snippets in this repo
