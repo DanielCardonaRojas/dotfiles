@@ -289,28 +289,30 @@ Prefix = Ctrl + b
 | Tmux resurrect save | prefix + Ctrl-s |
 | Tmux resurrect restore | prefix + Ctrl-r |
 
-c  create window
-w  list windows
-n  next window
-p  previous window
-f  find window
-,  name window
-&  kill window
+- c  create window
+- w  list windows
+- n  next window
+- p  previous window
+- f  find window
+- ,  name window
+- &  kill window
 
-%  vertical split
-"  horizontal split
-x  kill pane
+- %  vertical split
+- "  horizontal split
+- x  kill pane
+
 
 **Moving between splits**
-h move to left pane
-l move to right pane
-k move to top pane
-j move to bottom pane
 
-J move horizontal split line down
-K move horizontal split line up
-H move vertical split line left
-L move vertical split line right
+- h move to left pane
+- l move to right pane
+- k move to top pane
+- j move to bottom pane
+
+- J move horizontal split line down
+- K move horizontal split line up
+- H move vertical split line left
+- L move vertical split line right
 
 # TODO
 
