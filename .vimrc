@@ -59,6 +59,7 @@ nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 " Delete into blackhole register
 nnoremap <leader>d "_d
+set pastetoggle=<F2>
 
 " Paste a register into vim command (0-yanked,"-default)                               
 nnoremap <leader>r :<space><c-r>
@@ -127,6 +128,7 @@ Plug 'yggdroot/indentline'
 
 "Syntax
 Plug 'travitch/hasksyn'
+Plug 'kien/rainbow_parentheses.vim'
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdcommenter'
@@ -143,6 +145,10 @@ Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'easymotion/vim-easymotion'
+
+" Framework dependent
+Plug 'elmcast/elm-vim'
+
 call plug#end()
 
 " }}}
@@ -181,6 +187,11 @@ nmap <silent> <leader>F <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <leader>f <ESC>:NERDTreeToggle<CR>
 
 " THEME COLOR SCHEME SETUP (SOLARIZED)
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 syntax enable
 set background=dark
 colorscheme gruvbox
@@ -216,6 +227,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+
+" YCM CONFIGURATIONS
+
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 
 " CtrlP CONFIGURATION
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
@@ -254,6 +276,7 @@ let g:rbpt_colorpairs = [
     \ ['darkcyan',    'SeaGreen3'],
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
     \ ]
 
 let g:rbpt_max = 16
@@ -264,6 +287,12 @@ au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+
+" ELM Configurations
+
+let g:elm_setup_keybindings = 0
+
 " }}}
 " Interaction with external Programs {{{
 

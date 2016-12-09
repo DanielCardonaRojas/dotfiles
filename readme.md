@@ -137,12 +137,12 @@ To select black solarized scheme do
 
 | Action | Command|
 |:------:|:------:|
-| new tab | tn |
 | yank inside line | yil |
 | select inside line | vil |
 | yank line without new line char | yal |
 | select line without new line char | val |
 | Show/Hide highlight matches | F3 |
+| Toggle paste mode | F2 |
 
 ### Plugin Key Bindings
 | Action | Command|
@@ -169,6 +169,8 @@ To select black solarized scheme do
 | EasyMotion jump to any letter of any word after cursor | ,,f<someLetter> |
 | Unimpaired move left through buffers | [b  |
 | Unimpaired move right through buffers | ]b  |
+| Unimpaired swap lines (with line above) | [e  |
+| Unimpaired swap lines (with line below) | ]e  |
 
 ### Context sensitive Key bindings
 | Context | Action | Command|
@@ -288,6 +290,13 @@ Prefix = Ctrl + b
 |:------:|:------:|
 | Tmux resurrect save | prefix + Ctrl-s |
 | Tmux resurrect restore | prefix + Ctrl-r |
+| Tmux tpm install plugins | prefix + I |
+
+**Sessions** 
+
+- d detach from session
+
+**Windows**
 
 - c  create window
 - w  list windows
@@ -296,6 +305,8 @@ Prefix = Ctrl + b
 - f  find window
 - ,  name window
 - &  kill window
+
+**Panes**
 
 - %  vertical split
 - "  horizontal split
