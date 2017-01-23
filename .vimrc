@@ -11,9 +11,6 @@ set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 set expandtab
-" Set tabs/indentation by filetype
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype python setlocal ts=8 sw=4 sts=8 noexpandtab
 
 " Generic Configurations
 set noswapfile
@@ -23,22 +20,30 @@ set encoding=utf-8
 let g:loaded_matchparen=1
 set mouse=n
 
-
 " Toggle highlight.
 set hlsearch!
 nnoremap <F3> :set hlsearch!<CR>
 
 " Code Folding
 "set foldmethod=marker
-autocmd Filetype vim setlocal foldmethod=marker
-autocmd Filetype javascript setlocal foldmethod=syntax foldlevelstart=1
 
 "let javaScript_fold=1         " JavaScript
 "let perl_fold=1               " Perl
 "let php_folding=1             " PHP
 "let vimsyn_folding='af'       " Vim script
+"
+" }}}
+" Auto Commands {{{{
 
- " }}}
+" Set tabs/indentation/foldmethod by filetype
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 foldmethod=syntax foldlevelstart=1 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 foldmethod=indent foldlevel=99 cursorcolumn expandtab
+autocmd Filetype vim setlocal foldmethod=marker
+
+" Get highlighting of .md as markdown not modula 2
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" }}}
 " Normal Mode Key bindings/maps {{{
 " This is the Ctrl-space mapping
 nnoremap <NUL> :! 
@@ -231,7 +236,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
-let g:elm_syntastic_show_warnings = 1
+let g:elm_syntastic_show_warnings = 0
 
 " YCM CONFIGURATIONS
 
@@ -242,6 +247,7 @@ let g:ycm_semantic_triggers = {
 " CtrlP CONFIGURATION
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 nnoremap <silent> <leader><Space> :CtrlPCurFile<CR>
+let g:ctrlp_max_depth = 5
 
 " TAGBAR CONFIGURATION
 nmap <leader>tt :TagbarToggle<CR>
@@ -268,8 +274,8 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['brown',       'firebrick3'],
+    \ ['darkgreen',   'firebrick3'],
     \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['Darkblue',    'firebrick3'],
     \ ['darkgreen',   'RoyalBlue3'],
@@ -306,7 +312,6 @@ command! -nargs=1 PandocMD execute "!pandoc % -f markdown -t " <q-args> " -s -o 
 "hi CursorLineNr term=bold ctermfg=154 gui=bold"
 "hi LineNr ctermfg=196 guifg=#2b506e guibg=#000000"
 
-" Get highlighting of .md as markdown not modula 2
-autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " }}}
+" 

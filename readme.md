@@ -331,3 +331,4 @@ Prefix = Ctrl + b
 - Add youcompleteme with easy configuration.
 - May add a installation script
 - Ultisnips save snippets in this repo
+- Use augroup in vimrc so multiple common settings dont have to be repeated for different FileTypes.
