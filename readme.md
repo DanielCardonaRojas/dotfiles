@@ -262,6 +262,22 @@ To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 If working with tmux its important to make these changes, for key bindings to work.
 [link](http://superuser.com/questions/660013/resizing-pane-is-not-working-for-tmux-on-mac)
 
+
+**Install/Upgrade to lates tmux** 
+```shell
+sudo apt-get remove tmux
+sudo apt-get install exuberant-ctags cmake libevent-dev libncurses5-dev
+wget https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz
+tar xvzf tmux-2.3.tar.gz
+chmod +x tmux-2.3/*
+cd tmux-2.3
+./configure && make
+sudo make install
+tmux -V
+```
+
+> tmux source-file ~/.tmux.conf
+
 ### Keybindings
 
 List all sessions
@@ -291,6 +307,7 @@ Prefix = Ctrl + b
 | Tmux resurrect save | prefix + Ctrl-s |
 | Tmux resurrect restore | prefix + Ctrl-r |
 | Tmux tpm install plugins | prefix + I |
+| Tmux source config | prefix + r |
 
 **Sessions** 
 
@@ -327,8 +344,9 @@ Prefix = Ctrl + b
 
 # TODO
 
+- Fix: Add tmux mouse on depending on version
 - Make copy and paste to systems clipboard work on other platforms besides mac
 - Add youcompleteme with easy configuration.
-- May add a installation script
+- Maybe add a installation script
 - Ultisnips save snippets in this repo
 - Use augroup in vimrc so multiple common settings dont have to be repeated for different FileTypes.
