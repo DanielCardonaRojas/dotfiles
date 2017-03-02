@@ -2,7 +2,7 @@
 
 Mostly vim setup documentation, but also some notes on tmux and zsh configs.
 
-# Installation
+## Vim Setup
 
 Do the following: 
 
@@ -28,13 +28,10 @@ git pull origin master
 
 5. After this has been done enter vim and type: ":PlugInstall" this will download and install all plugins.
 
-6. Install YouCompleteMe since where using Vim-Plug. 
+6. Install YouCompleteMe 
 
 To see a OS specific setup or more detailed explanation see [YCM repo](https://github.com/Valloric/YouCompleteMe) 
 Also to give support to other languages see [YCM repo](https://github.com/Valloric/YouCompleteMe)
-
-
-7. Install tmux plugin [manager](https://github.com/tmux-plugins/tpm) needed to install tmux-resurrect
 
 For mac: 
 
@@ -55,18 +52,7 @@ git submodule update --init --recursive
 ```
 
 
-**Not needed with macvim or linux terminals**
-
-Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
-on mac edit vimrc (,ev) line with "let g:solarized_termcolors=256" uncommenting it.
-
-To fully use this vimrc we have to do the following: 
-
-- Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
-- Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
-- Check to have at least an old version of ctags 
-
-## [Plugins](http://vimawesome.com/)
+## Vim [Plugins](http://vimawesome.com/)
 
     
 - Ultisnips: Lets you create snippets for different file formats.
@@ -84,6 +70,7 @@ older plugin called Powerline, take a look at the repository [here] (https://git
 - [Rainbow Parentheses](http://vimawesome.com/plugin/rainbow-parentheses-vim): Colors parentheses, braces, brackets based on indentation.
 - [Vim-surround](https://github.com/tpope/vim-surround): Is a plugin for ease of wrapping words in parentheses, brackets, quotes.
 - [vim-unimpaired](https://github.com/tpope/vim-unimpaired): Some useful command starting by `[` or `]`, like move through tabs and buffers.
+- [vim-signature](https://github.com/kshenoy/vim-signature): Visualize, create and navigate through marks easily.
 
 - Hoogle: Lets you use the Hoogle search engine to lookup Haskell functions and types.
 - Fugitive: Lets you call git commands, from within vim. 
@@ -171,6 +158,8 @@ To select black solarized scheme do
 | Unimpaired move right through buffers | ]b  |
 | Unimpaired swap lines (with line above) | [e  |
 | Unimpaired swap lines (with line below) | ]e  |
+| Vim-Signature mark current line with next available marker | m, |
+| Vim-Signature navigate through markers | \]\` OR \[\` |
 
 ### Context sensitive Key bindings
 | Context | Action | Command|
@@ -257,7 +246,7 @@ git add -f <fileName>
 
 To install Vim 7.4 update xcode command line tools. Then run `brew install vim`
 
-# TMUX 
+## TMUX Setup
 
 If working with tmux its important to make these changes, for key bindings to work.
 [link](http://superuser.com/questions/660013/resizing-pane-is-not-working-for-tmux-on-mac)
@@ -276,9 +265,22 @@ sudo make install
 tmux -V
 ```
 
+Install tmux plugin [manager](https://github.com/tmux-plugins/tpm) needed to install tmux-resurrect
+====
+
+**Not needed with macvim or linux terminals**
+
+Note that solarized term256 must be turned off in linux gnome terminal (not shure if i need this or not)
+on mac edit vimrc (,ev) line with "let g:solarized_termcolors=256" uncommenting it.
+
+To fully use this vimrc we have to do the following: 
+
+- Install Mac terminal solarized profile, downloading the solazirized.zip from [here](http://ethanschoonover.com/solarized). There should be a osx-terminal.app-colors-solarized folder. Import this to osx terminal profiles.
+- Install powerline fonts by downloading zip from [here](https://github.com/powerline/fonts) and running ./install.sh on inside the downloaded folder containing the fonts.
+- Check to have at least an old version of ctags 
 > tmux source-file ~/.tmux.conf
 
-### Keybindings
+### TMUX Keybindings and Commands
 
 List all sessions
 ```shell
@@ -322,6 +324,7 @@ Prefix = Ctrl + b
 - f  find window
 - ,  name window
 - &  kill window
+- ]  paste
 
 **Panes**
 

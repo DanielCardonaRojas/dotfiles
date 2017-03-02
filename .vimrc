@@ -7,10 +7,11 @@ let mapleader = ","
 " With expandtab a tab is replaced with softtabstop value of spaces
 " Tabstop = Width of tab char, expandtab replace tabs with spaces
 " shiftwidth = number of columns when indenting in normal mode
-set softtabstop=4
+
 set shiftwidth=4
 set tabstop=4
-set expandtab
+"set softtabstop=4
+set noexpandtab
 
 " Generic Configurations
 set noswapfile
@@ -23,6 +24,9 @@ set mouse=n
 " Toggle highlight.
 set hlsearch!
 nnoremap <F3> :set hlsearch!<CR>
+
+" Show hidden characters  (:set list!)
+set listchars=nbsp:␣,tab:▸\ ,eol:¬
 
 " Code Folding
 "set foldmethod=marker
@@ -37,7 +41,9 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " Set tabs/indentation/foldmethod by filetype
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 foldmethod=syntax foldlevelstart=1 expandtab
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 foldmethod=indent foldlevel=99 cursorcolumn expandtab
+"autocmd Filetype python setlocal ts=4 sw=4 sts=4 foldmethod=indent foldlevel=99 cursorcolumn expandtab
+" Used in for mixed indentation files
+autocmd Filetype python setlocal ts=4 sw=4 foldmethod=indent foldlevel=99 cursorcolumn noexpandtab
 autocmd Filetype vim setlocal foldmethod=marker
 
 " Get highlighting of .md as markdown not modula 2
@@ -120,6 +126,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-unimpaired'
+Plug 'kshenoy/vim-signature'
 
 " Color Schemes, GUI, Code Display
 Plug 'altercation/vim-colors-solarized'
