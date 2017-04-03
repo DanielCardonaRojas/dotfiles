@@ -325,6 +325,9 @@ Prefix = Ctrl + b
 - ,  name window
 - &  kill window
 - ]  paste
+- N move window/tab to the right
+- P move window/tab to the left
+- q kill current window
 
 **Panes**
 
@@ -344,6 +347,27 @@ Prefix = Ctrl + b
 - K move horizontal split line up
 - H move vertical split line left
 - L move vertical split line right
+
+## Tmux custom layout packages
+
+Some of the current custom layouts rely on these programs:
+
+Packages:
+
+- figlet
+- taskwarrior
+- biblejs
+- cmus
+- midnight commander
+
+## Oh-my-zsh
+
+Remove some git repo from prompt, this is useful since this repo is located at ~ , and makes a git master
+show on any folder.
+
+```shell
+git config oh-my-zsh.hide-status 1
+```
 
 # TODO
 
