@@ -1,0 +1,31 @@
+let mapleader = ","
+
+nnoremap <leader>w :w<CR>
+nnoremap ,w :w<CR>
+nnoremap ,l <c-w>l
+nnoremap ,h <c-w>h
+nnoremap ,wc <c-w>c
+
+set expandtab
+
+" tab new
+map ,tn :xccmd newTab<CR>
+" tab close
+map ,tc :tabclose<CR>
+
+" Inverted carriage return, splits the line putting it above the current
+nnoremap K DO<ESC>"0p_
+
+" Inner line movement so (yil will yank from first to last nonblank char.
+vnoremap <silent> il :<c-u>norm!^v$<cr>
+vnoremap <silent> al :<c-u>norm!0v$h<cr>
+onoremap <silent> al :norm val<cr>
+onoremap <silent> il :norm vil<cr>
+"Defatul to case insensitive search
+nnoremap / /\c
+
+" Replace word under cursor
+noremap ,S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+
+" Show hidden characters (:set list!)
+set listchars=nbsp:␣,tab:▸\ ,eol:¬
