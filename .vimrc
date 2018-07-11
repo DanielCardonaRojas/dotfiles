@@ -27,6 +27,8 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
+inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
+inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
 
 " Code Folding
 "set foldmethod=marker
@@ -85,6 +87,7 @@ nnoremap <leader>k <c-w>k
 " Swaping lines, words etc
 nnoremap J :move +1<CR>
 nnoremap K :move -2<CR>
+nnoremap K DO<C-r>"<ESC>_
 
 nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
 
@@ -129,9 +132,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'kshenoy/vim-signature'
 
 " Color Schemes, GUI, Code Display
-Plug 'altercation/vim-colors-solarized'
-Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
@@ -149,7 +151,6 @@ Plug 'Twinside/vim-hoogle'
 " Code completion and snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'rstacruz/sparkup'
-Plug 'Valloric/YouCompleteMe'
 Plug 'raimondi/delimitmate'
 
 " Navigating, searching and code completion
@@ -206,7 +207,7 @@ endif
 
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme dracula
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "soft"
 set t_Co=256
@@ -245,11 +246,20 @@ let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 0
 
-" YCM CONFIGURATIONS
+" Linting formatting
+Plug 'w0rp/ale'
+
+" DEOPLETE
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 let g:ycm_semantic_triggers = {
      \ 'elm' : ['.'],
      \}
+
+let g:polyglot_disabled = ['elm']
+let g:deoplete#enable_at_startup = 1
 
 " CtrlP CONFIGURATION
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
