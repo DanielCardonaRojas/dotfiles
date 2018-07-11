@@ -126,13 +126,13 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'kshenoy/vim-signature'
 
 " Color Schemes, GUI, Code Display
 Plug 'morhetz/gruvbox'
+Plug 'trevordmiller/nova-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -141,7 +141,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
 
 "Syntax
-Plug 'travitch/hasksyn'
+Plug 'sheerun/vim-polyglot'
 Plug 'kien/rainbow_parentheses.vim'
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
@@ -161,6 +161,16 @@ Plug 'easymotion/vim-easymotion'
 
 " Framework dependent
 Plug 'elmcast/elm-vim'
+
+" Linting formatting
+Plug 'w0rp/ale'
+
+" DEOPLETE
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+"Plug 'pbogut/deoplete-elm'
 
 call plug#end()
 
@@ -231,33 +241,8 @@ nnoremap <silent> <leader>HC :HoogleClose<CR>
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 
-"SYNTASTIC CONFIGURATION
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:elm_syntastic_show_warnings = 0
-
-" Linting formatting
-Plug 'w0rp/ale'
-
-" DEOPLETE
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
-
+" DEOPLETE CONFIGURATION
 let g:polyglot_disabled = ['elm']
 let g:deoplete#enable_at_startup = 1
 

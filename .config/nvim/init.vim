@@ -4,6 +4,23 @@ set number
 set cursorline
 set background=dark
 set t_Co=256
+set nohlsearch
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+set nobackup
+set noswapfile
+set nowrap
+let g:loaded_matchparen=1
+set mouse=n
+set cursorcolumn
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
+inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
+
+set listchars=nbsp:␣,tab:▸\ ,eol:¬
 
 let mapleader = ","
 " }}}
@@ -55,6 +72,7 @@ nnoremap <leader>k <c-w>k
 " Swaping lines, words etc
 nnoremap J :move +1<CR>
 nnoremap K :move -2<CR>
+nnoremap K DO<C-r>"<ESC>_
 
 nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
 
@@ -93,7 +111,6 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'kshenoy/vim-signature'
@@ -105,6 +122,7 @@ Plug 'mhinz/vim-startify'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
 Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 "Syntax
 Plug 'kien/rainbow_parentheses.vim'
@@ -123,6 +141,10 @@ Plug 'raimondi/delimitmate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'easymotion/vim-easymotion'
+
+" Deoplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'pbogut/deoplete-elm'
 
 " Framework dependent
 Plug 'elmcast/elm-vim'
@@ -165,8 +187,11 @@ nmap <silent> <leader>F <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <leader>f <ESC>:NERDTreeToggle<CR>
 
 syntax enable
-"set background=dark
-"colorscheme dracula
+colorscheme gruvbox
+let g:gruvbox_contrast_light="hard"
+let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_hls_cursor="orange"
+set background=dark
 "set t_Co=256
 
  
@@ -181,24 +206,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 
-"SYNTASTIC CONFIGURATION
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:elm_syntastic_show_warnings = 0
-
-" Deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'pbogut/deoplete-elm'
+" DEOPLETE CONFIGURATION
 let g:deoplete#enable_at_startup = 1
 
 " CtrlP CONFIGURATION
