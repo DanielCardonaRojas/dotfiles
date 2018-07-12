@@ -115,13 +115,16 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'kshenoy/vim-signature'
 
-" Color Schemes, GUI, Code Display
+" GUI, Code Display
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
+
+" Colorschemes
 Plug 'dracula/vim'
+Plug 'trevordmiller/nova-vim'
 Plug 'morhetz/gruvbox'
 
 "Syntax
@@ -188,11 +191,14 @@ nmap <silent> <leader>f <ESC>:NERDTreeToggle<CR>
 
 syntax enable
 colorscheme gruvbox
+"colorscheme nova
+"colorscheme dracula
 let g:gruvbox_contrast_light="hard"
 let g:gruvbox_contrast_dark="soft"
 let g:gruvbox_hls_cursor="orange"
 set background=dark
 "set t_Co=256
+let g:dracula_colorterm = 0
 
  
 " AIRLINE COFIGURATION
@@ -265,16 +271,8 @@ let g:elm_setup_keybindings = 0
 " }}}
 " Interaction with external Programs {{{
 
-" Generate Html from markdown with pandoc
-command! -nargs=1 PandocMD execute "!pandoc % -f markdown -t " <q-args> " -s -o %.html"
-
 " }}}
 " {{{ Overrides
-
-"Change number line colors" 
-"hi CursorLineNr term=bold ctermfg=154 gui=bold"
-"hi LineNr ctermfg=196 guifg=#2b506e guibg=#000000"
-
 
 " }}}
 " 

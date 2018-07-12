@@ -9,7 +9,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 14,
 
     // font family with optional fallbacks
     fontFamily: '"Inconsolata-g for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -37,7 +37,8 @@ module.exports = {
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#00000022',
+    opacity: 0.98,
+    backgroundColor: 'rgba(2, 40, 50, 1)',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
@@ -61,7 +62,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '0px 0px 0px 4px',
+    padding: '0px 4px 0px 2px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -131,7 +132,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-dracula"],
+  plugins: ["hyper-dracula"/*, "nova-hyperterm"*/, "hyper-opacity", "hyper-search"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
