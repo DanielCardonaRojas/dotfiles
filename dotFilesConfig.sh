@@ -41,6 +41,9 @@ tmux -V
 echo "Installing hyperjs"
 brew cask install hyperjs
 
+echo "Installing tmux plugin manager"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 
 echo "Now enter tmux and do Prefix + I to install plugins"
 echo "Visit https://github.com/DanielCardonaRojas/dotfiles for a usage guide"
