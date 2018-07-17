@@ -17,8 +17,9 @@ set mouse=n
 set cursorcolumn
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
-inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
+inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "<C-k>"
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
 
