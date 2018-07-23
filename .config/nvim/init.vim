@@ -15,10 +15,11 @@ set nowrap
 let g:loaded_matchparen=1
 set mouse=n
 set cursorcolumn
+set nofoldenable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "<C-k>"
+inoremap <expr> J pumvisible() ? "\<C-N>" : "J"
+inoremap <expr> K pumvisible() ? "\<C-P>" : "K"
 inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
