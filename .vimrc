@@ -130,6 +130,7 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'kshenoy/vim-signature'
 
+
 " Color Schemes, GUI, Code Display
 Plug 'morhetz/gruvbox'
 Plug 'trevordmiller/nova-vim'
@@ -146,12 +147,11 @@ Plug 'kien/rainbow_parentheses.vim'
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdcommenter'
-Plug 'Twinside/vim-hoogle'
 
 " Code completion and snippets
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'rstacruz/sparkup'
 Plug 'raimondi/delimitmate'
+
 
 " Navigating, searching and code completion
 Plug 'majutsushi/tagbar'
@@ -159,16 +159,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'easymotion/vim-easymotion'
 
+
 " Framework dependent
 Plug 'elmcast/elm-vim'
 
 " Linting formatting
 Plug 'w0rp/ale'
 
-" DEOPLETE
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 
 "Plug 'pbogut/deoplete-elm'
 
@@ -177,17 +174,6 @@ call plug#end()
 " }}}
 " Plugin Configurations {{{
 
-" ULTISNIPS CONFIGURATION
-" Trigger configuration. Do not use <tab> if you use Valloric/YouCompleteMe.
-
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
- " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " NERDTREE FILE NAVIGATION
 " If nerd tree is closed, find current file, if open, close it
@@ -231,20 +217,10 @@ let g:airline#extensions#tabline#enabled = 1
 " Just show the filename (no path) in the tab
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" HOOGLE CONFIGURATION
-nnoremap <silent> <leader>Hi :HoogleInfo<CR>
-nnoremap <silent> <leader>HI :HoogleInfo 
-nnoremap <silent> <leader>HH :Hoogle<CR>
-nnoremap <silent> <leader>HC :HoogleClose<CR>
-
 " FUGITIVE CONFIGURATION
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 
-
-" DEOPLETE CONFIGURATION
-let g:polyglot_disabled = ['elm']
-let g:deoplete#enable_at_startup = 1
 
 " CtrlP CONFIGURATION
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
@@ -304,8 +280,6 @@ let g:elm_setup_keybindings = 0
 " }}}
 " Interaction with external Programs {{{
 
-" Generate Html from markdown with pandoc
-command! -nargs=1 PandocMD execute "!pandoc % -f markdown -t " <q-args> " -s -o %.html"
 
 " }}}
 " {{{ Overrides
