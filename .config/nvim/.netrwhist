@@ -1,5 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/Users/drojas/Documents/development/flutter'
-let g:netrw_dirhist_2='/Users/drojas/.config/nvim/plugins'
-let g:netrw_dirhist_1='/Users/drojas/.config/nvim/plugged'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/drojas/Documents/development/rust_projects/actix-todolist/src'
+let g:netrw_dirhist_3='/Users/drojas/Documents/development/rust_projects/actix-todolist'
+let g:netrw_dirhist_2='/Users/drojas/Documents/development/flutter_projects/dialog_manager/lib/cubits'
+let g:netrw_dirhist_1='/Users/drojas/Documents/development/flutter_projects/dialog_manager/lib'
+let g:netrw_dirhist_0='/Users/drojas/Documents/development/flutter_projects/dialog_manager'
+let g:netrw_dirhist_9='/Users/drojas/Documents/development/flutter_projects/dialog_manager/lib'
+let g:netrw_dirhist_8='/Users/drojas/Documents/development/flutter_projects/dialog_manager'
+let g:netrw_dirhist_7='/Users/drojas/Documents/development/flutter_projects/dialog_manager/lib'
+let g:netrw_dirhist_6='/Users/drojas/Documents/development/flutter_projects/dialog_manager'
+let g:netrw_dirhist_5='/Users/drojas/Documents/development/flutter_projects/dialog_manager/lib'

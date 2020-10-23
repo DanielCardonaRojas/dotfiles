@@ -1,3 +1,9 @@
+" auto-install vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 
@@ -22,7 +28,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Color Schemes, GUI, Code Display
 Plug 'morhetz/gruvbox'
-Plug 'trevordmiller/nova-vim'
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Status line
@@ -31,16 +38,23 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 
-" Navigating, searching and code completion
+" Code Navigating
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
 
 call plug#end()
 
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
+
+" PLUGIN CONFIGURATIONS
 
 " source ~/.config/nvim/plugins/airline.vimrc
 source ~/.config/nvim/plugins/lightline.vimrc
-source ~/.config/nvim/plugins/dart.vimrc
 source ~/.config/nvim/plugins/nerdtree.vimrc
 source ~/.config/nvim/plugins/rainbowparentheses.vimrc
 source ~/.config/nvim/plugins/startify.vimrc

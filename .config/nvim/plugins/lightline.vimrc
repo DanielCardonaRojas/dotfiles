@@ -1,6 +1,6 @@
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ }
+  \ 'colorscheme': 'onedark',
+  \ }
 
 let g:lightline.tab = {
       \ 'active': [ 'tabnum', 'filename', 'modified' ],
