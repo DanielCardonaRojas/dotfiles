@@ -3,6 +3,7 @@
 " If nerd tree is closed, find current file, if open, close it
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeIgnore = ['^node_modules$']
+"let g:webdevicons_conceal_nerdtree_brackets = 0
 let g:webdevicons_enable_nerdtree = 1
 
 function! IsNERDTreeOpen()

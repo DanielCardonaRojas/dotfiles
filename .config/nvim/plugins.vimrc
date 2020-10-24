@@ -45,7 +45,8 @@ Plug 'mengelbrecht/lightline-bufferline'
 
 " Code Navigating
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
+"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
+
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -61,7 +62,7 @@ autocmd VimEnter *
 " PLUGIN CONFIGURATIONS
 
 source ~/.config/nvim/plugins/lightline.vimrc
-source ~/.config/nvim/plugins/nerdtree.vimrc
+"source ~/.config/nvim/plugins/nerdtree.vimrc
 source ~/.config/nvim/plugins/indentline.vimrc
 "source ~/.config/nvim/plugins/rainbowparentheses.vimrc
 source ~/.config/nvim/plugins/startify.vimrc

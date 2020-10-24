@@ -11,7 +11,17 @@
     "dart"
   ],
 
+  // diagnostics
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  // list
+  "list.indicator": ">",
+  "list.selectedSignText": " ",
+
   "explorer.icon.enableVimDevicons": false,
+  "explorer.previewAction.onHover": false,
   "explorer.icon.enableNerdfont": true,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
   "snippets.textmateSnippetsRoots": [

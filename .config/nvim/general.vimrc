@@ -30,8 +30,8 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
-set guifont=FiraCode\ Nerd\ Font:h15
-"set guifont=DroidSansMono\ Nerd\ Font:h11
+"set guifont=FiraCode\ Nerd\ Font:h15
+set guifont=DroidSansMono\ Nerd\ Font:h11
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
@@ -47,10 +47,16 @@ autocmd Filetype vim setlocal foldmethod=marker
 
 " Get highlighting of .md as markdown not modula 2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+au TermOpen * setlocal listchars= nonumber norelativenumber
 
 
 if (has("termguicolors"))
   set termguicolors
+endif
+
+" TERMINAL
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
 endif
 
 "if (empty($TMUX))
