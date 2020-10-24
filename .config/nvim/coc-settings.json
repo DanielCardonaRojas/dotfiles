@@ -11,6 +11,8 @@
     "dart"
   ],
 
+  "explorer.icon.enableVimDevicons": false,
+  "explorer.icon.enableNerdfont": true,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
   "snippets.textmateSnippetsRoots": [
     "~/Library/Application Support/Code/User/snippets"

@@ -6,4 +6,3 @@ colorscheme onedark
 " colorscheme gruvbox_contrast_dark
  
 " set guifont=Fira\ Code\ Nerd\ Font
-set guifont=Operator\ Mono\ Lig

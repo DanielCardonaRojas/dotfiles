@@ -6,7 +6,7 @@ set nowrap                              " Display long lines as just one line
 set whichwrap+=<,>,[,],h,l
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
-set fileencoding=utf-8                  " The encoding written to file
+"set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set mouse=a                             " Enable your mouse
@@ -30,6 +30,9 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
+set guifont=FiraCode\ Nerd\ Font:h15
+"set guifont=DroidSansMono\ Nerd\ Font:h11
+"set guifont=Operator\ Mono\ Lig:h11
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
