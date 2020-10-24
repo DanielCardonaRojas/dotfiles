@@ -1,12 +1,21 @@
+set showtabline=2  " Show tabline
 let g:lightline = {
-      \ 'tab_component_function': {
-      \   'tabnum': 'LightlineWebDevIcons',
+      \ 'colorscheme': 'onedark',
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
       \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
       \ }
 
 let g:lightline.tab = {
       \ 'active': [ 'tabnum', 'filename', 'modified' ],
       \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+
+let g:lightline.tab_component_function = {
+    \   'tabnum': 'LightlineWebDevIcons'
+    \ }
 
 let g:lightline.tabline = {
   \   'left': [ ['buffers'] ],
@@ -16,6 +25,8 @@ let g:lightline.component_function = {
       \   'filetype': 'MyFiletype',
       \   'fileformat': 'MyFileformat',
      \ }
+
+let g:lightline#bufferline#enable_devicons=1
 
 
 function! MyFiletype()
@@ -31,5 +42,4 @@ function! LightlineWebDevIcons(n)
   return WebDevIconsGetFileTypeSymbol(bufname(l:bufnr))
 endfunction
 
-"set showtabline=2  " Show tabline
 

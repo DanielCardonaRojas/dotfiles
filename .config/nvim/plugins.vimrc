@@ -38,8 +38,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Status line
 Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+" Tabline
+Plug 'mengelbrecht/lightline-bufferline'
 
 
 " Code Navigating
@@ -59,9 +60,9 @@ autocmd VimEnter *
 
 " PLUGIN CONFIGURATIONS
 
-" source ~/.config/nvim/plugins/airline.vimrc
 source ~/.config/nvim/plugins/lightline.vimrc
 source ~/.config/nvim/plugins/nerdtree.vimrc
+source ~/.config/nvim/plugins/indentline.vimrc
 "source ~/.config/nvim/plugins/rainbowparentheses.vimrc
 source ~/.config/nvim/plugins/startify.vimrc
 source ~/.config/nvim/plugins/ctrlp.vimrc

@@ -24,6 +24,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
+nmap <C-P> :CocList commands<CR>
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'

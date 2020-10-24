@@ -16,6 +16,7 @@ nnoremap <leader>w :w<CR>
 
 " Close split window
 nnoremap <leader>cw :close<CR>
+nnoremap <leader>db :bdelete<CR>
 
 " Copy/Paste from/to OS Clipboard
 nnoremap <leader>p "*p
