@@ -1,4 +1,4 @@
-
+" :h index  - Get a list of native bindings
 " nmap - Display normal mode maps
 " imap - Display insert mode maps
 " vmap - Display visual and select mode maps
@@ -7,10 +7,8 @@
 " cmap - Display command-line mode maps
 " omap - Display operator pending mode maps
 
-" q: - browse command history
-
 " Open file prompt with current path
-nmap <leader>E :e <C-R>=expand("%:p:h") . '/'<CR>
+nnoremap <leader>E :e <C-R>=expand("%:p:h") . '/'<CR>
 
 nnoremap <leader>w :w<CR>
 

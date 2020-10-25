@@ -30,6 +30,7 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
+set noswapfile
 "set guifont=FiraCode\ Nerd\ Font:h15
 set guifont=DroidSansMono\ Nerd\ Font:h11
 
@@ -57,6 +58,7 @@ endif
 " TERMINAL
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-[> <C-\><C-n>
 endif
 
 "if (empty($TMUX))

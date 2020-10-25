@@ -10,8 +10,6 @@ nvim
 
 - [Lightline](https://github.com/vim-airline/vim-airline): Gives a nice look to the status bar in vim. Its a replacement of an
   older plugin called Powerline, take a look at the repository [here] (https://github.com/vim-airline/vim-airline)
-- [Sparkup](https://github.com/rstacruz/sparkup): Lets you write html code faster.
-- [NerdTree](https://github.com/scrooloose/nerdtree): Power Vim with directory navigation.
 - [EasyMotion](https://github.com/easymotion/vim-easymotion): Easy motion lets you move fast to any word on screen. Very cool
 - [Ctrlp](https://kien.github.io/ctrlp.vim/): Is a fuzzy file finder, lets you quickly search for files open them in split windows,tabs etc.
 - [Rainbow Parentheses](http://vimawesome.com/plugin/rainbow-parentheses-vim): Colors parentheses, braces, brackets based on indentation.
@@ -132,7 +130,7 @@ There are two available colorschemes solarized and monokai, to switch between th
 | Repeat last f or t command  |         ;         |
 |    Repeat last : command    |        @:         |
 |       command history       |        q:         |
-|    jump to previous file    |      Ctrl-^       |
+|    jump to previous file    | Ctrl-^ or Ctrl-6  |
 |      Go to definition       |        gd         |
 | Open file path under cursor |        gf         |
 

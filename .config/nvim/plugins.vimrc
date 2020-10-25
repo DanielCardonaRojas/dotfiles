@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-test/vim-test'
 
 
 Plug 'yggdroot/indentline'

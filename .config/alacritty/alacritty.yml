@@ -74,3 +74,5 @@ colors:
     white: "0xe6e6d1"
 background_opacity: 0.95
 live_config_reload: true
+key_bindings:
+  - { key: Key6, mods: Control, chars: "\x1e" }

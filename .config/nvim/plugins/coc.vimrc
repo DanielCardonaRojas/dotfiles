@@ -28,8 +28,9 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent><nowait> <space>t  :<C-u>CocCommand terminal.Toggle<cr>
-nmap <space>e :CocCommand explorer<CR>
-nmap <space>f :CocCommand explorer --preset floating<CR>
+
+nnoremap <silent> <space>f :CocCommand explorer<CR>
+nnoremap <silent> <space>e :CocCommand explorer --preset floating<CR>
 
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
