@@ -36,18 +36,20 @@ set guifont=DroidSansMono\ Nerd\ Font:h11
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
+set list
 
 " AUTO COMMANDS
 
 " Set tabs/indentation/foldmethod by filetype
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 foldmethod=syntax foldlevelstart=1 expandtab
-"autocmd Filetype python setlocal ts=4 sw=4 sts=4 foldmethod=indent foldlevel=99 cursorcolumn expandtab
 " Used in for mixed indentation files
 autocmd Filetype python setlocal ts=4 sw=4 foldmethod=indent foldlevel=99 cursorcolumn noexpandtab
 autocmd Filetype vim setlocal foldmethod=marker
 
 " Get highlighting of .md as markdown not modula 2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" Remove number line on term window
 au TermOpen * setlocal listchars= nonumber norelativenumber
 
 
@@ -60,13 +62,3 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-[> <C-\><C-n>
 endif
-
-"if (empty($TMUX))
-  "if (has("nvim"))
-  ""For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  "endif
-  "if (has("termguicolors"))
-    "set termguicolors
-  "endif
-"endif

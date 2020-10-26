@@ -18,7 +18,7 @@ Plug 'yggdroot/indentline'
 
 "Syntax and frameworks
 Plug 'sheerun/vim-polyglot'
-"Plug 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'dart-lang/dart-vim-plugin'
 
 " Code completion 
@@ -27,15 +27,15 @@ Plug 'raimondi/delimitmate'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
 
-
 " Greeter
 Plug 'mhinz/vim-startify'
 
-" Color Schemes
+" Color Schemes and Aesthetics
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ryanoasis/vim-devicons'
 
 " Status line
 Plug 'itchyny/lightline.vim'
@@ -46,10 +46,10 @@ Plug 'mengelbrecht/lightline-bufferline'
 
 " Code Navigating
 Plug 'easymotion/vim-easymotion'
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
 
-
-Plug 'ryanoasis/vim-devicons'
+" Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -62,11 +62,14 @@ autocmd VimEnter *
 
 " PLUGIN CONFIGURATIONS
 
-source ~/.config/nvim/plugins/lightline.vimrc
-"source ~/.config/nvim/plugins/nerdtree.vimrc
-source ~/.config/nvim/plugins/indentline.vimrc
-"source ~/.config/nvim/plugins/rainbowparentheses.vimrc
-source ~/.config/nvim/plugins/startify.vimrc
-source ~/.config/nvim/plugins/ctrlp.vimrc
-source ~/.config/nvim/plugins/coc.vimrc
-source ~/.config/nvim/plugins/theme.vimrc
+source ~/.config/nvim/plugins/lightline.vim
+source ~/.config/nvim/plugins/indentline.vim
+source ~/.config/nvim/plugins/rainbowparentheses.vim
+source ~/.config/nvim/plugins/startify.vim
+source ~/.config/nvim/plugins/ctrlp.vim
+source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/theme.vim
+source ~/.config/nvim/plugins/monkeyterminal.vim
+source ~/.config/nvim/plugins/fzf.vim
+
+

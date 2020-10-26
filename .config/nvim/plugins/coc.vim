@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-flutter',
-  \ 'coc-terminal',
   \ 'coc-explorer',
   \ ]
 
@@ -27,10 +26,14 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>t  :<C-u>CocCommand terminal.Toggle<cr>
 
 nnoremap <silent> <space>f :CocCommand explorer<CR>
 nnoremap <silent> <space>e :CocCommand explorer --preset floating<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+
 
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim

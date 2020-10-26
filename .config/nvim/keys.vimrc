@@ -43,6 +43,8 @@ inoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
 
 cnoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
 cnoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
+cnoremap <C-J> <C-N>
+cnoremap <C-K> <C-P>
 
 nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
 
