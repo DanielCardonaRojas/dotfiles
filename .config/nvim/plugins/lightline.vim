@@ -17,10 +17,11 @@ let g:lightline.tab_component_function = {
     \   'tabnum': 'LightlineWebDevIcons'
     \ }
 
-let g:lightline.tabline = {
-  \   'left': [ ['buffers'] ],
-  \   'right': [ ['close'] ]
-  \ }
+"let g:lightline.tabline = {
+  "\   'left': [ ['buffers'] ],
+  "\   'right': [ ['close'] ]
+  "\ }
+
 let g:lightline.component_function = {
       \   'filetype': 'MyFiletype',
       \   'fileformat': 'MyFileformat',

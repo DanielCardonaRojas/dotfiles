@@ -5,6 +5,8 @@ nvim
 ## Requirements
 
 - Coc configuration [requirements](https://github.com/neoclide/coc.nvim/wiki)
+- Install neovim remote (avoid nested instances) `pip3 install --user --upgrade neovim-remote`
+- Add ~/Library/Python/3.8/bin to path
 
 ## Vim [Plugins](http://vimawesome.com/)
 
@@ -95,6 +97,7 @@ There are two available colorschemes solarized and monokai, to switch between th
 |  EasyMotion jump to firt letter of any word after cursor   |       ,,w       |
 |  EasyMotion jump to firt letter of any word before cursor  |       ,,b       |
 |   EasyMotion jump to any letter of any word after cursor   | ,,f<someLetter> |
+|           Expand/Collapse current window in tab            |    <space>O     |
 |            Unimpaired move left through buffers            |       [b        |
 |           Unimpaired move right through buffers            |       ]b        |
 |          Unimpaired swap lines (with line above)           |       [e        |

@@ -33,6 +33,8 @@ set signcolumn=yes                      " Always show the signcolumn, otherwise 
 set noswapfile
 "set guifont=FiraCode\ Nerd\ Font:h15
 set guifont=DroidSansMono\ Nerd\ Font:h11
+set splitbelow " Default split to be below current window
+set splitright " Default vertical split to left of current window
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
@@ -49,8 +51,6 @@ autocmd Filetype vim setlocal foldmethod=marker
 " Get highlighting of .md as markdown not modula 2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
-" Remove number line on term window
-au TermOpen * setlocal listchars= nonumber norelativenumber
 
 
 if (has("termguicolors"))
@@ -61,4 +61,10 @@ endif
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-[> <C-\><C-n>
+  " Remove number line on term window
+  au TermOpen * setlocal listchars= nonumber norelativenumber
+endif
+
+if has('nvim') && executable('nvr')
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif

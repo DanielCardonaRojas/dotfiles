@@ -41,7 +41,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 
 " Tabline
-Plug 'mengelbrecht/lightline-bufferline'
+"Plug 'mengelbrecht/lightline-bufferline'
+
+Plug 'troydm/zoomwintab.vim'
 
 
 " Code Navigating
@@ -71,5 +73,6 @@ source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/theme.vim
 source ~/.config/nvim/plugins/monkeyterminal.vim
 source ~/.config/nvim/plugins/fzf.vim
+source ~/.config/nvim/plugins/zoomwintab.vim
 
 

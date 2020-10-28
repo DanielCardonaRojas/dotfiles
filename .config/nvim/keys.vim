@@ -60,6 +60,9 @@ nnoremap <leader>< 10<c-w><
 
 nnoremap <leader>K 5<c-w>+
 nnoremap <leader>J 5<c-w>-
+nnoremap <space>L <c-w>|
+nnoremap <space>k <c-w>_
+nnoremap <space>= <c-w>=
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
