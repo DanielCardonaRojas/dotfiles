@@ -1,6 +1,6 @@
 # Dotfiles
 
-This setup consists of 
+This setup consists of
 
 - Alacritty
 - Tmux
@@ -9,89 +9,89 @@ This setup consists of
 
 ## Setup
 
-Do the following: 
-
-1. Move to home directory 
+Install dependencies:
 
 ```shell
-cd ~
+brew install neovim ripgrep bat
+python3 -m pip install --user --upgrade pynvim
 ```
 
-2. initialize a git repository and point it to the remote repository 
+Install FiraCode Nerd Font from [here](https://www.nerdfonts.com/font-downloads)
+
+Do the following:
+
+1. initialize a git repository and point it to the remote repository
 
 ```shell
-git init && git remote add origin https://github.com/DanielCardonaRojas/dotfiles
+git clone --bare https://github.com/DanielCardonaRojas/dotfiles $HOME/.cfg
 ```
-
-3. Sync with master
-
-```shell
-git pull origin master
-```
-
 
 # Notes
 
-To add other files to the repository:
+config is a git alias used to work with these dotfiles [reference](https://www.atlassian.com/git/tutorials/dotfiles)
+
 ```shell
-git add -f <fileName>
+config add -f <filename>
 ```
 
 ### TMUX Keybindings and Commands
 
 List all sessions
+
 ```shell
 tmux ls
 ```
 
 Start a new session with a name
+
 ```shell
 tmux new -s myname
 ```
 
 Attach to an existing session
+
 ```shell
 tmux a -t myname
 ```
 
 Kill a session
+
 ```shell
 tmux kill-session -t myname
 ```
 
 Prefix = Ctrl + b
 
-| Action | Command|
-|:------:|:------:|
-| Tmux resurrect save | prefix + Ctrl-s |
-| Tmux resurrect restore | prefix + Ctrl-r |
-| Tmux tpm install plugins | prefix + I |
-| Tmux source config | prefix + r |
+|          Action          |     Command     |
+| :----------------------: | :-------------: |
+|   Tmux resurrect save    | prefix + Ctrl-s |
+|  Tmux resurrect restore  | prefix + Ctrl-r |
+| Tmux tpm install plugins |   prefix + I    |
+|    Tmux source config    |   prefix + r    |
 
-**Sessions** 
+**Sessions**
 
 - d detach from session
 
 **Windows**
 
-- c  create window
-- w  list windows
-- n  next window
-- p  previous window
-- f  find window
-- ,  name window
-- &  kill window
-- ]  paste
+- c create window
+- w list windows
+- n next window
+- p previous window
+- f find window
+- , name window
+- & kill window
+- ] paste
 - N move window/tab to the right
 - P move window/tab to the left
 - q kill current window
 
 **Panes**
 
-- %  vertical split
-- "  horizontal split
-- x  kill pane
-
+- % vertical split
+- " horizontal split
+- x kill pane
 
 **Moving between splits**
 
@@ -104,7 +104,6 @@ Prefix = Ctrl + b
 - K move horizontal split line up
 - H move vertical split line left
 - L move vertical split line right
-
 
 ## Oh-my-zsh
 
