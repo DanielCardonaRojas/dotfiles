@@ -20,10 +20,12 @@ Install FiraCode Nerd Font from [here](https://www.nerdfonts.com/font-downloads)
 
 Do the following:
 
-1. initialize a git repository and point it to the remote repository
+1. Clone repo
 
 ```shell
 git clone --bare https://github.com/DanielCardonaRojas/dotfiles $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config checkout
 ```
 
 # Notes
