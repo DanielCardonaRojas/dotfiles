@@ -1,6 +1,6 @@
 ## Setup
 
-nvim
+Currently using nvim version NVIM v0.5.0
 
 ## Requirements
 

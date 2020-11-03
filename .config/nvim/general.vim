@@ -10,8 +10,8 @@ set pumheight=10                        " Makes popup menu smaller
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set mouse=a                             " Enable your mouse
-set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
+set splitbelow                          " Horizontal splits will automatically be put on bottom
 set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=2                           " Insert 2 spaces for a tab
@@ -33,8 +33,6 @@ set signcolumn=yes                      " Always show the signcolumn, otherwise 
 set noswapfile
 "set guifont=FiraCode\ Nerd\ Font:h15
 set guifont=DroidSansMono\ Nerd\ Font:h11
-set splitbelow " Default split to be below current window
-set splitright " Default vertical split to left of current window
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
