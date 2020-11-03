@@ -39,6 +39,10 @@ nnoremap <silent> <space>e :CocCommand explorer --preset floating<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 
+" This will allow Ctrl+] to work with CocTagFunc instead of Ctags
+if has('nvim-0.5')
+  set tagfunc=CocTagFunc
+endif
 
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim

@@ -30,10 +30,15 @@ nnoremap <leader>r :<space><c-r>
 nnoremap <leader>R :!<space><c-r>
 
 " Move Cursor around window splits
-nnoremap <leader>l <c-w>l
-nnoremap <leader>h <c-w>h
-nnoremap <leader>j <c-w>j
-nnoremap <leader>k <c-w>k
+"nnoremap <leader>l <c-w>l
+"nnoremap <leader>h <c-w>h
+"nnoremap <leader>j <c-w>j
+"nnoremap <leader>k <c-w>k
+
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
 
 " Swaping lines, words etc
 " nnoremap K DO<C-r>"<ESC>_
@@ -81,6 +86,7 @@ nnoremap / /\c
 " Toggle Spell Checking [s and ]s to jum to mispelled words 
 nnoremap <leader>ss :setlocal spell!<cr>
 nnoremap <leader>sc :setlocal spell spelllang=
+nmap <silent> gd] :vert winc ]<CR>
 
 " Replace word under cursor
 noremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
