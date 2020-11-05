@@ -1,5 +1,5 @@
 colorscheme onedark
-highlight Normal guibg=none
+highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText guibg=none
 "autocmd VimEnter * colorscheme dracula
 " let g:gruvbox_contrast_dark = "hard"
