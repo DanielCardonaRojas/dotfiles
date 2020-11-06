@@ -38,7 +38,19 @@ set guifont=DroidSansMono\ Nerd\ Font:h11
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
 set list
 
-" AUTO COMMANDS
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" Split windows vertically some window commands (Only working in vim)
+noremap <C-w>] :vert botright wincmd ]<CR>
+noremap <C-w><C-]> :vert botright wincmd ]<CR>
+noremap <C-w>^ :vert botright wincmd ^<CR>
+noremap <C-w>f :vert botright wincmd f<CR>
+
+
+
+"  ============= AUTO COMMANDS ==============
 
 " Set tabs/indentation/foldmethod by filetype
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 foldmethod=syntax foldlevelstart=1 expandtab
@@ -51,11 +63,7 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 
 
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-" TERMINAL
+" ============= TERMINAL ===========
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-[> <C-\><C-n>

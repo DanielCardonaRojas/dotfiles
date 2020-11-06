@@ -29,31 +29,15 @@ set pastetoggle=<F2>
 nnoremap <leader>r :<space><c-r>
 nnoremap <leader>R :!<space><c-r>
 
-" Move Cursor around window splits
-"nnoremap <leader>l <c-w>l
-"nnoremap <leader>h <c-w>h
-"nnoremap <leader>j <c-w>j
-"nnoremap <leader>k <c-w>k
-
+"  ================ WINDOW RELATED ==============
+" Jump between splits
+nmap <space>f <c-w>
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
-" Swaping lines, words etc
-" nnoremap K DO<C-r>"<ESC>_
-
-inoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
-inoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
-
-cnoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
-cnoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
-cnoremap <C-J> <C-N>
-cnoremap <C-K> <C-P>
-
-nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
-
-" Open window splits in various places
+" Creating splits
 nmap <silent> <leader>sh :leftabove  vnew<CR>
 nmap <silent> <leader>sl :rightbelow vnew<CR>
 nmap <silent> <leader>sk :leftabove  new<CR>
@@ -65,9 +49,22 @@ nnoremap <leader>< 10<c-w><
 
 nnoremap <leader>K 5<c-w>+
 nnoremap <leader>J 5<c-w>-
-nnoremap <space>L <c-w>|
-nnoremap <space>k <c-w>_
-nnoremap <space>= <c-w>=
+
+" Swaping lines, words etc
+" nnoremap K DO<C-r>"<ESC>_
+
+" ============= POPUP MENU ===============
+inoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
+inoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
+
+cnoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
+cnoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
+cnoremap <C-J> <C-N>
+cnoremap <C-K> <C-P>
+
+nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
+
+
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>

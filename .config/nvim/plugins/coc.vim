@@ -32,7 +32,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 
-nnoremap <silent> <space>f :CocCommand explorer<CR>
+"nnoremap <silent> <space>f :CocCommand explorer<CR>
 nnoremap <silent> <space>e :CocCommand explorer --preset floating<CR>
 "autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
