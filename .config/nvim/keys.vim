@@ -30,6 +30,17 @@ nnoremap <leader>r :<space><c-r>
 nnoremap <leader>R :!<space><c-r>
 
 "  ================ WINDOW RELATED ==============
+
+" Split windows vertically by default (Only working in vim)
+noremap <C-w>] :vert rightbelow wincmd ]<CR>
+noremap <C-w><C-]> :vert rightbelow wincmd ]<CR>
+noremap <C-w>^ :vert rightbelow wincmd ^<CR>
+noremap <C-w>f :vert rightbelow wincmd f<CR>
+noremap <C-w>^ :vert rightbelow wincmd ^<CR>
+
+" Workaround for nvim
+noremap <C-w>^ :rightbelow vs #<CR>
+
 " Jump between splits
 nmap <space>f <c-w>
 nnoremap <c-l> <c-w>l

@@ -31,8 +31,7 @@ set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set noswapfile
-"set guifont=FiraCode\ Nerd\ Font:h15
-set guifont=DroidSansMono\ Nerd\ Font:h11
+set guifont=FiraCode\ Nerd\ Font:h14
 
 " Show hidden characters  (:set list!)
 set listchars=nbsp:␣,tab:▸\ ,eol:¬
@@ -41,14 +40,6 @@ set list
 if (has("termguicolors"))
   set termguicolors
 endif
-
-" Split windows vertically some window commands (Only working in vim)
-noremap <C-w>] :vert botright wincmd ]<CR>
-noremap <C-w><C-]> :vert botright wincmd ]<CR>
-noremap <C-w>^ :vert botright wincmd ^<CR>
-noremap <C-w>f :vert botright wincmd f<CR>
-
-
 
 "  ============= AUTO COMMANDS ==============
 
