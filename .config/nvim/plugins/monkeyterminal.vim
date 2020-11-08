@@ -9,11 +9,17 @@ function! MonkeyTerminalOpen()
   " Check if buffer exists, if not create a window and a buffer
   if !bufexists(s:monkey_terminal_buffer)
     " Creates a window call monkey_terminal
-    new monkey_terminal
     " Moves to the window the right the current one
-    wincmd J
-    resize 15
-    let s:monkey_terminal_job_id = termopen($SHELL, { 'detach': 1 })
+    if (has('nvim')) 
+      new monkey_terminal
+      wincmd J
+      resize 15
+      let s:monkey_terminal_job_id = termopen($SHELL, { 'detach': 1 })
+    else
+      let s:monkey_terminal_job_id = term_start($SHELL, { 'term_name': 'monkey_terminal'})
+      wincmd J
+      resize 15
+    endif
 
      " Change the name of the buffer to "Terminal 1"
      silent file Terminal\ 1

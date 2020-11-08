@@ -40,6 +40,8 @@ noremap <C-w>^ :vert rightbelow wincmd ^<CR>
 
 " Workaround for nvim
 noremap <C-w>^ :rightbelow vs #<CR>
+nmap <silent> gd] :vsplit<CR>gd
+nmap <silent> gf] :vsplit<CR>gf
 
 " Jump between splits
 nmap <space>f <c-w>
@@ -94,7 +96,6 @@ nnoremap / /\c
 " Toggle Spell Checking [s and ]s to jum to mispelled words 
 nnoremap <leader>ss :setlocal spell!<cr>
 nnoremap <leader>sc :setlocal spell spelllang=
-nmap <silent> gd] :vert winc ]<CR>
 
 " Replace word under cursor
 noremap <Leader>S :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>

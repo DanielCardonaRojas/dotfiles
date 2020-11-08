@@ -74,5 +74,3 @@ source ~/.config/nvim/plugins/theme.vim
 source ~/.config/nvim/plugins/monkeyterminal.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/zoomwintab.vim
-
-

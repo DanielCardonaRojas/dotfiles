@@ -100,3 +100,4 @@ source $HOME/.bash_profile
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(starship init zsh)"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+PATH=/usr/local/bin:$PATH
