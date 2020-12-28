@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/decaroj/development/flutter_projects/flutter_pwa'
 let g:netrw_dirhist_1='/Users/decaroj/development/flutter_projects/flutter_repository'
 let g:netrw_dirhist_0='/Users/drojas/Documents/development/flutter_projects/mobile-client'
 let g:netrw_dirhist_9='/Users/drojas/Documents/development/flutter_projects/flutter_repository'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_6='/Users/drojas/Documents/development/flutter_projects/cubi
 let g:netrw_dirhist_5='/Users/drojas/Documents/development/flutter_projects/cubit_example'
 let g:netrw_dirhist_4='/Users/drojas/Documents/development/elm_projects/chess-clock'
 let g:netrw_dirhist_3='/Users/drojas/Documents/development/elm_projects/chess-clock/src'
-let g:netrw_dirhist_2='/Users/drojas/Documents/development/elm_projects/chess-clock'
