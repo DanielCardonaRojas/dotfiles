@@ -28,6 +28,13 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 ```
 
+**zsh plugins**
+
+```
+git clone https://github.com/jeffreytse/zsh-vi-mode \
+  $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
+```
+
 # Notes
 
 config is a git alias used to work with these dotfiles [reference](https://www.atlassian.com/git/tutorials/dotfiles)

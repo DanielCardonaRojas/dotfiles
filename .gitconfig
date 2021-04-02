@@ -1,12 +1,27 @@
 [core]
 	excludesfile = /Users/daniel.cardona/.gitignore_global
-    editor= nvim
+	editor= nvim
+	pager = delta
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [user]
 	name = Daniel Esteban Cardona Rojas
 	email = d.cardona.rojas@gmail.com
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
