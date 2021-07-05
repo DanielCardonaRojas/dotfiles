@@ -40,8 +40,8 @@ noremap <C-w>^ :vert rightbelow wincmd ^<CR>
 
 " Workaround for nvim
 noremap <C-w>^ :rightbelow vs #<CR>
-nmap <silent> gd] :vsplit<CR>gd
-nmap <silent> gf] :vsplit<CR>gf
+"noremap <silent> gd] :vsplit<CR>gd
+"nmap <silent> gf] :vsplit<CR>gf
 
 " Jump between splits
 nmap <space>f <c-w>

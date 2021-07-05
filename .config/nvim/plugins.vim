@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+
 " Miscelanious
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -16,42 +17,48 @@ Plug 'vim-test/vim-test'
 
 Plug 'yggdroot/indentline'
 
-"Syntax and frameworks
+"SYNTAX AND FRAMEWORKS
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'dart-lang/dart-vim-plugin'
 
-" Code completion 
+" CODE COMPLETION 
 Plug 'scrooloose/nerdcommenter'
 Plug 'raimondi/delimitmate'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'neovim/nvim-lspconfig'
 
-" Greeter
+" GREETER HOME UI
 Plug 'mhinz/vim-startify'
 
-" Color Schemes and Aesthetics
+" COLOR THEMES AND AESTHETICS
 Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
+Plug 'navarasu/onedark.nvim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
-" Status line
-Plug 'itchyny/lightline.vim'
-
-" Tabline
-"Plug 'mengelbrecht/lightline-bufferline'
+" STATUS LINE
+Plug 'hoob3rt/lualine.nvim'
 
 Plug 'troydm/zoomwintab.vim'
 
 
-" Code Navigating
+" CODE NAVIGATING
 Plug 'easymotion/vim-easymotion'
 
-" Search
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" LSP
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'glepnir/lspsaga.nvim'
+Plug 'hrsh7th/nvim-compe'
+
+" EXPLORER
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" GIT
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
@@ -64,13 +71,20 @@ autocmd VimEnter *
 
 " PLUGIN CONFIGURATIONS
 
-source ~/.config/nvim/plugins/lightline.vim
+lua << EOF
+require('gitsigns').setup()
+EOF
+nnoremap <silent>Kg :Gitsigns preview_hunk<cr>
+
+
+luafile ~/.config/nvim/plugins/lualine.lua
+source ~/.config/nvim/plugins/compe.vim
+source ~/.config/nvim/plugins/nvim-tree.vim
 source ~/.config/nvim/plugins/indentline.vim
 source ~/.config/nvim/plugins/rainbowparentheses.vim
 source ~/.config/nvim/plugins/startify.vim
-source ~/.config/nvim/plugins/ctrlp.vim
-source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/theme.vim
+source ~/.config/nvim/plugins/lspsaga.vim
+source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/monkeyterminal.vim
-source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/zoomwintab.vim

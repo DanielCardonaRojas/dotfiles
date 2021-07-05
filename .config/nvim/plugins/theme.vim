@@ -1,3 +1,6 @@
+lua << EOF
+  require('onedark').setup()
+EOF
 colorscheme onedark
 "highlight Normal guibg=NONE ctermbg=NONE
 "highlight NonText guibg=none
