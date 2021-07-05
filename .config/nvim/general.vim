@@ -48,6 +48,7 @@ autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 foldmethod=syntax foldlevel
 " Used in for mixed indentation files
 autocmd Filetype python setlocal ts=4 sw=4 foldmethod=indent foldlevel=99 cursorcolumn noexpandtab
 autocmd Filetype vim setlocal foldmethod=marker
+autocmd FileType make setlocal noexpandtab " Don't expandtab for makefiles
 
 " Get highlighting of .md as markdown not modula 2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
