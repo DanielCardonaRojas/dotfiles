@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader=" "
 
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
