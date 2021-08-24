@@ -10,11 +10,8 @@
 " Open file prompt with current path
 nnoremap <leader>E :e <C-R>=expand("%:p:h") . '/'<CR>
 
-nnoremap <leader>w :w<CR>
-
 " Close split window
 nnoremap <leader>cw :close<CR>
-nnoremap <leader>db :bdelete<CR>
 
 " Copy/Paste from/to OS Clipboard
 nnoremap <leader>p "*p
@@ -44,24 +41,12 @@ noremap <C-w>^ :rightbelow vs #<CR>
 "nmap <silent> gf] :vsplit<CR>gf
 
 " Jump between splits
-nmap <space>f <c-w>
+
+nmap <leader>w <c-w>
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-
-" Creating splits
-nmap <silent> <leader>sh :leftabove  vnew<CR>
-nmap <silent> <leader>sl :rightbelow vnew<CR>
-nmap <silent> <leader>sk :leftabove  new<CR>
-nmap <silent> <leader>sj :rightbelow new<CR>
-
-" Increase vertical windows sizes
-nnoremap <leader>> 10<c-w>>
-nnoremap <leader>< 10<c-w><
-
-nnoremap <leader>K 5<c-w>+
-nnoremap <leader>J 5<c-w>-
 
 " Swaping lines, words etc
 " nnoremap K DO<C-r>"<ESC>_
@@ -69,18 +54,21 @@ nnoremap <leader>J 5<c-w>-
 " ============= POPUP MENU ===============
 inoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
 inoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-cnoremap <expr> <C-J> pumvisible() ? "\<C-N>" : "j"
-cnoremap <expr> <C-K> pumvisible() ? "\<C-P>" : "k"
-cnoremap <C-J> <Down>
-cnoremap <C-K> <Up>
+
+cnoremap <expr> <c-j> pumvisible() ? "\<C-N>" : "j"
+cnoremap <expr> <c-k> pumvisible() ? "\<C-P>" : "k"
+"cnoremap <C-J> <Down>
+"cnoremap <C-K> <Up>
 
 nmap <leader>T :tabedit <C-R>=expand("%:p:h") . '/'<CR>
 
 
 
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <F4> :source $MYVIMRC<cr>
+nnoremap <F3> :vsplit $MYVIMRC<cr>
 
 " Marks
 nnoremap <leader>M :marks<CR>
