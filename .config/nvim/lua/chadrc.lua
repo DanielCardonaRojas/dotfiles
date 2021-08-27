@@ -7,7 +7,7 @@ M.ui = {
    italic_comments = false,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "onedark",
+   theme = "everforest",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
@@ -113,7 +113,7 @@ M.mappings = {
    new_buffer = "<S-t>", -- open a new buffer
    new_tab = "<C-t>b", -- open a new vim tab
    save_file = "<C-s>", -- save file using :w
-   theme_toggler = "<leader>tt", -- for theme toggler, see in ui.theme_toggler
+   theme_toggler = "<leader>cT", -- for theme toggler, see in ui.theme_toggler
 
    -- terminal related mappings
    terminal = {
@@ -125,10 +125,7 @@ M.mappings = {
       esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show hidden terminal buffers in a telescope picker
       pick_term = "<leader>W",
-      -- below three are for spawning terminals
-      new_horizontal = "<leader>h",
-      new_vertical = "<leader>v",
-      new_window = "<leader>T",
+      -- toggle_term = '<leader>;',
    },
 
    -- update nvchad from nvchad, chadness 101
@@ -160,6 +157,17 @@ M.mappings.plugin = {
       session_save = "<leader>s", -- save a session
    },
    -- note: this is an edditional mapping to escape, escape key will still work
+   nvim_dap = {
+     toggle_breakpoint = "<leader>dh",
+     continue = "<leader>dn",
+     step_over = "<leader>dj",
+     step_out = "<leader>dk",
+     step_into = "<leader>dl",
+     up = "<leader>dK",
+     down = "<leader>dJ",
+     disconnect = "<leader>d_",
+     scopes = "<leader>d?",
+   },
    better_escape = {
       esc_insertmode = { "jk" }, -- multiple mappings allowed
    },
@@ -177,7 +185,8 @@ M.mappings.plugin = {
       git_status = "<leader>gs",
       help_tags = "<leader>fh",
       oldfiles = "<leader>fm",
-      themes = "<leader>th",
+      themes = "<leader>ct",
+      lsp_document_symbols = "<leader>ls"
    },
    telescope_media = {
       media_files = "<leader>fp",

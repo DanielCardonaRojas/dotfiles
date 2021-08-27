@@ -54,6 +54,14 @@ M.misc = function()
       map('n', '<c-h>', '<c-w>h')
       map('t', '<Esc>', '<C-\\><C-n>')
 
+      map('t', 'jk', [[<C-\><C-n>]], {noremap = true})
+      map('t', '<C-h>', [[<C-\><C-n><C-W>h]], {noremap = true})
+      map('t', '<C-j>', [[<C-\><C-n><C-W>j]], {noremap = true})
+      map('t', '<C-k>', [[<C-\><C-n><C-W>k]], {noremap = true})
+      map('t', '<C-l>', [[<C-\><C-n><C-W>l]], {noremap = true})
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+
    end
 
    local function optional_mappings()
@@ -97,16 +105,6 @@ M.misc = function()
       map("t", term_maps.esc_hide_termmode, "<C-\\><C-n> :lua require('core.utils').close_buffer() <CR>", opt)
       -- pick a hidden term
       map("n", term_maps.pick_term, ":Telescope terms <CR>", opt)
-      -- Open terminals
-      -- TODO this opens on top of an existing vert/hori term, fixme
-      map(
-         "n",
-         term_maps.new_horizontal,
-         ":execute 15 .. 'new +terminal' | let b:term_type = 'hori' | startinsert <CR>",
-         opt
-      )
-      map("n", term_maps.new_vertical, ":execute 'vnew +terminal' | let b:term_type = 'vert' | startinsert <CR>", opt)
-      map("n", term_maps.new_window, ":execute 'terminal' | let b:term_type = 'wind' | startinsert <CR>", opt)
       -- terminal mappings end --
 
       -- Add Packer commands because we are not loading it at startup
@@ -128,16 +126,14 @@ M.misc = function()
 end
 
 -- below are all plugin related mappinsg
-M.nvim_dap = function() 
+M.nvim_dap = function()
    local m = plugin_maps.nvim_dap
    map("n", m.toggle_breakpoint, ":lua require'dap'.toggle_breakpoint()<CR>", opt)
-   map("n", m.step_out, ":lua require'dap'.step_out()<CR>", opt)
-   map("n", m.toggle_breakpoint, ":lua require'dap'.toggle_breakpoint()<CR>", opt)
-   map("n", m.step_into, ":lua require'dap'.step_into()<CR>", opt)
-   map("n", m.step_over, ":lua require'dap'.step_over()<CR>", opt)
-   map("n", m.close, ":lua require'dap'.close()<CR>", opt)
    map("n", m.continue, ":lua require'dap'.continue()<CR>", opt)
    map("n", '<F5>', ":lua require'dap'.continue()<CR>", opt)
+   map("n", m.step_over, ":lua require'dap'.step_over()<CR>", opt)
+   map("n", m.step_out, ":lua require'dap'.step_out()<CR>", opt)
+   map("n", m.step_into, ":lua require'dap'.step_into()<CR>", opt)
    map("n", m.down, ":lua require'dap'.down()<CR>", opt)
    map("n", m.up, ":lua require'dap'.up()<CR>", opt)
    map("n", m.disconnect, ":lua require'dap'.disconnect();require'dap'.close()<CR>", opt)
@@ -203,6 +199,7 @@ M.telescope = function()
    map("n", m.live_grep, ":Telescope live_grep <CR>", opt)
    map("n", m.oldfiles, ":Telescope oldfiles <CR>", opt)
    map("n", m.themes, ":Telescope themes <CR>", opt)
+   map("n", m.lsp_document_symbols, ":Telescope lsp_document_symbols <CR>", opt)
 end
 
 M.telescope_media = function()

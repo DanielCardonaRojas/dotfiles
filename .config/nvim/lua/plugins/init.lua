@@ -18,10 +18,9 @@ return packer.startup(function()
    use {
       "akinsho/toggleterm.nvim",
       config = function()
-        -- vim.o.hidden = true
-        require("toggleterm").setup{}
-      end,
-      setup = function()
+        require("toggleterm").setup{
+          open_mapping = '<leader>;',
+        }
       end,
    }
 
@@ -124,6 +123,9 @@ return packer.startup(function()
      'mfussenegger/nvim-dap',
      config = function()
        require "plugins.configs.nvim-dap"
+     end,
+     setup = function()
+       require("core.mappings").nvim_dap()
      end
    }
 

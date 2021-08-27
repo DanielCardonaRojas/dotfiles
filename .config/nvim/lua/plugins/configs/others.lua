@@ -44,13 +44,6 @@ M.neoscroll = function()
    end)
 end
 
-M.toggleterm = function()
-   local present, toggleterm = pcall(require, "toggleterm")
-   if present then
-     toggleterm.setup{}
-   end
-end
-
 M.signature = function()
    local present, lspsignature = pcall(require, "lsp_signature")
    if present then

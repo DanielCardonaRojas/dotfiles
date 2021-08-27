@@ -31,6 +31,7 @@ M.ui.plugin = {
       -- if a filetype is present in shown, it will always show the statusline, irrespective of filetypes in hidden
       hidden = {
          "NvimTree",
+         "ToggleTerm",
          "terminal",
          "dashboard",
       },
@@ -127,10 +128,7 @@ M.mappings = {
       esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show hidden terminal buffers in a telescope picker
       pick_term = "<leader>W",
-      -- below three are for spawning terminals
-      new_horizontal = "<leader>h",
-      new_vertical = "<leader>v",
-      new_window = "<leader>w",
+      -- toggle_term = "<leader>;",
    },
 
    -- update nvchad from nvchad, chadness 101
@@ -153,16 +151,16 @@ M.mappings.plugin = {
    },
 
    nvim_dap = {
-     continue = "<leader>dn",
      toggle_breakpoint = "<leader>dh",
+     continue = "<leader>dn",
+     step_over = "<leader>dj",
      step_out = "<leader>dk",
      step_into = "<leader>dl",
-     scopes = "<leader>d?",
      up = "<leader>dK",
      down = "<leader>dJ",
-     step_over = "<leader>dj",
+     open = "<leader>dr",
      disconnect = "<leader>d_",
-
+     scopes = "<leader>d?",
    },
    dashboard = {
       bookmarks = "<leader>bm",
