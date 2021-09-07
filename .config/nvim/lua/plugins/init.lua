@@ -14,12 +14,17 @@ return packer.startup(function()
    -- this is the nvchad core repo containing utilities for some features like theme swticher, no need to lazy load
 
    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+   use { 'vim-test/vim-test' }
+
+   -- use {  'hrsh7th/vim-vsnip' }
+   -- use {'hrsh7th/vim-vsnip-integ'}
 
    use {
       "akinsho/toggleterm.nvim",
       config = function()
         require("toggleterm").setup{
           open_mapping = '<leader>;',
+          start_in_insert = true,
         }
       end,
    }

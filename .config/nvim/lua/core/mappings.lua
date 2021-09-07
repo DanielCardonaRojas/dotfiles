@@ -41,19 +41,27 @@ M.misc = function()
       map("", "<Down>", 'v:count ? "j" : "gj"', { expr = true })
       map("", "<Up>", 'v:count ? "k" : "gk"', { expr = true })
 
-      -- Own mappings
+      -- OWN MAPPINGS
+
+      map('n', '<leader>y', '"*y')
+      map('n', '<CR>', ':nohl<CR>')
+
+
+      -- Wildmenu mappings
       vim.api.nvim_set_keymap('c', '<down>', 'wildmenumode() ? "\\<C-n>" : "\\<down>"', {expr = true})
       vim.api.nvim_set_keymap('c', '<up>', 'wildmenumode() ? "\\<C-p>" : "\\<up>"', {expr = true})
       vim.api.nvim_set_keymap('c', '<c-j>', 'wildmenumode() ? "\\<C-n>" : "\\<c-j>"', {expr = true})
       vim.api.nvim_set_keymap('c', '<c-k>', 'wildmenumode() ? "\\<C-p>" : "\\<c-k>"', {expr = true})
 
-      map('n', '<leader>y', '"*y')
+
+      -- Window navigation
       map('n', '<c-j>', '<c-w>j')
       map('n', '<c-k>', '<c-w>k')
       map('n', '<c-l>', '<c-w>l')
       map('n', '<c-h>', '<c-w>h')
       map('t', '<Esc>', '<C-\\><C-n>')
 
+      -- Window navigation in terminal mode
       map('t', 'jk', [[<C-\><C-n>]], {noremap = true})
       map('t', '<C-h>', [[<C-\><C-n><C-W>h]], {noremap = true})
       map('t', '<C-j>', [[<C-\><C-n><C-W>j]], {noremap = true})
