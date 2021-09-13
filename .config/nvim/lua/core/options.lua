@@ -3,6 +3,7 @@ local g = vim.g
 
 -- export user config as a global varibale
 g.nvchad_user_config = "chadrc"
+g.noswapfile = true
 
 local options = require("core.utils").load_config().options
 

@@ -149,6 +149,16 @@ M.nvim_dap = function()
    map("n", m.scopes, ":lua require'dap.ui.variables'.scopes()<CR>", opt)
 end
 
+M.hop = function()
+  local m = plugin_maps.hop;
+  map("n", m.hop_trigger .. "w" , ":HopWordAC <CR>")
+  map("n", m.hop_trigger .. "b" , ":HopWordBC <CR>")
+  map("n", m.hop_trigger .. "f" , ":HopChar1AC <CR>")
+  map("n", m.hop_trigger .. "F" , ":HopChar1BC <CR>")
+  map("n", m.hop_trigger .. "j" , ":HopLineAC <CR>")
+  map("n", m.hop_trigger .. "k" , ":HopLineBC <CR>")
+end
+
 M.better_escape = function()
    vim.g.better_escape_shortcut = plugin_maps.better_escape.esc_insertmode or { "" }
 end

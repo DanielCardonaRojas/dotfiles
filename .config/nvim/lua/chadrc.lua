@@ -7,7 +7,7 @@ M.ui = {
    italic_comments = false,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "everforest",
+   theme = "tokyonight",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
@@ -136,8 +136,8 @@ M.mappings = {
 -- to get short info about a plugin, see the respective string in plugin_status, if not present, then info here
 M.mappings.plugin = {
    bufferline = {
-      next_buffer = "]b", -- next buffer
-      prev_buffer = "[b", -- previous buffer
+      next_buffer = "<tab>", -- next buffer
+      prev_buffer = "<s-tab", -- previous buffer
    },
    chadsheet = {
       default_keys = "<leader>dk",
@@ -149,12 +149,15 @@ M.mappings.plugin = {
    toggleterm = {
      toggle = "<leader>T",
    },
+   hop = {
+     hop_trigger = "<leader><leader>",
+   },
    dashboard = {
       bookmarks = "<leader>bm",
       new_file = "<leader>fn", -- basically create a new buffer
       open = "<leader>db", -- open dashboard
-      session_load = "<leader>l", -- load a saved session
-      session_save = "<leader>s", -- save a session
+      session_load = "<leader>sl", -- load a saved session
+      session_save = "<leader>ss", -- save a session
    },
    -- note: this is an edditional mapping to escape, escape key will still work
    nvim_dap = {

@@ -13,11 +13,28 @@ return packer.startup(function()
 
    -- this is the nvchad core repo containing utilities for some features like theme swticher, no need to lazy load
 
-   use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+   use {'wakatime/vim-wakatime'}
+   use { 'tpope/vim-unimpaired'}
+
+   use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',
+     config = function()
+       require("flutter-tools").setup{} -- use defaults
+     end,
+   }
+
    use { 'vim-test/vim-test' }
 
-   -- use {  'hrsh7th/vim-vsnip' }
-   -- use {'hrsh7th/vim-vsnip-integ'}
+   use {
+      'phaazon/hop.nvim',
+      as = 'hop',
+      config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+      end,
+      setup = function()
+         require("core.mappings").hop()
+      end,
+    }
 
    use {
       "akinsho/toggleterm.nvim",
@@ -207,16 +224,16 @@ return packer.startup(function()
       requires = {
          {
             "L3MON4D3/LuaSnip",
-            wants = "friendly-snippets",
+            -- wants = "friendly-snippets",
             event = "InsertCharPre",
             config = function()
                require "plugins.configs.luasnip"
             end,
          },
-         {
-            "rafamadriz/friendly-snippets",
-            event = "InsertCharPre",
-         },
+         -- {
+         --    "rafamadriz/friendly-snippets",
+         --    event = "InsertCharPre",
+         -- },
       },
    }
 
