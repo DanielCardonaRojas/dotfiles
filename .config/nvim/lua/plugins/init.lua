@@ -24,7 +24,7 @@ return packer.startup(function()
 
    use { 'vim-test/vim-test' }
 
-   use {
+  use {
       'phaazon/hop.nvim',
       as = 'hop',
       config = function()
@@ -34,7 +34,32 @@ return packer.startup(function()
       setup = function()
          require("core.mappings").hop()
       end,
-    }
+  }
+
+  use { "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup({excluded_filetypes = {"toggleterm"}})
+      vim.cmd [[ FocusDisable ]]
+    end,
+    setup = function()
+      require("core.mappings").focus()
+    end
+  }
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+    setup = function()
+      require("core.mappings").trouble()
+    end
+  }
 
    use {
       "akinsho/toggleterm.nvim",

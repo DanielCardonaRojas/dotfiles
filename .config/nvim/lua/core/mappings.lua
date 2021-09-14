@@ -149,6 +149,10 @@ M.nvim_dap = function()
    map("n", m.scopes, ":lua require'dap.ui.variables'.scopes()<CR>", opt)
 end
 
+M.focus = function()
+  map("n", maps.window_operations .. '=', ':FocusMaxOrEqual <CR>', opt)
+end
+
 M.hop = function()
   local m = plugin_maps.hop;
   map("n", m.hop_trigger .. "w" , ":HopWordAC <CR>")
@@ -157,6 +161,10 @@ M.hop = function()
   map("n", m.hop_trigger .. "F" , ":HopChar1BC <CR>")
   map("n", m.hop_trigger .. "j" , ":HopLineAC <CR>")
   map("n", m.hop_trigger .. "k" , ":HopLineBC <CR>")
+end
+
+M.trouble = function()
+  map("n", "<leader>ll", ":TroubleToggle <CR>")
 end
 
 M.better_escape = function()
