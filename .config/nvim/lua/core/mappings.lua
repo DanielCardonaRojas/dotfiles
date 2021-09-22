@@ -249,6 +249,7 @@ M.telescope = function()
    map("n", m.live_grep, ":Telescope live_grep <CR>", opt)
    map("n", m.oldfiles, ":Telescope oldfiles <CR>", opt)
    map("n", m.themes, ":Telescope themes <CR>", opt)
+   map("n", "z=", ":Telescope spell_suggest <CR>", opt)
    map("n", m.lsp_document_symbols, ":Telescope lsp_document_symbols <CR>", opt)
 end
 
