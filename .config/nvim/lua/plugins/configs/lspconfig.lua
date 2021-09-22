@@ -1,5 +1,8 @@
 local present1, lspconfig = pcall(require, "lspconfig")
 local present2, lspinstall = pcall(require, "lspinstall")
+local config = require("core.utils").load_config()
+local mappings = config.mappings.lsp
+
 if not (present1 or present2) then
    return
 end
@@ -21,24 +24,24 @@ local function on_attach(_, bufnr)
 
    -- See `:help vim.lsp.*` for documentation on any of the below functions
    buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-   buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+   buf_set_keymap("n", mappings.definition, "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
    buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-   buf_set_keymap("n", "<leader>lj", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   buf_set_keymap("n", mappings.hover, "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
    buf_set_keymap("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
    buf_set_keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
    buf_set_keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-   buf_set_keymap("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+   buf_set_keymap("n", mappings.show_line_diagnostics, "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
    buf_set_keymap("n", "<leader>lE", "<cmd>Telescope lsp_workspace_diagnostics", opts)
    buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
    buf_set_keymap("n", "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
    buf_set_keymap("v", "<leader>lA", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
    -- buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-   buf_set_keymap("n", "<space>ld", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-   buf_set_keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-   buf_set_keymap("n", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+   buf_set_keymap("n", mappings.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+   buf_set_keymap("n", mappings.rename, "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+   buf_set_keymap("n", mappings.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
    buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-   buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-   buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+   buf_set_keymap("n", mappings.diagnostics_prev, "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+   buf_set_keymap("n", mappings.diagnostics_next, "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -46,10 +49,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Manually installed lsp servers
 
-lspconfig['dartls'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lspconfig['dartls'].setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
+
+lspconfig.sourcekit.setup{}
 -- lspInstall + lspconfig stuff
 
 local function setup_servers()

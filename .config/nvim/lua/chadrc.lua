@@ -7,7 +7,7 @@ M.ui = {
    italic_comments = false,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "tokyonight",
+   theme = "chadracula",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
@@ -126,6 +126,21 @@ M.mappings = {
       -- show hidden terminal buffers in a telescope picker
       pick_term = "<leader>W",
       -- toggle_term = '<leader>;',
+   },
+
+   lsp = {
+     definition = "gd",
+     declaration = "gD",
+     hover = "<leader>lj",
+     type_definition = "<leader>ld",
+     signature_help = "lk",
+     diagnostics_next = "]e",
+     diagnostics_prev = "[e",
+     show_line_diagnostics = "<leader>le",
+     code_action = "<space>.",
+     rename = "<F2>",
+     references = "gr",
+
    },
 
    -- update nvchad from nvchad, chadness 101

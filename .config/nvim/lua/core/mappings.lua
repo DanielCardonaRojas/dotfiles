@@ -178,6 +178,30 @@ M.bufferline = function()
    map("n", m.prev_buffer, ":BufferLineCyclePrev <CR>", opt)
 end
 
+M.lsp = function()
+  local m = maps.lsp;
+   local opts = { noremap = true, silent = true }
+   map("n", m.definition, "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+   map("n", m.declaration, "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+   map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+   map("n", m.hover, "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   map("n", m.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+   map("n", "<leader>la", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+   map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+   map("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+   map("n", "<leader>lE", "<cmd>Telescope lsp_workspace_diagnostics", opts)
+   map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+   map("n", "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+   map("v", "<leader>lA", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
+
+   map("n", "<space>ld", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+   map("n", m.rename, "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+   map("n", m.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+   map("n", m.references, "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+   map("n", m.diagnostics_prev, "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+   map("n", m.diagnostics_next, "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+end
+
 M.chadsheet = function()
    local m = plugin_maps.chadsheet
 

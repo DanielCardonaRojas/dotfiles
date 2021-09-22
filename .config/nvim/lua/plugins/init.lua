@@ -16,9 +16,12 @@ return packer.startup(function()
    use {'wakatime/vim-wakatime'}
    use { 'tpope/vim-unimpaired'}
 
+   use {'nvim-telescope/telescope-media-files.nvim'}
+
    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',
      config = function()
        require("flutter-tools").setup{} -- use defaults
+       require("core.mappings").lsp()
      end,
    }
 
@@ -38,7 +41,10 @@ return packer.startup(function()
 
   use { "beauwilliams/focus.nvim",
     config = function()
-      require("focus").setup({excluded_filetypes = {"toggleterm"}})
+      require("focus").setup({
+        excluded_filetypes = {"toggleterm"},
+        signcolumn = false
+      })
       vim.cmd [[ FocusDisable ]]
     end,
     setup = function()
@@ -71,7 +77,7 @@ return packer.startup(function()
       end,
    }
 
-   use {'dart-lang/dart-vim-plugin'}
+   -- use {'dart-lang/dart-vim-plugin'}
 
    use {
       "Nvchad/extensions",
