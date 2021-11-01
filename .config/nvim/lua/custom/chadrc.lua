@@ -4,6 +4,7 @@
 local M = {}
 M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
+
 -- NOTE: To use this, make a copy with `cp example_chadrc.lua chadrc.lua`
 
 --------------------------------------------------------------------

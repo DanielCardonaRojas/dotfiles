@@ -55,6 +55,10 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap('c', '<c-j>', 'wildmenumode() ? "\\<C-n>" : "\\<c-j>"', {expr = true})
     vim.api.nvim_set_keymap('c', '<c-k>', 'wildmenumode() ? "\\<C-p>" : "\\<c-k>"', {expr = true})
 
+    -- Misc
+    vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
+    vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
+
 end)
 
 hooks.add("install_plugins", function(use)
