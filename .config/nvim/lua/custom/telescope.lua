@@ -3,8 +3,25 @@ if not present then
    return
 end
 
+local actions = require('telescope.actions')
+
 telescope.setup {
    defaults = {
+       mappings = {
+          i = {
+            ["<esc>"] = actions.close,
+            ["<C-n>"] = false,
+            ["<C-p>"] = false,
+
+            -- Otherwise, just set the mapping to the function that you want it to be.
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+
+          },
+          n = {
+            ["<esc>"] = actions.close,
+          },
+      },
       vimgrep_arguments = {
          "rg",
          "--color=never",
@@ -62,7 +79,30 @@ telescope.setup {
          filetypes = { "png", "webp", "jpg", "jpeg" },
          find_cmd = "rg", -- find command (defaults to `fd`)
       },
-   },
+    },
+   pickers = {
+      oldfiles = {
+        sort_lastused = true,
+        theme = "dropdown",
+        previewer = false,
+      },
+      buffers = {
+        sort_lastused = true,
+        theme = "dropdown",
+        previewer = false,
+        mappings = {
+          i = {
+            ["<c-d>"] = require("telescope.actions").delete_buffer,
+          },
+          n = {
+            ["<c-d>"] = require("telescope.actions").delete_buffer,
+          }
+        }
+      },
+      find_files = {
+        theme = "dropdown"
+      }
+  },
 }
 
 local extensions = { "themes", "terms", "fzf" }
