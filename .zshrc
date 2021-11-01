@@ -95,8 +95,23 @@ source $HOME/.bash_profile
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
+path() {
+  echo $PATH | sed 's/:/\n/g'
+}
+
+gif-mov() {
+   movie=$1
+   height=$(mdls -name kMDItemPixelHeight ${movie} | grep -o '[0-9]\+')
+   width=$(mdls -name kMDItemPixelWidth ${movie} | grep -o '[0-9]\+')
+   dimensions="${width}x${height}"
+   # ffmpeg -i ${movie} -s ${dimensions} -pix_fmt rgb24 -vf "scale=-2:600" -r 10 -f gif ${movie}.gif
+   # ffmpeg -i ${movie} -pix_fmt rgb24 -vf "scale=-2:600" -r 10 -f gif ${movie}.gif
+   ffmpeg -i ${movie} -vf "fps=10,scale=-2:600:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" ${movie}.gif
+}
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+export PATH="$HOME/.config/scripts:$PATH"
