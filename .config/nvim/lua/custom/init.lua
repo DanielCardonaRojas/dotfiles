@@ -1,4 +1,5 @@
 local hooks = require "core.hooks"
+require "custom.autocmds"
 
 function lsp_attach()
    -- Mappings.
