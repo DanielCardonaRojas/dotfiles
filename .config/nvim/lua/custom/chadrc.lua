@@ -26,6 +26,9 @@ M.mappings = {
 -- NvChad included plugin options & overrides
 M.plugins = {
    options = {
+        luasnip = {
+          snippet_path = "~/.config/my-snippets"
+        },
         lspconfig = {
          -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
          setup_lspconf = "custom.lspconfig",
