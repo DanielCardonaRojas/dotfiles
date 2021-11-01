@@ -7,20 +7,22 @@ This setup consists of
 - NeoVim
 - Oh-my-zsh
 
-## Setup
+## Installation
 
-Install dependencies:
+Most binaries are installed with [nix package manager]() through [home-manager](https://github.com/nix-community/home-manager)
 
 ```shell
-brew install neovim ripgrep bat
-python3 -m pip install --user --upgrade pynvim
+# Install nix package manager
+sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+
+# Install home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+
 ```
 
 Install FiraCode Nerd Font from [here](https://www.nerdfonts.com/font-downloads)
-
-Do the following:
-
-1. Clone repo
 
 ```shell
 git clone --bare https://github.com/DanielCardonaRojas/dotfiles $HOME/.cfg
@@ -28,14 +30,14 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 ```
 
-**zsh plugins**
+or:
 
-```
-git clone https://github.com/jeffreytse/zsh-vi-mode \
-  $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/DanielCardonaRojas/dotfiles/master/dotFilesConfig.sh)"
 ```
 
-# Notes
+
+# Dotfiles management
 
 config is a git alias used to work with these dotfiles [reference](https://www.atlassian.com/git/tutorials/dotfiles)
 
@@ -114,17 +116,17 @@ Prefix = Ctrl + b
 - H move vertical split line left
 - L move vertical split line right
 
-## Oh-my-zsh
+## Extras
 
-Remove some git repo from prompt, this is useful since this repo is located at ~ , and makes a git master
-show on any folder.
+**zsh plugins**
 
-```shell
-git config oh-my-zsh.hide-status 1
+```
+git clone https://github.com/jeffreytse/zsh-vi-mode \
+  $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
 ```
 
-# TODO
+# Resources
 
-- Fix: Add tmux mouse on depending on version
-- Make copy and paste to systems clipboard work on other platforms besides mac
-- Maybe add a installation script
+- [Tmux thoughtbot course](https://thoughtbot.com/upcase/tmux)
+- [Vim pretty docs](https://vim.help/)
+- [Waylon Walker tmux videos](https://www.youtube.com/c/WaylonWalker/videos)

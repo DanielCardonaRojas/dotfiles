@@ -27,6 +27,7 @@
     pkgs.scrcpy
     pkgs.ffmpeg
     pkgs.fzf
+    pkgs.stack
     pkgs.nodePackages.npm
   ];
 
