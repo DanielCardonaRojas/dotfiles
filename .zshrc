@@ -115,3 +115,4 @@ gif-mov() {
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 export PATH="$HOME/.config/scripts:$PATH"
+eval "$(starship init zsh)"
