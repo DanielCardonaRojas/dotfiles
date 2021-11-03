@@ -29,8 +29,11 @@
     pkgs.fzf
     pkgs.stack
     pkgs.nodePackages.npm
+    pkgs.procs
+    pkgs.exa
+    pkgs.cloc
+    pkgs.neovim
   ];
 
   programs.tmux.enable = true;
-  programs.neovim.enable = true;
 }

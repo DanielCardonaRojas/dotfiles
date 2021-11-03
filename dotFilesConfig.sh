@@ -19,7 +19,8 @@ config checkout
 
 echo "${PURPLE}Installing nix${NC}"
 # Install nix package manager
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+sh <(curl -L https://nixos.org/nix/install)  --darwin-use-unencrypted-nix-store-volume
+
 
 # Install home-manager
 echo "${PURPLE}Installing home-manager${NC}"

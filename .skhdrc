@@ -1,0 +1,88 @@
+hyper - r : yabai -m space --rotate 90
+ctrl + alt - r : yabai -m space --rotate 90
+
+hyper - m : yabai -m space --mirror y-axis
+ctrl + alt - m : yabai -m space --mirror y-axis
+
+hyper - f : yabai -m window --toggle zoom-fullscreen
+hyper - 9 : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# hyper + ]
+hyper - 0x1E : yabai -m window --focus east || yabai -m display --focus 1
+
+
+# hyper + [ : Focus right window in this or side monitor
+hyper - 0x21 : yabai -m window --focus west || yabai -m display --focus 2
+
+hyper - n : yabai -m window --display recent; yabai -m display --focus recent
+hyper - p : yabai -m window --focus recent
+
+ctrl + alt + cmd + lshift - return : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+
+# Resize windows
+hyper - h : \
+    yabai -m window --resize left:-100:0 ; \
+    yabai -m window --resize right:-100:0
+
+ctrl + alt - h : \
+    yabai -m window --resize left:-100:0 ; \
+    yabai -m window --resize right:-100:0
+
+ctrl + alt - j : \
+    yabai -m window --resize bottom:0:100 ; \
+    yabai -m window --resize top:0:100
+
+hyper - j : \
+    yabai -m window --resize bottom:0:100 ; \
+    yabai -m window --resize top:0:100
+
+ctrl + alt - k : \
+    yabai -m window --resize top:0:-100 ; \
+    yabai -m window --resize bottom:0:-100
+
+hyper - k : \
+    yabai -m window --resize top:0:-100 ; \
+    yabai -m window --resize bottom:0:-100
+
+ctrl + alt - l : \
+    yabai -m window --resize right:100:0 ; \
+    yabai -m window --resize left:100:0
+
+hyper - l : \
+    yabai -m window --resize right:100:0 ; \
+    yabai -m window --resize left:100:0
+
+# Navigate Stack
+hyper - 0x29 : yabai -m window --focus stack.next || yabai -m window --focus stack.first 
+
+# Stack windows
+hyper - s : yabai -m window --stack east || yabai -m window --stack west
+
+# Unstack windows
+hyper - u : $(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+
+# Swap
+cmd + alt - j : yabai -m window --swap south
+cmd + alt - k : yabai -m window --swap north
+cmd + alt - h : yabai -m window --swap west
+cmd + alt - l : yabai -m window --swap east
+
+# Spectacle like combos
+ctrl + cmd + alt - left : yabai -m window --display 2; yabai -m display --focus 2
+ctrl + cmd + alt - right : yabai -m window --display 1; yabai -m display --focus 1
+cmd + alt - f : yabai -m window --toggle zoom-fullscreen
+
+# Set insertion point for focused container
+shift + ctrl + alt - h : yabai -m window --insert west
+shift + ctrl + alt - j : yabai -m window --insert south
+shift + ctrl + alt - k : yabai -m window --insert north
+shift + ctrl + alt - l : yabai -m window --insert east
+
+# Float / Unfloat window
+hyper - space : yabai -m window --toggle float
+
+# Not working yet
+hyper - 1 : switchAndFocusSIP.sh 1
+hyper - 2 : switchAndFocusSIP.sh 2
+hyper - 3 : switchAndFocusSIP.sh 3
+

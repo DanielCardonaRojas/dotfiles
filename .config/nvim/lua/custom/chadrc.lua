@@ -57,7 +57,7 @@ M.mappings.plugins = {
       git_status = "<leader>gs",
       help_tags = "<leader>fh",
       live_grep = "<leader>fs",
-      oldfiles = "<leader>fm",
+      oldfiles = "<leader>fo",
       themes = "<leader>th", -- NvChad theme picker
       -- media previews within telescope finders
       telescope_media = {
@@ -68,8 +68,8 @@ M.mappings.plugins = {
       bookmarks = "<leader>bm",
       new_file = "<leader>fn", -- basically create a new buffer
       open = "<leader>db", -- open dashboard
-      session_load = "<leader>ll", -- load a saved session
-      session_save = "<leader>sl", -- save a session
+      session_load = "<leader>sl", -- load a saved session
+      session_save = "<leader>ss", -- save a session
    },
 
 }

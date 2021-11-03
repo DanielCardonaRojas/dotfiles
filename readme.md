@@ -9,11 +9,11 @@ This setup consists of
 
 ## Installation
 
-Most binaries are installed with [nix package manager]() through [home-manager](https://github.com/nix-community/home-manager)
+Most binaries are installed with [nix package manager](https://nixos.org/download.html) through [home-manager](https://github.com/nix-community/home-manager)
 
 ```shell
 # Install nix package manager
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+sudo curl -L https://nixos.org/nix/install | sh
 
 # Install home-manager
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -30,7 +30,22 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 ```
 
-or:
+Install yabai and skhd services:
+
+```shell
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
+
+# start yabai
+brew services start yabai
+brew services start skhd
+```
+
+skhd will try to use hyper key for most operations
+this is enabled by installing karabiner elements.
+
+
+Automated install (WIP):
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/DanielCardonaRojas/dotfiles/master/dotFilesConfig.sh)"
