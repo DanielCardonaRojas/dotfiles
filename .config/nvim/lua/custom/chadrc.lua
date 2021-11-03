@@ -12,9 +12,12 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- To use this file, copy the structure of `core/default_config.lua`,
 -- examples of setting relative number & changing theme:
 
--- M.options = {
---    relativenumber = true,
--- }
+M.options = {
+   relativenumber = false,
+   nvChad = {
+      insert_nav = false, -- navigation in insertmode
+   },
+}
 
 -- M.ui = {
 --   theme = "nord"
