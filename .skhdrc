@@ -1,4 +1,9 @@
 # =================== MISC ================
+
+# Map hyper + e to tmux leader
+
+hyper - space : skhd -k "ctrl - b"
+
 # Remappings for yabai spaces as defined yabairc uses default 
 # macos shortcuts for switch to desktop make sure this shortcuts are
 # enabled in system preferences
@@ -105,5 +110,5 @@ shift + ctrl + alt - k : yabai -m window --insert north
 shift + ctrl + alt - l : yabai -m window --insert east
 
 # Float / Unfloat window
-hyper - space : yabai -m window --toggle float
+hyper - t : yabai -m window --toggle float
 
