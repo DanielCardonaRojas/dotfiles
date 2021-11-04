@@ -1,3 +1,14 @@
+# =================== MISC ================
+# Remappings for yabai spaces as defined yabairc uses default 
+# macos shortcuts for switch to desktop make sure this shortcuts are
+# enabled in system preferences
+
+# Switch to space 2 and 4 at the same time (assumming 3 desktop on each display)
+hyper - 1 : skhd -k "ctrl - 4"; skhd -k "ctrl - 1"
+hyper - 2 : skhd -k "ctrl - 5"; skhd -k "ctrl - 2"
+hyper - 3 : skhd -k "ctrl - 6"; skhd -k "ctrl - 3"
+
+# =================== YABAI ================
 hyper - r : yabai -m space --rotate 90
 ctrl + alt - r : yabai -m space --rotate 90
 
@@ -5,7 +16,10 @@ hyper - m : yabai -m space --mirror y-axis
 ctrl + alt - m : yabai -m space --mirror y-axis
 
 hyper - f : yabai -m window --toggle zoom-fullscreen
+
+# Reload yabail or skhd
 hyper - 9 : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+hyper - 0 : brew services restart skhd
 
 # hyper + ]
 hyper - 0x1E : yabai -m window --focus east || yabai -m display --focus 1
@@ -14,10 +28,8 @@ hyper - 0x1E : yabai -m window --focus east || yabai -m display --focus 1
 # hyper + [ : Focus right window in this or side monitor
 hyper - 0x21 : yabai -m window --focus west || yabai -m display --focus 2
 
-hyper - n : yabai -m window --display recent; yabai -m display --focus recent
-hyper - p : yabai -m window --focus recent
-
-ctrl + alt + cmd + lshift - return : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+# Move window to next screen
+hyper - n : (yabai -m window --display next || yabai -m window --display first); (yabai -m display --focus next || yabai -m display --focus first)
 
 # Resize windows
 hyper - h : \
@@ -52,11 +64,25 @@ hyper - l : \
     yabai -m window --resize right:100:0 ; \
     yabai -m window --resize left:100:0
 
-# Navigate Stack
+# Navigate Stack hyper + ;
 hyper - 0x29 : yabai -m window --focus stack.next || yabai -m window --focus stack.first 
 
 # Stack windows
-hyper - s : yabai -m window --stack east || yabai -m window --stack west
+# Create stack (group)
+hyper - g : yabai -m window --stack east || yabai -m window --stack west || yabai -m window --stack south || yabai -m window --stack north
+
+
+hyper - s : yabai -m window --focus south
+hyper - w : yabai -m window --focus north
+hyper - a : yabai -m window --focus west
+hyper - d : yabai -m window --focus east
+
+hyper - right : yabai -m window --stack east
+hyper - left : yabai -m window --stack west
+hyper - up : yabai -m window --stack north
+hyper - down : yabai -m window --stack north
+
+
 
 # Unstack windows
 hyper - u : $(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
@@ -80,9 +106,4 @@ shift + ctrl + alt - l : yabai -m window --insert east
 
 # Float / Unfloat window
 hyper - space : yabai -m window --toggle float
-
-# Not working yet
-hyper - 1 : switchAndFocusSIP.sh 1
-hyper - 2 : switchAndFocusSIP.sh 2
-hyper - 3 : switchAndFocusSIP.sh 3
 
