@@ -27,11 +27,11 @@ hyper - 9 : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 hyper - 0 : brew services restart skhd
 
 # hyper + ]
-hyper - 0x1E : yabai -m window --focus east || yabai -m display --focus 1
+hyper - 0x1E : yabai -m window --focus east || (yabai -m display --focus next || yabai -m display --focus first); yabai -m window --focus first
 
 
 # hyper + [ : Focus right window in this or side monitor
-hyper - 0x21 : yabai -m window --focus west || yabai -m display --focus 2
+hyper - 0x21 : yabai -m window --focus west || (yabai -m display --focus prev || yabai -m display --focus last); yabai -m window --focus first
 
 # Move window to next screen
 hyper - n : (yabai -m window --display next || yabai -m window --display first); (yabai -m display --focus next || yabai -m display --focus first)
