@@ -74,7 +74,7 @@ hyper - 0x29 : yabai -m window --focus stack.next || yabai -m window --focus sta
 
 # Stack windows
 # Create stack (group)
-hyper - g : yabai -m window --stack east || yabai -m window --stack west || yabai -m window --stack south || yabai -m window --stack north
+hyper - g : yabai -m space --layout stack
 
 
 hyper - s : yabai -m window --focus south
@@ -90,7 +90,8 @@ hyper - down : yabai -m window --stack north
 
 
 # Unstack windows
-hyper - u : $(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+hyper - u : yabai -m space --layout bsp
+# hyper - u : $(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
 
 # Swap
 cmd + alt - j : yabai -m window --swap south
