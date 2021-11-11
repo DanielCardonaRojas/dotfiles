@@ -19,9 +19,9 @@ M.options = {
    },
 }
 
--- M.ui = {
---   theme = "nord"
--- }
+M.ui = {
+  theme = "penokai"
+}
 
 M.mappings = {
    update_nvchad = "<leader>cu",
@@ -31,7 +31,7 @@ M.mappings = {
 M.plugins = {
    options = {
         luasnip = {
-          snippet_path = "~/.config/my-snippets"
+          snippet_path = {'~/development/friendly-snippets', '~/.config/my-snippets' }
         },
         lspconfig = {
          -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
@@ -50,7 +50,7 @@ M.plugins = {
 M.mappings.plugins = {
    nvimtree = {
       toggle = "<leader>e",
-      focus = "<leader>Z",
+      focus = "<leader>E",
    },
    telescope = {
       buffers = "<leader>fb",

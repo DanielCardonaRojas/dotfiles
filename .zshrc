@@ -100,6 +100,15 @@ path() {
   echo $PATH | sed 's/:/\n/g'
 }
 
+# Search with fzf and open with neovim (find file)
+ff() {
+  local selected_file=$(fzf)
+
+  if ! [ -z $selected_file ]; then
+    nvim $selected_file
+  fi
+}
+
 gif-mov() {
    movie=$1
    height=$(mdls -name kMDItemPixelHeight ${movie} | grep -o '[0-9]\+')
