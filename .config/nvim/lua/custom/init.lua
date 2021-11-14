@@ -16,14 +16,12 @@ function lsp_attach()
    vim.api.nvim_set_keymap("n", "<space>lw", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
    vim.api.nvim_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
    vim.api.nvim_set_keymap("n", "F2", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-   vim.api.nvim_set_keymap("n", "<space>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
    vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
    vim.api.nvim_set_keymap("n", "ge", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
    vim.api.nvim_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
    vim.api.nvim_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<space>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-   vim.api.nvim_set_keymap("v", "<space>.", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 end
 
 --------------------------------------------------------------------
@@ -65,11 +63,15 @@ hooks.add("setup_mappings", function(map)
     -- Misc
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
+    -- vim.api.nvim_set_keymap("n", "<leader>.", ":Telescope lsp_code_actions <CR>", {})
+    vim.api.nvim_set_keymap("n", "<leader>.", ":lua require('telescope.builtin').lsp_code_actions({ layout_strategy='vertical', layout_config={width=0.3}}) <CR>", {silent = true})
 
 end)
 
 hooks.add("install_plugins", function(use)
   use { 'tpope/vim-unimpaired'}
+  use {'wakatime/vim-wakatime'}
+  use {'glepnir/lspsaga.nvim'}
 
 
   use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',

@@ -101,7 +101,11 @@ telescope.setup {
       },
       find_files = {
         theme = "dropdown"
-      }
+      },
+      lsp_references = { theme = 'dropdown' },
+      lsp_definitions = { theme = 'dropdown' },
+      lsp_implementations = { theme = 'dropdown' },
+      lsp_code_actions = { theme = 'dropdown' }
   },
 }
 
