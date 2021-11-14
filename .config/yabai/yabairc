@@ -38,6 +38,8 @@ yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
 yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Code$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off layer=above
+yabai -m rule --add app="^Notes$" manage=off layer=above
 
 
 # Space labels 3 desktops per display
