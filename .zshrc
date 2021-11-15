@@ -124,4 +124,8 @@ gif-mov() {
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 export PATH="$HOME/.config/scripts:$PATH"
+export PATH="$PATH:$HOME/fvm/default/bin" # Flutter global version as managed by fvm
+export PATH="$PATH:$HOME/.config/scripts"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 eval "$(starship init zsh)"

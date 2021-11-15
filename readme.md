@@ -7,6 +7,21 @@ This setup consists of
 - NeoVim
 - Oh-my-zsh
 
+## Kmonad setup
+
+
+
+- Give input monitoring permission to kmonad
+
+```
+sudo cp ~/.config/com.decaroj.startup.plist /Library/LaunchAgents/
+sudo chown root:wheel /Library/LaunchAgents/com.decaroj.startup.plist
+sudo launchctl load /Library/LaunchDaemons/com.decaroj.startup.plist
+```
+
+> Check if running: `sudo launchctl list | grep kmonad`
+
+
 ## Installation
 
 Most binaries are installed with [nix package manager](https://nixos.org/download.html) through [home-manager](https://github.com/nix-community/home-manager)
