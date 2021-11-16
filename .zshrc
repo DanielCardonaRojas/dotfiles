@@ -90,12 +90,6 @@ source $HOME/.bash_profile
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
 path() {
   echo $PATH | sed 's/:/\n/g'
 }
@@ -124,4 +118,8 @@ gif-mov() {
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 export PATH="$HOME/.config/scripts:$PATH"
+export PATH="$PATH:$HOME/fvm/default/bin" # Flutter global version as managed by fvm
+export PATH="$PATH:$HOME/.config/scripts"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 eval "$(starship init zsh)"
