@@ -63,7 +63,7 @@ hooks.add("setup_mappings", function(map)
     -- Misc
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
-    -- vim.api.nvim_set_keymap("n", "<leader>.", ":Telescope lsp_code_actions <CR>", {})
+    vim.api.nvim_set_keymap("n", "<leader>fc", ":lua require('custom.telescope').find_configs() <CR>", {silent = true})
     vim.api.nvim_set_keymap("n", "<leader>.", ":lua require('telescope.builtin').lsp_code_actions({ layout_strategy='vertical', layout_config={width=0.3}}) <CR>", {silent = true})
 
 end)
