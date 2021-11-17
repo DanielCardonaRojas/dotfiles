@@ -91,7 +91,7 @@ source $HOME/.bash_profile
 # export ARCHFLAGS="-arch x86_64"
 
 path() {
-  echo $PATH | sed 's/:/\n/g'
+  echo $PATH | tr -s ':' '\n'
 }
 
 # Search with fzf and open with neovim (find file)
