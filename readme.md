@@ -21,6 +21,13 @@ sudo launchctl load /Library/LaunchDaemons/com.decaroj.startup.plist
 
 > Check if running: `sudo launchctl list | grep kmonad`
 
+Restart with
+
+```
+sudo launchctl stop local.kmonad # Will leave you with unresponsive keyboard (use keyboard preview)
+sudo launchctl start local.kmonad
+```
+
 
 ## Installation
 

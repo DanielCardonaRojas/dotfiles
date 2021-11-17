@@ -33,6 +33,7 @@
     pkgs.exa
     pkgs.cloc
     pkgs.neovim
+    pkgs.nnn
   ];
 
   programs.tmux.enable = true;
