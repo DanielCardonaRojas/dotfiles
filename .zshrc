@@ -103,6 +103,10 @@ ff() {
   fi
 }
 
+fs() {
+  skat # In ~/.config/scripts
+}
+
 gif-mov() {
    movie=$1
    height=$(mdls -name kMDItemPixelHeight ${movie} | grep -o '[0-9]\+')
