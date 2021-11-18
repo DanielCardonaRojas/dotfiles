@@ -27,10 +27,11 @@
     file-decoration-style = none
 [alias]
 	c = commit
+	ca = commit --amend --no-edit
 	co = checkout
 	s = status
+	r = rebase
 	lg = log -15 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	cob = checkout -b
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

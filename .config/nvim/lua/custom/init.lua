@@ -111,7 +111,11 @@ hooks.add("install_plugins", function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup { }
+      require("trouble").setup {
+        auto_open = true, -- automatically open the list when you have diagnostics
+        auto_close = true, -- automatically close the list when you have no diagnostics
+        mode = "lsp_workspace_diagnostics",
+      }
     end,
     setup = function()
       vim.api.nvim_set_keymap("n", "<leader>ll", ":TroubleToggle <CR>", {})
