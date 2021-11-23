@@ -90,6 +90,8 @@ source $HOME/.bash_profile
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+KEYTIMEOUT=1
+
 path() {
   echo $PATH | tr -s ':' '\n'
 }

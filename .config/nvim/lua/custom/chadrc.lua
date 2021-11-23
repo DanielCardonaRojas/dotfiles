@@ -53,7 +53,7 @@ M.mappings.plugins = {
       focus = "<leader>E",
    },
    telescope = {
-      buffers = "<leader>fb",
+      buffers = "<leader>o",
       find_files = "<leader>ff",
       find_hiddenfiles = "<leader>fa",
       git_commits = "<leader>gc",
