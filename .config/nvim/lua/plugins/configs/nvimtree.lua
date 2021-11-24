@@ -22,6 +22,7 @@ g.nvim_tree_window_picker_exclude = {
    buftype = {'terminal' },
 }
 
+--
 g.nvim_tree_show_icons = {
    folders = 1,
    -- folder_arrows= 1

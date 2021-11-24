@@ -23,8 +23,13 @@ M.ui = {
   theme = "penokai"
 }
 
+
 M.mappings = {
    update_nvchad = "<leader>cu",
+   insert_nav = {
+      next_line = "<Down>",
+      prev_line = "<Up>",
+   },
 }
 
 -- NvChad included plugin options & overrides
@@ -37,9 +42,13 @@ M.plugins = {
          -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
          setup_lspconf = "custom.lspconfig",
         },
+        nvimtree = {
+           enable_git = 1,
+        },
    },
    default_plugin_config_replace = {
-     telescope = "custom.telescope"
+     telescope = "custom.telescope",
+     nvim_cmp = "custom.cmp"
    },
    status = {
     esc_insertmode = false,
