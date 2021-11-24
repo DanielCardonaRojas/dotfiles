@@ -23,8 +23,13 @@ M.ui = {
   theme = "penokai"
 }
 
+
 M.mappings = {
    update_nvchad = "<leader>cu",
+   insert_nav = {
+      next_line = "<Down>",
+      prev_line = "<Up>",
+   },
 }
 
 -- NvChad included plugin options & overrides
@@ -39,7 +44,8 @@ M.plugins = {
         },
    },
    default_plugin_config_replace = {
-     telescope = "custom.telescope"
+     telescope = "custom.telescope",
+     nvim_cmp = "custom.cmp"
    },
    status = {
     esc_insertmode = false,
