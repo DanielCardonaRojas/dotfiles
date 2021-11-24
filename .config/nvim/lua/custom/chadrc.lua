@@ -42,6 +42,9 @@ M.plugins = {
          -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
          setup_lspconf = "custom.lspconfig",
         },
+        nvimtree = {
+           enable_git = 1,
+        },
    },
    default_plugin_config_replace = {
      telescope = "custom.telescope",
@@ -59,7 +62,7 @@ M.mappings.plugins = {
       focus = "<leader>E",
    },
    telescope = {
-      buffers = "<leader>fb",
+      buffers = "<leader>o",
       find_files = "<leader>ff",
       find_hiddenfiles = "<leader>fa",
       git_commits = "<leader>gc",
