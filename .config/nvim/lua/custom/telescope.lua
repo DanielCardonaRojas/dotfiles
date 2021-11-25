@@ -92,6 +92,14 @@ telescope.setup {
         },
         previewer = false,
       },
+      lsp_document_symbols = {
+        previewer = false,
+        symbols = {"method", "class"},
+        layout_config = {
+          height = 20,
+          width = 0.4,
+        },
+      },
       buffers = {
         sort_lastused = true,
         ignore_current_buffer = true,
@@ -139,7 +147,7 @@ local M = {}
 function M.find_configs()
   require("telescope.builtin").find_files {
     prompt_title = "Config Find",
-    results_title = "Config Files Results",
+    results_title = nil,
     path_display = { "smart" },
     search_dirs = {
       "~/.oh-my-zsh/custom/",
@@ -148,10 +156,41 @@ function M.find_configs()
       "~/.config/yabai",
       "~/.config/scripts",
       "~/.config/nixpkgs",
+      "~/.config/my-snippets",
+      "~/.zshrc",
+      "~/.tmux.conf",
+      "~/dotFilesConfig.sh",
+      "~/readme.md",
+      "~/.bash_profile",
     },
     cwd = "~/.config/nvim/",
     layout_strategy = "horizontal",
-    layout_config = { preview_width = 0.65, width = 0.75 },
+    layout_config = { preview_width = 0.6, width = 0.75, height = 0.5 },
+  }
+end
+
+function M.search_configs()
+  require("telescope.builtin").live_grep {
+    prompt_title = "Config Search",
+    results_title = nil,
+    path_display = { "smart" },
+    search_dirs = {
+      "~/.oh-my-zsh/custom/",
+      "~/.config/nvim",
+      "~/.config/alacritty",
+      "~/.config/yabai",
+      "~/.config/scripts",
+      "~/.config/nixpkgs",
+      "~/.config/my-snippets",
+      "~/.zshrc",
+      "~/.tmux.conf",
+      "~/dotFilesConfig.sh",
+      "~/readme.md",
+      "~/.bash_profile",
+    },
+    cwd = "~/.config/nvim/",
+    layout_strategy = "horizontal",
+    layout_config = { preview_width = 0.6, width = 0.75, height = 0.5 },
   }
 end
 
