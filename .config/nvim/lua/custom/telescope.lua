@@ -82,6 +82,7 @@ telescope.setup {
     },
    pickers = {
       oldfiles = {
+        path_display = { "smart" },
         sort_lastused = true,
         theme = "ivy",
         layout_config = {
