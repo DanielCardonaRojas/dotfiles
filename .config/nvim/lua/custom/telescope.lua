@@ -83,12 +83,22 @@ telescope.setup {
    pickers = {
       oldfiles = {
         sort_lastused = true,
-        theme = "dropdown",
+        theme = "ivy",
+        layout_config = {
+          height = 12,
+        },
+        layout_config = {
+          height = 12,
+        },
         previewer = false,
       },
       buffers = {
         sort_lastused = true,
-        theme = "dropdown",
+        ignore_current_buffer = true,
+        theme = "ivy",
+        layout_config = {
+          height = 12,
+        },
         previewer = false,
         mappings = {
           i = {
@@ -128,7 +138,7 @@ local M = {}
 
 function M.find_configs()
   require("telescope.builtin").find_files {
-    prompt_title = " NVim & Term Config Find",
+    prompt_title = "Config Find",
     results_title = "Config Files Results",
     path_display = { "smart" },
     search_dirs = {
