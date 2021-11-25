@@ -56,6 +56,11 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap('c', '<c-j>', 'wildmenumode() ? "\\<C-n>" : "\\<c-j>"', {expr = true})
     vim.api.nvim_set_keymap('c', '<c-k>', 'wildmenumode() ? "\\<C-p>" : "\\<c-k>"', {expr = true})
 
+    -- Window resizing
+    vim.api.nvim_set_keymap('n', '<c-s-right>', '<c-w>>', {})
+    vim.api.nvim_set_keymap('n', '<c-s-left>', '<c-w><', {})
+
+
     -- Pop up menu
     -- vim.api.nvim_set_keymap('i', '<c-j>', 'pumvisible() ? "\\<c-n>" : "\\<c-j>"' , { noremap = true, expr=true })
     -- vim.api.nvim_set_keymap('i', '<c-k>', 'pumvisible() ? "\\<c-p>" : "\\<c-k>"' , { noremap = true, expr=true })
