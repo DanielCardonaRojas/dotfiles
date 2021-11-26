@@ -13,6 +13,7 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- examples of setting relative number & changing theme:
 
 M.options = {
+   updatetime = 1700,
    relativenumber = false,
    nvChad = {
       insert_nav = false, -- navigation in insertmode

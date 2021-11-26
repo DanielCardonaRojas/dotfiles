@@ -31,10 +31,10 @@ end
 -- or you can override the whole plugin config with 'chadrc' -> M.plugins.default_plugin_config_replace{}
 -- this will run your config instead of the NvChad config for the given plugin
 
--- hooks.override("lsp", "publish_diagnostics", function(current)
---   current.virtual_text = false;
---   return current;
--- end)
+hooks.override("lsp", "publish_diagnostics", function(current)
+  current.virtual_text = false;
+  return current;
+end)
 
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
