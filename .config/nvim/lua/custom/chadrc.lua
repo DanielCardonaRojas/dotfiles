@@ -49,7 +49,8 @@ M.plugins = {
    },
    default_plugin_config_replace = {
      telescope = "custom.telescope",
-     nvim_cmp = "custom.cmp"
+     nvim_cmp = "custom.cmp",
+     gitsigns= "custom.gitsigns"
    },
    status = {
     esc_insertmode = false,
