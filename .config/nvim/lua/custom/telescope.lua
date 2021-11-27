@@ -118,7 +118,8 @@ telescope.setup {
         }
       },
       find_files = {
-        theme = "dropdown"
+        theme = "dropdown",
+        previewer = false,
       },
       lsp_references = { theme = 'dropdown' },
       lsp_definitions = { theme = 'dropdown' },
