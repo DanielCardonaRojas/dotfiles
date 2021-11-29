@@ -22,11 +22,11 @@ cmp.setup {
             vim_item.kind
          )
 
-         vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[Lua]",
-            buffer = "[BUF]",
-         })[entry.source.name]
+         -- vim_item.menu = ({
+         --    nvim_lsp = "[LSP]",
+         --    nvim_lua = "[Lua]",
+         --    buffer = "[BUF]",
+         -- })[entry.source.name]
 
          return vim_item
       end,

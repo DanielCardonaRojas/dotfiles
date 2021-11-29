@@ -38,6 +38,7 @@ end)
 
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
+    vim.o.pumheight=11
     vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {})
 
     vim.api.nvim_set_keymap("n", "<leader>w", "<c-w>", {})
