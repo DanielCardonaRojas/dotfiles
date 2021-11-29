@@ -75,9 +75,12 @@ hooks.add("setup_mappings", function(map)
 end)
 
 hooks.add("install_plugins", function(use)
+
   use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
+
+  use { 'dstein64/nvim-scrollview'}
 
 
   use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',
