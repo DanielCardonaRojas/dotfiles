@@ -52,10 +52,13 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap('t', '<C-l>', [[<C-\><C-n><C-W>l]], {noremap = true})
 
     -- Wildmenu mappings
-    vim.api.nvim_set_keymap('c', '<down>', 'wildmenumode() ? "\\<C-n>" : "\\<down>"', {expr = true})
-    vim.api.nvim_set_keymap('c', '<up>', 'wildmenumode() ? "\\<C-p>" : "\\<up>"', {expr = true})
-    vim.api.nvim_set_keymap('c', '<c-j>', 'wildmenumode() ? "\\<C-n>" : "\\<c-j>"', {expr = true})
-    vim.api.nvim_set_keymap('c', '<c-k>', 'wildmenumode() ? "\\<C-p>" : "\\<c-k>"', {expr = true})
+
+    -- vim.api.nvim_set_keymap('c', '<up>', 'wildmenumode() ? "\\<C-p>" : "\\<up>"', {expr = true, noremap = true})
+    -- vim.api.nvim_set_keymap('c', '<down>', 'wildmenumode() ? "\\<C-n>" : "\\<down>"', {expr = true, noremap = true})
+    -- vim.api.nvim_set_keymap('c', '<c-j>', 'wildmenumode() ? "\\<C-n>" : "\\<c-j>"', {expr = true, noremap = true})
+    -- vim.api.nvim_set_keymap('c', '<c-k>', 'wildmenumode() ? "\\<C-p>" : "\\<c-k>"', {expr = true, noremap = true})
+    vim.api.nvim_set_keymap('c', '<c-j>', '<c-n>', {noremap = true})
+    vim.api.nvim_set_keymap('c', '<c-k>', '<c-p>', {noremap = true})
 
     -- Window resizing
     vim.api.nvim_set_keymap('n', '<c-s-right>', '<c-w>>', {})
