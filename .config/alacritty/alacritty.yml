@@ -1,6 +1,11 @@
 # TERM: alacritty
 TERM: xterm-256color
 
+cursor:
+  shape: Block
+  blinking: Always
+  blink_interval: 500
+
 window:
   position:
     x: 0
@@ -35,9 +40,9 @@ colors:
     background: "0x282a36"
     foreground: "0xf8f8f2"
 
-  cursor:
-    text: "0x44475a"
-    cursor: "0xf8f8f2"
+  # cursor:
+  #   text: "0x44475a"
+  #   cursor: "0xf8f8f2"
 
   selection:
     text: "0xf8f8f2"
