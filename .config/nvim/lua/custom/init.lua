@@ -80,16 +80,54 @@ end)
 
 hooks.add("install_plugins", function(use)
 
+  use { 'dosimple/workspace.vim' }
+
   use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
 
   use { 'dstein64/nvim-scrollview'}
 
+  use {'mfussenegger/nvim-dap', 
+    config = function() 
+      require('custom.dap').configure()
+    end,
+    setup = function() 
+      vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
+      vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "", linehl = "", numhl = "" })
+
+      vim.api.nvim_set_keymap("n", "<leader>dh", ':lua require"dap".toggle_breakpoint() <CR>', {})
+      vim.api.nvim_set_keymap("n", "<F5>", ':lua require"dap".continue() <CR>', {})
+      vim.api.nvim_set_keymap("n", "<leader>dc", ':lua require"dap".continue() <CR>', {})
+      vim.api.nvim_set_keymap("n", "<leader>dj", ':lua require"dap".step_over() <CR>', {})
+      vim.api.nvim_set_keymap('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l', {})
+      vim.api.nvim_set_keymap('n', '<leader>de', ':lua require"dap".set_exception_breakpoints({"all"})<CR>',  {})
+      vim.api.nvim_set_keymap('n', '<leader>da', ':lua require"debugHelper".attach()<CR>', {})
+      vim.api.nvim_set_keymap('n', '<leader>dA', ':lua require"debugHelper".attachToRemote()<CR>', {})
+      vim.api.nvim_set_keymap('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>', {})
+
+      -- vim.api.nvim_set_keymap('n', '<leader>db', ':Telescope dap list_breakpoints<CR>')
+    end
+  }
+
 
   use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',
    config = function()
      require("flutter-tools").setup{
+      debugger = { -- integrate with nvim dap + install dart code debugger
+          enabled = true,
+          run_via_dap = true, -- use dap instead of a plenary job to run flutter apps 
+--           register_configurations = function(paths)
+--             require("dap").configurations.dart = {
+--               name = "Launch Flutter",
+--               request = "launch",
+--               type = "dart",
+--             } 
+-- 
+--             require("dap.ext.vscode").load_launchjs()
+--           end,
+      },
      } -- use defaults
 
      lsp_attach()
