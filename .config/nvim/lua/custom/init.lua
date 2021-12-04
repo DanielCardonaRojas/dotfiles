@@ -75,6 +75,9 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap("n", "<leader>f.", ":lua require('custom.telescope').find_configs() <CR>", {silent = true})
     vim.api.nvim_set_keymap("n", "<leader>f,", ":lua require('custom.telescope').search_configs() <CR>", {silent = true})
     vim.api.nvim_set_keymap("n", "<leader>.", ":lua require('telescope.builtin').lsp_code_actions({ layout_strategy='vertical', layout_config={width=0.4, height=14}}) <CR>", {silent = true})
+    -- Tabs
+    vim.api.nvim_set_keymap("n", "<leader><tab>", ":tabnext<cr>", {silent  = true})
+    vim.api.nvim_set_keymap("n", "<leader><S-tab>", ":tabprev<cr>", {silent  = true})
 
 end)
 
@@ -86,7 +89,12 @@ hooks.add("install_plugins", function(use)
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
 
-  use { 'dstein64/nvim-scrollview'}
+  use { 'dstein64/nvim-scrollview', 
+    config = function() 
+      vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm'}
+
+    end
+  }
 
   use {'mfussenegger/nvim-dap', 
     config = function() 
