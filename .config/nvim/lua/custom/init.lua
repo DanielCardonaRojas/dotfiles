@@ -91,9 +91,19 @@ hooks.add("install_plugins", function(use)
 
   use { 'dstein64/nvim-scrollview', 
     config = function() 
-      vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm'}
+      vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm',}
 
     end
+  }
+
+  use { "rcarriga/nvim-dap-ui", 
+    requires = {"mfussenegger/nvim-dap"}, 
+    config = function() 
+      require('dapui').setup()
+    end,
+    setup = function() 
+      vim.api.nvim_set_keymap('n', '<leader>dd', ':lua require("dapui").toggle() <CR>', {silent = true})
+    end,
   }
 
   use {'mfussenegger/nvim-dap', 
@@ -184,7 +194,7 @@ hooks.add("install_plugins", function(use)
   use { "beauwilliams/focus.nvim",
     config = function()
       require("focus").setup({
-        excluded_filetypes = {"toggleterm"},
+        excluded_filetypes = {'toggleterm', 'Trouble', 'NvimTree', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks'},
         signcolumn = false
       })
       vim.cmd [[ FocusDisable ]]
