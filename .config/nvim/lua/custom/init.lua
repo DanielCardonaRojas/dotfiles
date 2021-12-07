@@ -39,6 +39,7 @@ end)
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
     vim.o.pumheight=11
+    vim.opt.guicursor = 'a:blinkon50'
     vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {})
 
     vim.api.nvim_set_keymap("n", "<leader>w", "<c-w>", {})
@@ -83,7 +84,18 @@ end)
 
 hooks.add("install_plugins", function(use)
 
-  use { 'dosimple/workspace.vim' }
+  -- use { 'dosimple/workspace.vim' }
+  -- use 'marko-cerovac/material.nvim'
+  -- use 'folke/tokyonight.nvim'
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+      }
+    end
+  }
+
 
   use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
