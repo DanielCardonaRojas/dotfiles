@@ -185,6 +185,7 @@ function M.search_configs()
       "~/.config/my-snippets",
       "~/.zshrc",
       "~/.tmux.conf",
+      "~/.skhdrc",
       "~/dotFilesConfig.sh",
       "~/readme.md",
       "~/.bash_profile",

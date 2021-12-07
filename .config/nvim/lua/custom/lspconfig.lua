@@ -1,11 +1,13 @@
 local M = {}
 
 M.setup_lsp = function(attach, capabilities)
-   local lspconfig = require "lspconfig"
+  local lspconfig = require "lspconfig"
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  local servers = { "html", "cssls", "jsonls", "pyright", "rust_analyzer" }
 
    -- lspservers with default config
 
-  local servers = { "html", "cssls", "pyright", "rust_analyzer" }
 
   for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
@@ -17,23 +19,6 @@ M.setup_lsp = function(attach, capabilities)
       }
   end
    
-   -- typescript
-
-  lspconfig.tsserver.setup {
-    on_attach = function(client, bufnr)
-       client.resolved_capabilities.document_formatting = false
-       vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
-    end,
-  }
-
-  -- elm
-  lspconfig.elmls.setup {
-    on_attach = function(client, bufnr)
-       client.resolved_capabilities.document_formatting = false
-       vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
-    end,
-  }
-
 end
 
 return M

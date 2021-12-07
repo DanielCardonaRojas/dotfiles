@@ -109,7 +109,7 @@ hooks.add("install_plugins", function(use)
 
   use { 'dstein64/nvim-scrollview', 
     config = function() 
-      vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm',}
+      vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm', 'dashboard'}
 
     end
   }
