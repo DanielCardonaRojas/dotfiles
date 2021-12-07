@@ -180,6 +180,7 @@ function M.search_configs()
       "~/.config/nvim",
       "~/.config/alacritty",
       "~/.config/yabai",
+      "~/.config/wezterm",
       "~/.config/scripts",
       "~/.config/nixpkgs",
       "~/.config/my-snippets",
