@@ -7,13 +7,19 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   font_size = 16.5,
   window_close_confirmation = "NeverPrompt",
+  window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+  },
   color_scheme = "Dracula",
   colors = {
     foreground = "#f7f1ff",
     background = "#221f22",
-    cursor_bg = "#52ad70",
-    cursor_fg = "black",
-    cursor_border = "#52ad70",
+    -- cursor_bg = "#52ad70",
+    -- cursor_fg = "black",
+    -- cursor_border = "#52ad70",
   },
   hyperlink_rules = {
     -- Linkify things that look like URLs
