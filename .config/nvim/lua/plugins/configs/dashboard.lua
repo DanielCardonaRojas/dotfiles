@@ -1,4 +1,6 @@
 local g = vim.g
+local chadrc_config = require("core.utils").load_config()
+local dashboard_config = chadrc_config.mappings.plugins.dashboard
 
 g.dashboard_disable_at_vimenter = 0
 g.dashboard_disable_statusline = 1
@@ -22,12 +24,12 @@ g.dashboard_custom_header = {
 }
 
 g.dashboard_custom_section = {
-   a = { description = { "  Find File                 SPC f f" }, command = "Telescope find_files" },
-   b = { description = { "  Recents                   SPC f o" }, command = "Telescope oldfiles" },
-   c = { description = { "  Find Word                 SPC f w" }, command = "Telescope live_grep" },
-   d = { description = { "洛 New File                  SPC f n" }, command = "DashboardNewFile" },
-   e = { description = { "  Bookmarks                 SPC b m" }, command = "Telescope marks" },
-   f = { description = { "  Load Last Session         SPC l  " }, command = "SessionLoad" },
+   a = { description = { "  Find File                 " .. "<leader>ff" }, command = "Telescope find_files" },
+   b = { description = { "  Recents                   " .. "<leader>fo" }, command = "Telescope oldfiles" },
+   c = { description = { "  Find Word                 " .. "<leader>fs"}, command = "Telescope live_grep" },
+   d = { description = { "洛 New File                  " .. dashboard_config.new_file}, command = "DashboardNewFile" },
+   e = { description = { "  Bookmarks                 " .. dashboard_config.bookmarks }, command = "Telescope marks" },
+   f = { description = { "  Load Last Session         " .. dashboard_config.session_load }, command = "SessionLoad" },
 }
 
 g.dashboard_custom_footer = {
