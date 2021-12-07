@@ -4,7 +4,7 @@ M.setup_lsp = function(attach, capabilities)
   local lspconfig = require "lspconfig"
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  local servers = { "html", "cssls", "jsonls", "pyright", "rust_analyzer" }
+  local servers = { "html", "cssls", "jsonls", "pyright", "rust_analyzer", "bashls", "sourcekit", "yamlls", "sumneko_lua" }
 
    -- lspservers with default config
 
