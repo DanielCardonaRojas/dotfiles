@@ -112,7 +112,8 @@ fg("IndentBlanklineChar", line)
 
 -- Errors
 fg("LspDiagnosticsSignError", red)
-fg("LspDiagnosticsSignWarning", yellow)
+fg("LspDiagnosticsSignWarn", yellow)
+fg("LspDiagnosticsSignInfo", green)
 fg("LspDiagnosticsVirtualTextError", red)
 fg("LspDiagnosticsVirtualTextWarning", yellow)
 
