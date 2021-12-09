@@ -128,11 +128,7 @@ hooks.add("install_plugins", function(use)
     config = function() 
       require('custom.dap').configure()
     end,
-    setup = function() 
-      vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
-      vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "", linehl = "", numhl = "" })
-
+    setup = function()
       vim.api.nvim_set_keymap("n", "<leader>dh", ':lua require"dap".toggle_breakpoint() <CR>', {})
       vim.api.nvim_set_keymap("n", "<F5>", ':lua require"dap".continue() <CR>', {})
       vim.api.nvim_set_keymap("n", "<leader>dc", ':lua require"dap".continue() <CR>', {})

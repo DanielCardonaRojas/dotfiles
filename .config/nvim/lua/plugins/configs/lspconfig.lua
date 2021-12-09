@@ -61,6 +61,7 @@ lspSymbol("Error", "")
 lspSymbol("Information", "")
 lspSymbol("Hint", "")
 lspSymbol("Warning", "")
+lspSymbol("Warn", "")
 
 local lsp_publish_diagnostics_options = overrides.get("publish_diagnostics", {
    virtual_text = {
