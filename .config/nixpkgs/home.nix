@@ -34,6 +34,8 @@
     pkgs.cloc
     pkgs.neovim
     pkgs.nnn
+    pkgs.lazygit
+    pkgs.skhd
   ];
 
   programs.tmux.enable = true;

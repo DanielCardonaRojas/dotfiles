@@ -56,6 +56,7 @@ yabai -m space 7 --label "Secondary"
 
 # Tools
 yabai -m rule --add app="Alacritty"             space=2
+yabai -m rule --add app="WezTerm"               space=2
 yabai -m rule --add app="Code"                  space=2
 yabai -m rule --add app="Postman"               space=5
 yabai -m rule --add app="Fork"                  space=5
