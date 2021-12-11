@@ -1,7 +1,7 @@
 local M = {}
 local dap = require('dap')
 
-M.configure = function() 
+M.configure = function()
   -- dap.adapters.dart = {
   --   type = "executable",
   --   command = "node",
@@ -18,6 +18,10 @@ M.configure = function()
   --     -- cwd = "${workspaceFolder}",
   --   }
   -- }
+      vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
+      vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "", linehl = "", numhl = "" })
+
 
 end
 

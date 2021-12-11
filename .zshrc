@@ -109,6 +109,10 @@ fs() {
   skat # In ~/.config/scripts
 }
 
+lzc() {
+  lazygit --git-dir=$HOME/.cfg --work-tree=$HOME
+}
+
 gif-mov() {
    movie=$1
    height=$(mdls -name kMDItemPixelHeight ${movie} | grep -o '[0-9]\+')

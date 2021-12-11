@@ -31,7 +31,7 @@ local function on_attach(_, bufnr)
    buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
    buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
    buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-   buf_set_keymap("n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+   buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
    buf_set_keymap("v", "<space>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 end
 
@@ -54,13 +54,17 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 -- replace the default lsp diagnostic symbols
 local function lspSymbol(name, icon)
-   vim.fn.sign_define("LspDiagnosticsSign" .. name, { text = icon, numhl = "LspDiagnosticsDefault" .. name })
+   vim.fn.sign_define("DiagnosticSign" .. name, {
+     text = icon,
+     numhl = "LspDiagnosticsSign" .. name,
+     texthl = "LspDiagnosticsSign" .. name,
+   })
 end
 
 lspSymbol("Error", "")
-lspSymbol("Information", "")
+lspSymbol("Info", "")
 lspSymbol("Hint", "")
-lspSymbol("Warning", "")
+lspSymbol("Warn", "")
 
 local lsp_publish_diagnostics_options = overrides.get("publish_diagnostics", {
    virtual_text = {
