@@ -4,7 +4,7 @@ Setup:
 
 - Alacritty (or wezterm)
 - Tmux
-- neovim
+- neovim (0.6)
 - Oh-my-zsh
 - Starship prompt
 - yabai (tiling manager for macOS)
@@ -47,6 +47,29 @@ Automated install (WIP):
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/DanielCardonaRojas/dotfiles/master/dotFilesConfig.sh)"
 ```
+# Neovim configuration
+
+Latest neovim release is used so install with homebrew if version not available as nix package.
+
+**Language servers**
+
+Documentation as to how to setup most Language servers is available  [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+Here are some of the ones used in this config: 
+
+```
+# jsonls, html, cssls
+npm i -g vscode-langservers-extracted
+
+#lua 
+brew install lua-language-server
+
+# rust-analyzer
+brew install rust-analyzer
+
+```
+
+
 ## Kmonad setup
 
 
