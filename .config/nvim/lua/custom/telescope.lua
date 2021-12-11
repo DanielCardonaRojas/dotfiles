@@ -103,7 +103,7 @@ telescope.setup {
       buffers = {
         sort_lastused = true,
         ignore_current_buffer = true,
-        theme = "ivy",
+        theme = "dropdown",
         layout_config = {
           height = 12,
         },

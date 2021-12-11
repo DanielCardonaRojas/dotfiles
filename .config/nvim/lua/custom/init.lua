@@ -54,10 +54,6 @@ hooks.add("setup_mappings", function(map)
 
     -- Wildmenu mappings
 
-    -- vim.api.nvim_set_keymap('c', '<up>', 'wildmenumode() ? "\\<C-p>" : "\\<up>"', {expr = true, noremap = true})
-    -- vim.api.nvim_set_keymap('c', '<down>', 'wildmenumode() ? "\\<C-n>" : "\\<down>"', {expr = true, noremap = true})
-    -- vim.api.nvim_set_keymap('c', '<c-j>', 'wildmenumode() ? "\\<C-n>" : "\\<c-j>"', {expr = true, noremap = true})
-    -- vim.api.nvim_set_keymap('c', '<c-k>', 'wildmenumode() ? "\\<C-p>" : "\\<c-k>"', {expr = true, noremap = true})
     vim.api.nvim_set_keymap('c', '<c-j>', '<c-n>', {noremap = true})
     vim.api.nvim_set_keymap('c', '<c-k>', '<c-p>', {noremap = true})
 
@@ -65,10 +61,6 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap('n', '<c-s-right>', '<c-w>>', {})
     vim.api.nvim_set_keymap('n', '<c-s-left>', '<c-w><', {})
 
-
-    -- Pop up menu
-    -- vim.api.nvim_set_keymap('i', '<c-j>', 'pumvisible() ? "\\<c-n>" : "\\<c-j>"' , { noremap = true, expr=true })
-    -- vim.api.nvim_set_keymap('i', '<c-k>', 'pumvisible() ? "\\<c-p>" : "\\<c-k>"' , { noremap = true, expr=true })
 
     -- Misc
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
@@ -88,19 +80,19 @@ hooks.add("install_plugins", function(use)
   -- use 'marko-cerovac/material.nvim'
   -- use 'folke/tokyonight.nvim'
 
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-        layout = {
-          height = { min = 4, max = 12 }, -- min and max height of the columns
-          width = { min = 20, max = 50 }, -- min and max width of the columns
-          spacing = 8, -- spacing between columns
-          align = "center", -- align columns left, center or right
-        },
-      }
-    end
-  }
+  -- use {
+  --   "folke/which-key.nvim",
+  --   config = function()
+  --     require("which-key").setup {
+  --       layout = {
+  --         height = { min = 4, max = 12 }, -- min and max height of the columns
+  --         width = { min = 20, max = 50 }, -- min and max width of the columns
+  --         spacing = 8, -- spacing between columns
+  --         align = "center", -- align columns left, center or right
+  --       },
+  --     }
+  --   end
+  -- }
 
 
   use { 'tpope/vim-unimpaired'}
@@ -197,7 +189,7 @@ hooks.add("install_plugins", function(use)
       require("trouble").setup {
         auto_open = true, -- automatically open the list when you have diagnostics
         auto_close = true, -- automatically close the list when you have no diagnostics
-        mode = "lsp_workspace_diagnostics",
+        mode = "workspace_diagnostics",
       }
     end,
     setup = function()

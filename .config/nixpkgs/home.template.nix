@@ -6,8 +6,8 @@
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "decaroj";
-  home.homeDirectory = "/Users/decaroj";
+  home.username = "USER_VAR";
+  home.homeDirectory = "HOME_VAR";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
