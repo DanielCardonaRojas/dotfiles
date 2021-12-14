@@ -94,6 +94,17 @@ hooks.add("install_plugins", function(use)
   --   end
   -- }
 
+  use {
+    "kwkarlwang/bufjump.nvim",
+    config = function()
+        require("bufjump").setup({
+            forward = "<C-n>",
+            backward = "<C-p>",
+            on_success = nil
+        })
+    end,
+  }
+
 
   use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
