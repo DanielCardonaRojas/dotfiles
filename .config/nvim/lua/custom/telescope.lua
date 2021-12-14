@@ -101,6 +101,7 @@ telescope.setup {
         },
       },
       buffers = {
+        path_display = { "smart" },
         sort_lastused = true,
         ignore_current_buffer = true,
         theme = "dropdown",
@@ -118,6 +119,7 @@ telescope.setup {
         }
       },
       find_files = {
+        path_display = { "smart" },
         theme = "dropdown",
         previewer = false,
       },
