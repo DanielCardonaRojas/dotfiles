@@ -27,7 +27,7 @@ Most binaries are installed with [nix package manager](https://nixos.org/downloa
 ~/.config/scripts/install-home-manager.sh
 ```
 
-Install FiraCode Nerd Font from [here](https://www.nerdfonts.com/font-downloads)
+Install VictorMono, FiraCode, and Caskaydia Cove, Nerd Fonts from [here](https://www.nerdfonts.com/font-downloads)
 
 Install yabai :
 

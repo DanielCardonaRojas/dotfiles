@@ -63,6 +63,7 @@ hooks.add("setup_mappings", function(map)
 
 
     -- Misc
+    vim.api.nvim_set_keymap("n", "<leader>t", ":Telescope <CR>", {})
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>f.", ":lua require('custom.telescope').find_configs() <CR>", {silent = true})
@@ -94,6 +95,12 @@ hooks.add("install_plugins", function(use)
   --   end
   -- }
 
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
+
+
   use {
     "kwkarlwang/bufjump.nvim",
     config = function()
@@ -106,7 +113,7 @@ hooks.add("install_plugins", function(use)
   }
 
 
-  use { 'tpope/vim-unimpaired'}
+  -- use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
 

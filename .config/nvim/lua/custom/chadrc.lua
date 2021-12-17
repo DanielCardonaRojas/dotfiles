@@ -72,7 +72,7 @@ M.mappings.plugins = {
       help_tags = "<leader>fh",
       live_grep = "<leader>fs",
       oldfiles = "<leader>fo",
-      themes = "<leader>th", -- NvChad theme picker
+      themes = "<leader>ct", -- NvChad theme picker
       -- media previews within telescope finders
       telescope_media = {
          media_files = "<leader>fp",
