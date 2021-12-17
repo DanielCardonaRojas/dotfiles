@@ -243,6 +243,7 @@ return packer.startup(function()
       "nvim-telescope/telescope.nvim",
       module = "telescope",
       cmd = "Telescope",
+      event = "VimEnter",
       requires = {
          {
             "nvim-telescope/telescope-fzf-native.nvim",
