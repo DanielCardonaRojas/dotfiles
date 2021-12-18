@@ -32,6 +32,10 @@ M.mappings = {
       next_line = "<Down>",
       prev_line = "<Up>",
    },
+   terminal = {
+      esc_termmode = { }, -- multiple mappings allowed
+      esc_hide_termmode = { "<Esc>" }, -- multiple mappings allowed
+   },
 }
 
 -- NvChad included plugin options & overrides

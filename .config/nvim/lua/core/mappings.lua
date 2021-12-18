@@ -28,7 +28,7 @@ M.misc = function()
       map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
       -- use ESC to turn off search highlighting
-      map("n", "<Esc>", ":noh <CR>")
+      -- map("n", "<Esc>", ":noh <CR>")
    end
 
    local function optional_mappings()
