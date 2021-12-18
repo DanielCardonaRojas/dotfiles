@@ -21,7 +21,8 @@ M.options = {
 }
 
 M.ui = {
-  theme = "penokai"
+  theme = "penokai",
+  italic_comments = true,
 }
 
 
@@ -30,6 +31,10 @@ M.mappings = {
    insert_nav = {
       next_line = "<Down>",
       prev_line = "<Up>",
+   },
+   terminal = {
+      esc_termmode = { }, -- multiple mappings allowed
+      esc_hide_termmode = { "<Esc>" }, -- multiple mappings allowed
    },
 }
 
@@ -72,7 +77,7 @@ M.mappings.plugins = {
       help_tags = "<leader>fh",
       live_grep = "<leader>fs",
       oldfiles = "<leader>fo",
-      themes = "<leader>th", -- NvChad theme picker
+      themes = "<leader>ct", -- NvChad theme picker
       -- media previews within telescope finders
       telescope_media = {
          media_files = "<leader>fp",
