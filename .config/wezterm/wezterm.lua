@@ -1,12 +1,13 @@
 local wezterm = require 'wezterm';
 
 return {
-  font = wezterm.font("FiraCode Nerd Font"),
+  font = wezterm.font_with_fallback({"VictorMono Nerd Font", "CaskaydiaCove Nerd Font", "FiraCode Nerd Font"}),
   cursor_blink_rate = 420,
   default_cursor_style = "BlinkingBlock",
   hide_tab_bar_if_only_one_tab = true,
   font_size = 16.5,
   window_close_confirmation = "NeverPrompt",
+  window_background_opacity = 0.95,
   window_padding = {
     left = 0,
     right = 0,

@@ -149,7 +149,7 @@ return packer.startup(function()
       config = override_req("better_escape", "(plugins.configs.others).better_escape()"),
    }
 
-   -- load luasnips + cmp related in insert mode only
+   load luasnips + cmp related in insert mode only
 
    use {
       "rafamadriz/friendly-snippets",
@@ -243,6 +243,7 @@ return packer.startup(function()
       "nvim-telescope/telescope.nvim",
       module = "telescope",
       cmd = "Telescope",
+      event = "VimEnter",
       requires = {
          {
             "nvim-telescope/telescope-fzf-native.nvim",

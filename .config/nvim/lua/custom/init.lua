@@ -39,7 +39,7 @@ end)
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
     vim.o.pumheight=11
-    vim.opt.guicursor = 'a:blinkon50'
+    -- vim.opt.guicursor = 'a:blinkon50'
     vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {})
 
     vim.api.nvim_set_keymap("n", "<leader>w", "<c-w>", {})
@@ -63,6 +63,7 @@ hooks.add("setup_mappings", function(map)
 
 
     -- Misc
+    vim.api.nvim_set_keymap("n", "<leader>t", ":Telescope <CR>", {})
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>f.", ":lua require('custom.telescope').find_configs() <CR>", {silent = true})
@@ -94,8 +95,25 @@ hooks.add("install_plugins", function(use)
   --   end
   -- }
 
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
 
-  use { 'tpope/vim-unimpaired'}
+
+  use {
+    "kwkarlwang/bufjump.nvim",
+    config = function()
+        require("bufjump").setup({
+            forward = "<C-n>",
+            backward = "<C-p>",
+            on_success = nil
+        })
+    end,
+  }
+
+
+  -- use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
 
@@ -214,9 +232,13 @@ hooks.add("install_plugins", function(use)
       "akinsho/toggleterm.nvim",
       config = function()
         require("toggleterm").setup{
-          open_mapping = '<leader>;',
           start_in_insert = true,
         }
+      end,
+      setup = function()
+        vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua require('custom.toggleterm').lzg()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>;", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
       end
   }
 
