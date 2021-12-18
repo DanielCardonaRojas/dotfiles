@@ -21,7 +21,8 @@ M.options = {
 }
 
 M.ui = {
-  theme = "penokai"
+  theme = "penokai",
+  italic_comments = true,
 }
 
 
