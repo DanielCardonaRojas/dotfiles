@@ -27,14 +27,15 @@ M.ui = {
 
 
 M.mappings = {
+   new_tab = "<C-T>", -- open a new vim tab
    update_nvchad = "<leader>cu",
    insert_nav = {
       next_line = "<Down>",
       prev_line = "<Up>",
    },
    terminal = {
-      esc_termmode = { }, -- multiple mappings allowed
-      esc_hide_termmode = { "<Esc>" }, -- multiple mappings allowed
+      esc_termmode = {'<Esc><space>', '<c-space>', '<c-\\>'}, -- multiple mappings allowed
+      esc_hide_termmode = { '<c-t>'}, -- multiple mappings allowed
    },
 }
 
