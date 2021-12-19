@@ -39,9 +39,6 @@ end)
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
     vim.o.pumheight=11
-    -- vim.opt.guicursor = 'a:blinkon50'
-    vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {})
-
     vim.api.nvim_set_keymap("n", "<leader>w", "<c-w>", {})
 
     vim.api.nvim_set_keymap('n', '<CR>', ':nohl<CR>', {noremap = true}) -- remove highlight on enter
@@ -237,8 +234,9 @@ hooks.add("install_plugins", function(use)
       end,
       setup = function()
         vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua require('custom.toggleterm').lzg()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("n", "<leader>;", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gG", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<c-t>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("t", "<c-t>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
       end
   }
 
