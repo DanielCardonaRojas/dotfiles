@@ -84,7 +84,7 @@ source $HOME/.bash_profile
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -121,6 +121,12 @@ gif-mov() {
    # ffmpeg -i ${movie} -s ${dimensions} -pix_fmt rgb24 -vf "scale=-2:600" -r 10 -f gif ${movie}.gif
    # ffmpeg -i ${movie} -pix_fmt rgb24 -vf "scale=-2:600" -r 10 -f gif ${movie}.gif
    ffmpeg -i ${movie} -vf "fps=10,scale=-2:600:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" ${movie}.gif
+}
+
+mp4() {
+  name=$(echo $1 | cut -d'.' -f1)
+  ffmpeg -i $1 ${name}.mp4
+
 }
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
