@@ -57,6 +57,8 @@ hooks.add("setup_mappings", function(map)
     -- Window resizing
     vim.api.nvim_set_keymap('n', '<c-s-right>', '<c-w>>', {})
     vim.api.nvim_set_keymap('n', '<c-s-left>', '<c-w><', {})
+    vim.api.nvim_set_keymap('n', '<c-s-up>', '<c-w>+', {})
+    vim.api.nvim_set_keymap('n', '<c-s-down>', '<c-w>-', {})
 
 
     -- Misc
@@ -69,6 +71,8 @@ hooks.add("setup_mappings", function(map)
     -- Tabs
     vim.api.nvim_set_keymap("n", "<leader><tab>", ":tabnext<cr>", {silent  = true})
     vim.api.nvim_set_keymap("n", "<leader><S-tab>", ":tabprev<cr>", {silent  = true})
+
+    vim.cmd [[ :command NvChadTransparent :lua require('custom.misc').toggleTransparent()<CR>]]
 
 end)
 
@@ -96,7 +100,6 @@ hooks.add("install_plugins", function(use)
     "catppuccin/nvim",
     as = "catppuccin"
   })
-
 
   use {
     "kwkarlwang/bufjump.nvim",
@@ -202,7 +205,7 @@ hooks.add("install_plugins", function(use)
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup {
-        auto_open = true, -- automatically open the list when you have diagnostics
+        auto_open = false, -- automatically open the list when you have diagnostics
         auto_close = true, -- automatically close the list when you have no diagnostics
         mode = "workspace_diagnostics",
       }
@@ -227,16 +230,19 @@ hooks.add("install_plugins", function(use)
 
   use {
       "akinsho/toggleterm.nvim",
+      event = "VimEnter",
       config = function()
         require("toggleterm").setup{
           start_in_insert = true,
         }
       end,
       setup = function()
-        vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua require('custom.toggleterm').lzg()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("n", "<leader>gG", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("n", "<c-t>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("t", "<c-t>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<leader>gg", "<cmd>lua require('custom.toggleterm').lzg()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<leader>gG", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<c-x>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('t', "<c-x>", [[ <c-\><c-n><cmd>lua require('custom.toggleterm').devterm()<CR> ]], {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<c-_>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('t', "<c-_>", [[ <c-\><c-n><cmd>lua require('custom.toggleterm').devterm()<CR> ]], {noremap = true, silent = true})
       end
   }
 

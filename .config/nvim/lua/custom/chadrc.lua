@@ -34,8 +34,13 @@ M.mappings = {
       prev_line = "<Up>",
    },
    terminal = {
-      esc_termmode = {'<Esc><space>', '<c-space>', '<c-\\>'}, -- multiple mappings allowed
-      esc_hide_termmode = { '<c-t>'}, -- multiple mappings allowed
+      esc_termmode = {
+        '<c-\\>', -- since the default sequence is ctrl-\ ctrl-n (logical alias)
+        '<c-s-up>', '<c-s-down>', --since ctrl-shift-up is used for resizing window
+        '<Esc><space>',
+        '<c-space>',
+      },
+      esc_hide_termmode = {}, -- Is handled by toggle term configuration
    },
 }
 

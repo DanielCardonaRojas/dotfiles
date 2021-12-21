@@ -18,15 +18,15 @@ window:
 font:
   use_thin_strokes: false
   normal:
-    family: "FiraCode Nerd Font"
-    style: Regular
+    family: "VictorMono Nerd Font"
+    style: Medium
 
   bold:
-    family: "FiraCode Nerd Font"
+    family: "VictorMono Nerd Font"
     style: Bold
 
   italic:
-    family: "FiraCode Nerd Font"
+    family: "VictorMono Nerd Font"
     style: Italic
 
   bold_italic:
