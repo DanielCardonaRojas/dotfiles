@@ -1,5 +1,5 @@
 local wezterm = require 'wezterm';
--- =>
+-- Ligature examples: => !=  >=
 
 return {
   font = wezterm.font_with_fallback({ "VictorMono Nerd Font", "CaskaydiaCove Nerd Font", "SauceCodePro Nerd Font", "FiraCode Nerd Font"}),
