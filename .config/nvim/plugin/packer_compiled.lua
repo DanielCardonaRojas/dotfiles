@@ -195,13 +195,14 @@ _G.packer_plugins = {
     url = "https://github.com/feline-nvim/feline.nvim"
   },
   ["flutter-tools.nvim"] = {
-    config = { "\27LJ\2\n\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0B\0\1\1K\0\1\0\15lsp_attach\rdebugger\1\0\0\1\0\2\fenabled\2\16run_via_dap\2\nsetup\18flutter-tools\frequire\0" },
+    config = { "\27LJ\2\n\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0B\0\1\1K\0\1\0\15lsp_attach\rdebugger\1\0\0\1\0\2\16run_via_dap\2\fenabled\2\nsetup\18flutter-tools\frequire\0" },
     loaded = true,
-    path = "/Users/danielcardonarojas/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
+    needs_bufread = true,
+    path = "/Users/danielcardonarojas/.local/share/nvim/site/pack/packer/opt/flutter-tools.nvim",
     url = "https://github.com/akinsho/flutter-tools.nvim"
   },
   ["focus.nvim"] = {
-    config = { "\27LJ\2\n‘\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0009\0\a\0'\2\b\0B\0\2\1K\0\1\0\19 FocusDisable \bcmd\bvim\23excluded_filetypes\1\0\1\15signcolumn\1\1\a\0\0\15toggleterm\fTrouble\rNvimTree\17dapui_scopes\22dapui_breakpoints\17dapui_stacks\nsetup\nfocus\frequire\0" },
+    config = { "\27LJ\2\n≠\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\23excluded_filetypes\1\0\1\15signcolumn\1\1\a\0\0\15toggleterm\fTrouble\rNvimTree\17dapui_scopes\22dapui_breakpoints\17dapui_stacks\nsetup\nfocus\frequire\0" },
     loaded = true,
     needs_bufread = false,
     path = "/Users/danielcardonarojas/.local/share/nvim/site/pack/packer/opt/focus.nvim",
@@ -309,7 +310,8 @@ _G.packer_plugins = {
   ["nvim-scrollview"] = {
     config = { '\27LJ\2\na\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\4\0\0\rNvimTree\15toggleterm\14dashboard"scrollview_excluded_filetypes\6g\bvim\0' },
     loaded = true,
-    path = "/Users/danielcardonarojas/.local/share/nvim/site/pack/packer/start/nvim-scrollview",
+    needs_bufread = false,
+    path = "/Users/danielcardonarojas/.local/share/nvim/site/pack/packer/opt/nvim-scrollview",
     url = "https://github.com/dstein64/nvim-scrollview"
   },
   ["nvim-tree.lua"] = {
@@ -330,7 +332,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    after = { "feline.nvim", "bufferline.nvim" },
+    after = { "bufferline.nvim", "feline.nvim" },
     config = { "require('plugins.configs.icons')" },
     load_after = {
       ["nvim-base16.lua"] = true
@@ -376,7 +378,7 @@ _G.packer_plugins = {
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["trouble.nvim"] = {
-    config = { "\27LJ\2\nn\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\15auto_close\2\14auto_open\1\tmode\26workspace_diagnostics\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\2\nn\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\tmode\26workspace_diagnostics\15auto_close\2\14auto_open\1\nsetup\ftrouble\frequire\0" },
     loaded = true,
     needs_bufread = false,
     path = "/Users/danielcardonarojas/.local/share/nvim/site/pack/packer/opt/trouble.nvim",
@@ -431,10 +433,56 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Setup for: bufferline.nvim
-time([[Setup for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\15bufferline\18core.mappings\frequire\0", "setup", "bufferline.nvim")
-time([[Setup for bufferline.nvim]], false)
+-- Setup for: nvim-scrollview
+time([[Setup for nvim-scrollview]], true)
+try_loadstring("\27LJ\2\nT\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0005highlight ScrollView ctermbg=159 guibg=LightCyan\bcmd\bvim\0", "setup", "nvim-scrollview")
+time([[Setup for nvim-scrollview]], false)
+time([[packadd for nvim-scrollview]], true)
+vim.cmd [[packadd nvim-scrollview]]
+time([[packadd for nvim-scrollview]], false)
+-- Setup for: flutter-tools.nvim
+time([[Setup for flutter-tools.nvim]], true)
+try_loadstring("\27LJ\2\n¢\1\0\0\6\0\b\0\0176\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\6\0'\4\a\0004\5\0\0B\0\5\1K\0\1\0\25:FlutterRestart <CR>\14<leader>R\24:FlutterReload <CR>\14<leader>r\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "flutter-tools.nvim")
+time([[Setup for flutter-tools.nvim]], false)
+time([[packadd for flutter-tools.nvim]], true)
+vim.cmd [[packadd flutter-tools.nvim]]
+time([[packadd for flutter-tools.nvim]], false)
+-- Setup for: vim-matchup
+time([[Setup for vim-matchup]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16vim-matchup\21packer_lazy_load\15core.utils\frequire\0", "setup", "vim-matchup")
+time([[Setup for vim-matchup]], false)
+-- Setup for: Comment.nvim
+time([[Setup for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n~\0\0\3\0\6\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\fcomment\18core.mappings\17Comment.nvim\21packer_lazy_load\15core.utils\frequire\0", "setup", "Comment.nvim")
+time([[Setup for Comment.nvim]], false)
+-- Setup for: hop
+time([[Setup for hop]], true)
+try_loadstring("\27LJ\2\nò\3\0\0\a\0\17\0>'\0\0\0006\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\5\0&\4\5\4'\5\6\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\a\0&\4\5\4'\5\b\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\t\0&\4\5\4'\5\n\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\v\0&\4\5\4'\5\f\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\r\0&\4\5\4'\5\14\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\15\0&\4\5\4'\5\16\0004\6\0\0B\1\5\1K\0\1\0\20:HopLineBC <CR>\6k\20:HopLineAC <CR>\6j\21:HopChar1BC <CR>\6F\21:HopChar1AC <CR>\6f\20:HopWordBC <CR>\6b\20:HopWordAC <CR>\6w\6n\20nvim_set_keymap\bapi\bvim\21<leader><leader>\0", "setup", "hop")
+time([[Setup for hop]], false)
+time([[packadd for hop]], true)
+vim.cmd [[packadd hop]]
+time([[packadd for hop]], false)
+-- Setup for: focus.nvim
+time([[Setup for focus.nvim]], true)
+try_loadstring("\27LJ\2\nÉ\1\0\0\6\0\b\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0004\5\0\0B\0\5\1K\0\1\0\26:FocusMaxOrEqual <CR>\v<c-w>=\6n\20nvim_set_keymap\bapi\17FocusDisable\bcmd\bvim\0", "setup", "focus.nvim")
+time([[Setup for focus.nvim]], false)
+time([[packadd for focus.nvim]], true)
+vim.cmd [[packadd focus.nvim]]
+time([[packadd for focus.nvim]], false)
+-- Setup for: dashboard-nvim
+time([[Setup for dashboard-nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14dashboard\18core.mappings\frequire\0", "setup", "dashboard-nvim")
+time([[Setup for dashboard-nvim]], false)
+time([[packadd for dashboard-nvim]], true)
+vim.cmd [[packadd dashboard-nvim]]
+time([[packadd for dashboard-nvim]], false)
+-- Setup for: trouble.nvim
+time([[Setup for trouble.nvim]], true)
+try_loadstring("\27LJ\2\nd\0\0\6\0\6\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0004\5\0\0B\0\5\1K\0\1\0\24:TroubleToggle <CR>\15<leader>ll\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "trouble.nvim")
+time([[Setup for trouble.nvim]], false)
+time([[packadd for trouble.nvim]], true)
+vim.cmd [[packadd trouble.nvim]]
+time([[packadd for trouble.nvim]], false)
 -- Setup for: nvim-lspconfig
 time([[Setup for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006if &ft == \"packer\" | echo \"\" | else | silent! e %\bcmd\bvimx\1\0\4\0\a\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\4\0009\0\5\0003\2\6\0)\3\0\0B\0\3\1K\0\1\0\0\rdefer_fn\bvim\19nvim-lspconfig\21packer_lazy_load\15core.utils\frequire\0", "setup", "nvim-lspconfig")
@@ -454,28 +502,14 @@ time([[packadd for nvim-dap]], false)
 time([[Setup for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\18gitsigns.nvim\21packer_lazy_load\15core.utils\frequire\0", "setup", "gitsigns.nvim")
 time([[Setup for gitsigns.nvim]], false)
--- Setup for: vim-matchup
-time([[Setup for vim-matchup]], true)
-try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16vim-matchup\21packer_lazy_load\15core.utils\frequire\0", "setup", "vim-matchup")
-time([[Setup for vim-matchup]], false)
--- Setup for: hop
-time([[Setup for hop]], true)
-try_loadstring("\27LJ\2\nò\3\0\0\a\0\17\0>'\0\0\0006\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\5\0&\4\5\4'\5\6\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\a\0&\4\5\4'\5\b\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\t\0&\4\5\4'\5\n\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\v\0&\4\5\4'\5\f\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\r\0&\4\5\4'\5\14\0004\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0\18\4\0\0'\5\15\0&\4\5\4'\5\16\0004\6\0\0B\1\5\1K\0\1\0\20:HopLineBC <CR>\6k\20:HopLineAC <CR>\6j\21:HopChar1BC <CR>\6F\21:HopChar1AC <CR>\6f\20:HopWordBC <CR>\6b\20:HopWordAC <CR>\6w\6n\20nvim_set_keymap\bapi\bvim\21<leader><leader>\0", "setup", "hop")
-time([[Setup for hop]], false)
-time([[packadd for hop]], true)
-vim.cmd [[packadd hop]]
-time([[packadd for hop]], false)
--- Setup for: telescope.nvim
-time([[Setup for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14telescope\18core.mappings\frequire\0", "setup", "telescope.nvim")
-time([[Setup for telescope.nvim]], false)
--- Setup for: trouble.nvim
-time([[Setup for trouble.nvim]], true)
-try_loadstring("\27LJ\2\nd\0\0\6\0\6\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0004\5\0\0B\0\5\1K\0\1\0\24:TroubleToggle <CR>\15<leader>ll\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "trouble.nvim")
-time([[Setup for trouble.nvim]], false)
-time([[packadd for trouble.nvim]], true)
-vim.cmd [[packadd trouble.nvim]]
-time([[packadd for trouble.nvim]], false)
+-- Setup for: bufferline.nvim
+time([[Setup for bufferline.nvim]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\15bufferline\18core.mappings\frequire\0", "setup", "bufferline.nvim")
+time([[Setup for bufferline.nvim]], false)
+-- Setup for: toggleterm.nvim
+time([[Setup for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n÷\4\0\0\6\0\19\00016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\r\0'\3\n\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\v\0005\5\17\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\r\0'\3\16\0'\4\14\0005\5\18\0B\0\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2\1\0\2\vsilent\2\fnoremap\2\n<c-_>\1\0\2\vsilent\2\fnoremap\2D <c-\\><c-n><cmd>lua require('custom.toggleterm').devterm()<CR> \6t\1\0\2\vsilent\2\fnoremap\0028<cmd>lua require('custom.toggleterm').devterm()<CR>\n<c-x>\1\0\2\vsilent\2\fnoremap\0025<cmd>lua require('custom.toggleterm').lzgc()<CR>\15<leader>gG\1\0\2\vsilent\2\fnoremap\0024<cmd>lua require('custom.toggleterm').lzg()<CR>\15<leader>gg\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "toggleterm.nvim")
+time([[Setup for toggleterm.nvim]], false)
 -- Setup for: nvim-dap-ui
 time([[Setup for nvim-dap-ui]], true)
 try_loadstring("\27LJ\2\n\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\vsilent\2(:lua require(\"dapui\").toggle() <CR>\15<leader>dd\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "nvim-dap-ui")
@@ -483,31 +517,29 @@ time([[Setup for nvim-dap-ui]], false)
 time([[packadd for nvim-dap-ui]], true)
 vim.cmd [[packadd nvim-dap-ui]]
 time([[packadd for nvim-dap-ui]], false)
--- Setup for: Comment.nvim
-time([[Setup for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n~\0\0\3\0\6\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\fcomment\18core.mappings\17Comment.nvim\21packer_lazy_load\15core.utils\frequire\0", "setup", "Comment.nvim")
-time([[Setup for Comment.nvim]], false)
--- Setup for: toggleterm.nvim
-time([[Setup for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n÷\4\0\0\6\0\19\00016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\r\0'\3\n\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\v\0005\5\17\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\r\0'\3\16\0'\4\14\0005\5\18\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\1\0\2\fnoremap\2\vsilent\2\n<c-_>\1\0\2\fnoremap\2\vsilent\2D <c-\\><c-n><cmd>lua require('custom.toggleterm').devterm()<CR> \6t\1\0\2\fnoremap\2\vsilent\0028<cmd>lua require('custom.toggleterm').devterm()<CR>\n<c-x>\1\0\2\fnoremap\2\vsilent\0025<cmd>lua require('custom.toggleterm').lzgc()<CR>\15<leader>gG\1\0\2\fnoremap\2\vsilent\0024<cmd>lua require('custom.toggleterm').lzg()<CR>\15<leader>gg\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "toggleterm.nvim")
-time([[Setup for toggleterm.nvim]], false)
--- Setup for: focus.nvim
-time([[Setup for focus.nvim]], true)
-try_loadstring("\27LJ\2\nb\0\0\6\0\6\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0004\5\0\0B\0\5\1K\0\1\0\26:FocusMaxOrEqual <CR>\v<c-w>=\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "focus.nvim")
-time([[Setup for focus.nvim]], false)
-time([[packadd for focus.nvim]], true)
-vim.cmd [[packadd focus.nvim]]
-time([[packadd for focus.nvim]], false)
--- Setup for: dashboard-nvim
-time([[Setup for dashboard-nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14dashboard\18core.mappings\frequire\0", "setup", "dashboard-nvim")
-time([[Setup for dashboard-nvim]], false)
-time([[packadd for dashboard-nvim]], true)
-vim.cmd [[packadd dashboard-nvim]]
-time([[packadd for dashboard-nvim]], false)
+-- Setup for: telescope.nvim
+time([[Setup for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14telescope\18core.mappings\frequire\0", "setup", "telescope.nvim")
+time([[Setup for telescope.nvim]], false)
+-- Config for: flutter-tools.nvim
+time([[Config for flutter-tools.nvim]], true)
+try_loadstring("\27LJ\2\n\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0B\0\1\1K\0\1\0\15lsp_attach\rdebugger\1\0\0\1\0\2\16run_via_dap\2\fenabled\2\nsetup\18flutter-tools\frequire\0", "config", "flutter-tools.nvim")
+time([[Config for flutter-tools.nvim]], false)
+-- Config for: hop
+time([[Config for hop]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop")
+time([[Config for hop]], false)
+-- Config for: focus.nvim
+time([[Config for focus.nvim]], true)
+try_loadstring("\27LJ\2\n≠\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\23excluded_filetypes\1\0\1\15signcolumn\1\1\a\0\0\15toggleterm\fTrouble\rNvimTree\17dapui_scopes\22dapui_breakpoints\17dapui_stacks\nsetup\nfocus\frequire\0", "config", "focus.nvim")
+time([[Config for focus.nvim]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require('plugins.configs.dashboard')
+time([[Config for dashboard-nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\nn\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\15auto_close\2\14auto_open\1\tmode\26workspace_diagnostics\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+try_loadstring("\27LJ\2\nn\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\tmode\26workspace_diagnostics\15auto_close\2\14auto_open\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
 -- Config for: nvim-dap
 time([[Config for nvim-dap]], true)
@@ -521,41 +553,25 @@ time([[Config for bufjump.nvim]], false)
 time([[Config for nvim-dap-ui]], true)
 try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
 time([[Config for nvim-dap-ui]], false)
--- Config for: flutter-tools.nvim
-time([[Config for flutter-tools.nvim]], true)
-try_loadstring("\27LJ\2\n\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0B\0\1\1K\0\1\0\15lsp_attach\rdebugger\1\0\0\1\0\2\fenabled\2\16run_via_dap\2\nsetup\18flutter-tools\frequire\0", "config", "flutter-tools.nvim")
-time([[Config for flutter-tools.nvim]], false)
--- Config for: focus.nvim
-time([[Config for focus.nvim]], true)
-try_loadstring("\27LJ\2\n‘\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0009\0\a\0'\2\b\0B\0\2\1K\0\1\0\19 FocusDisable \bcmd\bvim\23excluded_filetypes\1\0\1\15signcolumn\1\1\a\0\0\15toggleterm\fTrouble\rNvimTree\17dapui_scopes\22dapui_breakpoints\17dapui_stacks\nsetup\nfocus\frequire\0", "config", "focus.nvim")
-time([[Config for focus.nvim]], false)
--- Config for: hop
-time([[Config for hop]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop")
-time([[Config for hop]], false)
 -- Config for: nvim-scrollview
 time([[Config for nvim-scrollview]], true)
 try_loadstring('\27LJ\2\na\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\4\0\0\rNvimTree\15toggleterm\14dashboard"scrollview_excluded_filetypes\6g\bvim\0', "config", "nvim-scrollview")
 time([[Config for nvim-scrollview]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require('plugins.configs.dashboard')
-time([[Config for dashboard-nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeFocus lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeFocus", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'telescope.nvim', 'toggleterm.nvim', 'packer.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'packer.nvim', 'telescope.nvim', 'toggleterm.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'friendly-snippets', 'better-escape.nvim'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

@@ -50,6 +50,7 @@ hooks.add("setup_mappings", function(map)
 
 
     -- Misc
+    vim.api.nvim_set_keymap('n', 'vil', 'g_v^', {})
     vim.api.nvim_set_keymap("n", "<leader>t", ":Telescope <CR>", {})
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
@@ -87,14 +88,15 @@ hooks.add("install_plugins", function(use)
   }
 
 
-  -- use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
 
   use { 'dstein64/nvim-scrollview', 
     config = function() 
       vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm', 'dashboard'}
-
+    end,
+    setup = function()
+      vim.cmd('highlight ScrollView ctermbg=159 guibg=LightCyan')
     end
   }
 
@@ -147,6 +149,10 @@ hooks.add("install_plugins", function(use)
      } -- use defaults
      lsp_attach()
    end,
+   setup = function()
+     vim.api.nvim_set_keymap('n', '<leader>r', ':FlutterReload <CR>', {})
+     vim.api.nvim_set_keymap('n', '<leader>R', ':FlutterRestart <CR>', {})
+   end
   }
 
   use { 'vim-test/vim-test' }
@@ -193,9 +199,9 @@ hooks.add("install_plugins", function(use)
         excluded_filetypes = {'toggleterm', 'Trouble', 'NvimTree', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks'},
         signcolumn = false
       })
-      vim.cmd [[ FocusDisable ]]
     end,
     setup = function()
+      vim.cmd('FocusDisable')
       vim.api.nvim_set_keymap("n", '<c-w>=', ':FocusMaxOrEqual <CR>', {})
     end
   }
