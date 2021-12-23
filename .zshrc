@@ -11,6 +11,7 @@ source $HOME/.bash_profile
 
 KEYTIMEOUT=1
 
+# Custom functions
 path() {
   echo $PATH | tr -s ':' '\n'
 }
@@ -47,8 +48,33 @@ mp4() {
   ffmpeg -i $1 ${name}.mp4
 }
 
+# Bookmark directories
+if [ -d "$HOME/.bookmarks" ]; then
+  export CDPATH=".:$HOME/.bookmarks:/"
+fi
+
+bookmark() {
+  local currentdir=$(basename $PWD)
+  local bookmark_alias="@${1:-$currentdir}"
+
+  if ! [ -d "$HOME/.bookmarks" ]; then
+    mkdir ~/.bookmarks
+    export CDPATH=".:$HOME/.bookmarks:/"
+  fi
+
+  echo "Creating bookmark $bookmark_alias for $PWD"
+  ln -s $PWD "$HOME/.bookmarks/$bookmark_alias"
+
+}
+
+# Aliases
+
+alias cd='cd -P'
+alias goto="cd -P"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='nvim'
+
+# Exports
 
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 export PATH="$HOME/.config/scripts:$PATH"
