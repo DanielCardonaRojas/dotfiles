@@ -1,5 +1,5 @@
 local hooks = require "core.hooks"
-require "custom.autocmds"
+require('custom.autocmds')
 
 function lsp_attach()
    -- Mappings.
@@ -23,18 +23,6 @@ function lsp_attach()
    vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<space>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
-
---------------------------------------------------------------------
-
--- To modify packaged plugin configs, use the overrides functionality
--- if the override does not exist in the plugin config, make or request a PR,
--- or you can override the whole plugin config with 'chadrc' -> M.plugins.default_plugin_config_replace{}
--- this will run your config instead of the NvChad config for the given plugin
-
-hooks.override("lsp", "publish_diagnostics", function(current)
-  current.virtual_text = false;
-  return current;
-end)
 
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
@@ -81,20 +69,6 @@ hooks.add("install_plugins", function(use)
   -- use { 'dosimple/workspace.vim' }
   -- use 'marko-cerovac/material.nvim'
   -- use 'folke/tokyonight.nvim'
-
-  -- use {
-  --   "folke/which-key.nvim",
-  --   config = function()
-  --     require("which-key").setup {
-  --       layout = {
-  --         height = { min = 4, max = 12 }, -- min and max height of the columns
-  --         width = { min = 20, max = 50 }, -- min and max width of the columns
-  --         spacing = 8, -- spacing between columns
-  --         align = "center", -- align columns left, center or right
-  --       },
-  --     }
-  --   end
-  -- }
 
   use({
     "catppuccin/nvim",
@@ -171,9 +145,7 @@ hooks.add("install_plugins", function(use)
 --           end,
       },
      } -- use defaults
-
      lsp_attach()
-
    end,
   }
 
@@ -247,8 +219,3 @@ hooks.add("install_plugins", function(use)
   }
 
 end)
-
--- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
--- then source it with
-
--- require "custom.plugins.mkdir"

@@ -21,7 +21,7 @@ M.options = {
 }
 
 M.ui = {
-  theme = "penokai",
+  theme = "monekai",
   italic_comments = true,
 }
 
@@ -95,6 +95,25 @@ M.mappings.plugins = {
       open = "<leader>db", -- open dashboard
       session_load = "<leader>sl", -- load a saved session
       session_save = "<leader>ss", -- save a session
+   },
+   lspconfig = {
+      declaration = "gD",
+      definition = "gd",
+      hover = "K",
+      implementation = "gi",
+      signature_help = "gk",
+      add_workspace_folder = "<leader>la",
+      remove_workspace_folder = "<leader>lr",
+      list_workspace_folders = "<leader>lw",
+      type_definition = "<leader>D",
+      rename = "<F2>",
+      code_action = "<leader>.",
+      references = "gr",
+      float_diagnostics = "ge",
+      goto_prev = "[e",
+      goto_next = "]e",
+      set_loclist = "<leader>q",
+      formatting = "<leader>lm",
    },
 
 }
