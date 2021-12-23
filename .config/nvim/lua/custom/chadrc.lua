@@ -55,7 +55,14 @@ M.plugins = {
          setup_lspconf = "custom.lspconfig",
         },
         nvimtree = {
-           enable_git = 1,
+            enable_git = 1,
+            ui = {
+               auto_resize  = true,
+               allow_resize = true,
+               side = "left",
+               width = 40,
+               hide_root_folder = true,
+            },
         },
    },
    default_plugin_config_replace = {

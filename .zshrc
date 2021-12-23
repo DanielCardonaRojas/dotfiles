@@ -70,6 +70,7 @@ bookmark() {
 # Aliases
 
 alias cd='cd -P'
+alias g='lazygit'
 alias goto="cd -P"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='nvim'
