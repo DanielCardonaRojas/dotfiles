@@ -205,7 +205,7 @@ return packer.startup(function()
    use {
       "kyazdani42/nvim-tree.lua",
       disable = not plugin_settings.status.nvimtree,
-      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+      cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeFocus" },
       config = override_req("nvim_tree", "plugins.configs.nvimtree"),
       setup = function()
          require("core.mappings").nvimtree()
