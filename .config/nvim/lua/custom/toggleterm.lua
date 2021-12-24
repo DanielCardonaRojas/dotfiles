@@ -2,7 +2,7 @@ local M = {}
 
 local Terminal  = require('toggleterm.terminal').Terminal
 
-on_open = function(term)
+onOpen = function(term)
     vim.cmd("startinsert!")
     -- vim.api.nvim_buf_del_keymap(term.bufnr, 't', '<Esc>')
     vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
@@ -11,9 +11,9 @@ end
 local homeDir = os.getenv('HOME')
 
 local devterm = Terminal:new({
-  count = 1,
+  count = 2,
   direction = "horizontal",
-  persist_size = true,
+  persist_size = false,
   size = 25,
 })
 
@@ -24,7 +24,7 @@ local lazygit = Terminal:new({
   float_opts = {
     border = "double",
   },
-  on_open = on_open,
+  on_open = onOpen,
 })
 
 
@@ -36,7 +36,7 @@ local dotfiles = Terminal:new({
   float_opts = {
     border = "double",
   },
-  on_open = on_open,
+  on_open = onOpen,
 })
 
 

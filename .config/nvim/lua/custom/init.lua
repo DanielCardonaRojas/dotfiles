@@ -1,5 +1,5 @@
 local hooks = require "core.hooks"
-require "custom.autocmds"
+require('custom.autocmds')
 
 function lsp_attach()
    -- Mappings.
@@ -24,18 +24,6 @@ function lsp_attach()
    vim.api.nvim_set_keymap("n", "<space>lm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
---------------------------------------------------------------------
-
--- To modify packaged plugin configs, use the overrides functionality
--- if the override does not exist in the plugin config, make or request a PR,
--- or you can override the whole plugin config with 'chadrc' -> M.plugins.default_plugin_config_replace{}
--- this will run your config instead of the NvChad config for the given plugin
-
-hooks.override("lsp", "publish_diagnostics", function(current)
-  current.virtual_text = false;
-  return current;
-end)
-
 hooks.add("setup_mappings", function(map)
     vim.o.swapfile=false
     vim.o.pumheight=11
@@ -57,9 +45,12 @@ hooks.add("setup_mappings", function(map)
     -- Window resizing
     vim.api.nvim_set_keymap('n', '<c-s-right>', '<c-w>>', {})
     vim.api.nvim_set_keymap('n', '<c-s-left>', '<c-w><', {})
+    vim.api.nvim_set_keymap('n', '<c-s-up>', '<c-w>+', {})
+    vim.api.nvim_set_keymap('n', '<c-s-down>', '<c-w>-', {})
 
 
     -- Misc
+    vim.api.nvim_set_keymap('n', 'vil', 'g_v^', {})
     vim.api.nvim_set_keymap("n", "<leader>t", ":Telescope <CR>", {})
     vim.api.nvim_set_keymap("n", "z=", ":Telescope spell_suggest <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
@@ -70,6 +61,8 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap("n", "<leader><tab>", ":tabnext<cr>", {silent  = true})
     vim.api.nvim_set_keymap("n", "<leader><S-tab>", ":tabprev<cr>", {silent  = true})
 
+    vim.cmd [[ :command NvChadTransparent :lua require('custom.misc').toggleTransparent()<CR>]]
+
 end)
 
 hooks.add("install_plugins", function(use)
@@ -78,25 +71,10 @@ hooks.add("install_plugins", function(use)
   -- use 'marko-cerovac/material.nvim'
   -- use 'folke/tokyonight.nvim'
 
-  -- use {
-  --   "folke/which-key.nvim",
-  --   config = function()
-  --     require("which-key").setup {
-  --       layout = {
-  --         height = { min = 4, max = 12 }, -- min and max height of the columns
-  --         width = { min = 20, max = 50 }, -- min and max width of the columns
-  --         spacing = 8, -- spacing between columns
-  --         align = "center", -- align columns left, center or right
-  --       },
-  --     }
-  --   end
-  -- }
-
   use({
     "catppuccin/nvim",
     as = "catppuccin"
   })
-
 
   use {
     "kwkarlwang/bufjump.nvim",
@@ -110,14 +88,15 @@ hooks.add("install_plugins", function(use)
   }
 
 
-  -- use { 'tpope/vim-unimpaired'}
   use {'wakatime/vim-wakatime'}
   use {'glepnir/lspsaga.nvim'}
 
   use { 'dstein64/nvim-scrollview', 
     config = function() 
       vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm', 'dashboard'}
-
+    end,
+    setup = function()
+      vim.cmd('highlight ScrollView ctermbg=159 guibg=LightCyan')
     end
   }
 
@@ -168,10 +147,12 @@ hooks.add("install_plugins", function(use)
 --           end,
       },
      } -- use defaults
-
      lsp_attach()
-
    end,
+   setup = function()
+     vim.api.nvim_set_keymap('n', '<leader>r', ':FlutterReload <CR>', {})
+     vim.api.nvim_set_keymap('n', '<leader>R', ':FlutterRestart <CR>', {})
+   end
   }
 
   use { 'vim-test/vim-test' }
@@ -202,7 +183,7 @@ hooks.add("install_plugins", function(use)
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup {
-        auto_open = true, -- automatically open the list when you have diagnostics
+        auto_open = false, -- automatically open the list when you have diagnostics
         auto_close = true, -- automatically close the list when you have no diagnostics
         mode = "workspace_diagnostics",
       }
@@ -218,31 +199,29 @@ hooks.add("install_plugins", function(use)
         excluded_filetypes = {'toggleterm', 'Trouble', 'NvimTree', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks'},
         signcolumn = false
       })
-      vim.cmd [[ FocusDisable ]]
     end,
     setup = function()
+      vim.cmd('FocusDisable')
       vim.api.nvim_set_keymap("n", '<c-w>=', ':FocusMaxOrEqual <CR>', {})
     end
   }
 
   use {
       "akinsho/toggleterm.nvim",
+      event = "VimEnter",
       config = function()
         require("toggleterm").setup{
           start_in_insert = true,
         }
       end,
       setup = function()
-        vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua require('custom.toggleterm').lzg()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("n", "<leader>gG", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("n", "<c-t>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
-        vim.api.nvim_set_keymap("t", "<c-t>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<leader>gg", "<cmd>lua require('custom.toggleterm').lzg()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<leader>gG", "<cmd>lua require('custom.toggleterm').lzgc()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<c-x>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('t', "<c-x>", [[ <c-\><c-n><cmd>lua require('custom.toggleterm').devterm()<CR> ]], {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', "<c-_>", "<cmd>lua require('custom.toggleterm').devterm()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('t', "<c-_>", [[ <c-\><c-n><cmd>lua require('custom.toggleterm').devterm()<CR> ]], {noremap = true, silent = true})
       end
   }
 
 end)
-
--- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
--- then source it with
-
--- require "custom.plugins.mkdir"
