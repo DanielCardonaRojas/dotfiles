@@ -194,6 +194,7 @@ hooks.add("install_plugins", function(use)
   }
 
   use { "beauwilliams/focus.nvim",
+    cmd = { 'FocuseDisable'},
     config = function()
       require("focus").setup({
         excluded_filetypes = {'toggleterm', 'Trouble', 'NvimTree', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks'},
@@ -201,7 +202,6 @@ hooks.add("install_plugins", function(use)
       })
     end,
     setup = function()
-      vim.cmd('FocusDisable')
       vim.api.nvim_set_keymap("n", '<c-w>=', ':FocusMaxOrEqual <CR>', {})
     end
   }
