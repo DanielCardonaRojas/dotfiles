@@ -4,7 +4,7 @@
         "description": "AAA test",
         "body": [
             "test(",
-            "\t'should $1',",
+            "\t'$1',",
             "\t() async {",
             "\t\t// arrange",
             "\t\t$2",

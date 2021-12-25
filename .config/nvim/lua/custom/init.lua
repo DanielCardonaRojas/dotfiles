@@ -107,6 +107,18 @@ hooks.add("install_plugins", function(use)
     end,
     setup = function() 
       vim.api.nvim_set_keymap('n', '<leader>dd', ':lua require("dapui").toggle() <CR>', {silent = true})
+
+      local dap = require('dap')
+
+      dap.listeners.before['event_stopped']['rcarriga/nvim-dap-ui'] = function(session, body)
+        print('Stopped at breakpoint')
+        require("dapui").open()
+      end
+
+      dap.listeners.before['event_terminated']['rcarriga/nvim-dap-ui'] = function(session, body)
+        require("dapui").close()
+      end
+
     end,
   }
 
