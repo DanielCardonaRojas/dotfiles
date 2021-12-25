@@ -61,7 +61,7 @@ M.plugins = {
                allow_resize = true,
                side = "left",
                width = 40,
-               hide_root_folder = true,
+               hide_root_folder = false,
             },
         },
    },

@@ -162,7 +162,7 @@ M.lspconfig = function()
 end
 
 M.nvimtree = function()
-   map("n", plugin_maps.nvimtree.toggle, ":NvimTreeToggle <CR>")
+   map("n", plugin_maps.nvimtree.toggle, ":NvimTreeFindFileToggle <CR>")
    map("n", plugin_maps.nvimtree.focus, ":NvimTreeFocus <CR>")
 end
 

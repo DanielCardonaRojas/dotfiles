@@ -18,9 +18,10 @@ M.configure = function()
   --     -- cwd = "${workspaceFolder}",
   --   }
   -- }
-      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = '', linehl = "", numhl = "" })
+      -- vim.fn.sign_define("DapBreakpoint", { text = "", texthl = 'Pmenu', linehl = "DiagnosticHint", numhl = "" })
+      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = 'DiagnosticHint', linehl = "", numhl = "" })
       vim.fn.sign_define('DapBreakpointRejected', {text='', texthl= '', linehl='', numhl=''})
-      vim.fn.sign_define("DapStopped", { text = "", texthl = '', linehl = "", numhl = "" })
+      vim.fn.sign_define("DapStopped", { text = "", texthl = 'DiagnosticInformation', linehl = "", numhl = "" })
 
 
 end
