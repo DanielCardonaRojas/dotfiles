@@ -1,4 +1,5 @@
 local hooks = require "core.hooks"
+
 require('custom.autocmds')
 
 function lsp_attach()
@@ -16,6 +17,7 @@ function lsp_attach()
    vim.api.nvim_set_keymap("n", "<space>lw", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
    vim.api.nvim_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
    vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
    vim.api.nvim_set_keymap("n", "ge", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
    vim.api.nvim_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
@@ -37,6 +39,10 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap('t', '<C-k>', [[<C-\><C-n><C-W>k]], {noremap = true})
     vim.api.nvim_set_keymap('t', '<C-l>', [[<C-\><C-n><C-W>l]], {noremap = true})
 
+    -- Native Popup menu
+    -- vim.api.nvim_set_keymap('n', '<c-j>', 'pumvisible() ? "\\<c-n>" : "\\<c-j>"' , { noremap = true, expr=true })
+    -- vim.api.nvim_set_keymap('n', '<c-k>', 'pumvisible() ? "\\<c-p>" : "\\<c-k>"' , { noremap = true, expr=true })
+
     -- Wildmenu mappings
 
     vim.api.nvim_set_keymap('c', '<c-j>', '<c-n>', {noremap = true})
@@ -56,7 +62,7 @@ hooks.add("setup_mappings", function(map)
     vim.api.nvim_set_keymap("n", "<leader>ls", ":Telescope lsp_document_symbols <CR>", {})
     vim.api.nvim_set_keymap("n", "<leader>f.", ":lua require('custom.telescope').find_configs() <CR>", {silent = true})
     vim.api.nvim_set_keymap("n", "<leader>f,", ":lua require('custom.telescope').search_configs() <CR>", {silent = true})
-    vim.api.nvim_set_keymap("n", "<leader>.", ":lua require('telescope.builtin').lsp_code_actions({ layout_strategy='vertical', layout_config={width=0.4, height=14}}) <CR>", {silent = true})
+    -- vim.api.nvim_set_keymap("n", "<leader>.", ":lua require('telescope.builtin').lsp_code_actions({ layout_strategy='vertical', layout_config={width=0.4, height=14}}) <CR>", {silent = true})
     -- Tabs
     vim.api.nvim_set_keymap("n", "<leader><tab>", ":tabnext<cr>", {silent  = true})
     vim.api.nvim_set_keymap("n", "<leader><S-tab>", ":tabprev<cr>", {silent  = true})
@@ -71,6 +77,20 @@ hooks.add("install_plugins", function(use)
   -- use 'marko-cerovac/material.nvim'
   -- use 'folke/tokyonight.nvim'
 
+  -- use {"petertriho/nvim-scrollbar",
+  --   config = function()
+  --     require("scrollbar").setup({
+  --       handle = {
+  --         color = "LightCyan",
+  --       },
+  --     })
+  --   end,
+  -- }
+
+  use {'wakatime/vim-wakatime'}
+  use {'glepnir/lspsaga.nvim'}
+
+
   use({
     "catppuccin/nvim",
     as = "catppuccin"
@@ -80,19 +100,41 @@ hooks.add("install_plugins", function(use)
     "kwkarlwang/bufjump.nvim",
     config = function()
         require("bufjump").setup({
-            forward = "<C-n>",
-            backward = "<C-p>",
+            forward = "]f",
+            backward = "[f",
             on_success = nil
         })
     end,
   }
 
 
-  use {'wakatime/vim-wakatime'}
-  use {'glepnir/lspsaga.nvim'}
+  use {'stevearc/dressing.nvim',
+    requires = {"MunifTanjim/nui.nvim"},
+    config = function()
+      require('dressing').setup({
+        select = {
+          backend = { "nui", "telescope", "fzf", "builtin", },
+          telescope = {
+            theme = "dropdown",
+          },
 
-  use { 'dstein64/nvim-scrollview', 
-    config = function() 
+          nui = {
+            position = "50%",
+            size = nil,
+            relative = "editor",
+            border = {
+              style = "rounded",
+            },
+            max_width = 80,
+            max_height = 40,
+          },
+        },
+      })
+    end
+  }
+
+  use { 'dstein64/nvim-scrollview',
+    config = function()
       vim.g.scrollview_excluded_filetypes = { 'NvimTree', 'toggleterm', 'dashboard'}
     end,
     setup = function()
@@ -100,30 +142,8 @@ hooks.add("install_plugins", function(use)
     end
   }
 
-  use { "rcarriga/nvim-dap-ui", 
-    requires = {"mfussenegger/nvim-dap"}, 
-    config = function() 
-      require('dapui').setup()
-    end,
-    setup = function() 
-      vim.api.nvim_set_keymap('n', '<leader>dd', ':lua require("dapui").toggle() <CR>', {silent = true})
-
-      local dap = require('dap')
-
-      dap.listeners.before['event_stopped']['rcarriga/nvim-dap-ui'] = function(session, body)
-        print('Stopped at breakpoint')
-        require("dapui").open()
-      end
-
-      dap.listeners.before['event_terminated']['rcarriga/nvim-dap-ui'] = function(session, body)
-        require("dapui").close()
-      end
-
-    end,
-  }
-
-  use {'mfussenegger/nvim-dap', 
-    config = function() 
+  use {'mfussenegger/nvim-dap',
+    config = function()
       require('custom.dap').configure()
     end,
     setup = function()
@@ -139,6 +159,37 @@ hooks.add("install_plugins", function(use)
 
       -- vim.api.nvim_set_keymap('n', '<leader>db', ':Telescope dap list_breakpoints<CR>')
     end
+  }
+
+  use { "rcarriga/nvim-dap-ui", 
+    requires = {"mfussenegger/nvim-dap"},
+    -- after = {"dap"},
+    config = function() 
+      require('dapui').setup({
+        sidebar = {
+          size = 60,
+        }
+      })
+
+      local dap = require('dap')
+
+      dap.listeners.before['event_stopped']['rcarriga/nvim-dap-ui'] = function(session, body)
+        print('Stopped at breakpoint')
+        require("dapui").open()
+      end
+
+      dap.listeners.before['event_terminated']['rcarriga/nvim-dap-ui'] = function(session, body)
+        require("dapui").close()
+      end
+
+    end,
+    setup = function()
+      vim.api.nvim_set_keymap('n', '<leader>dd', ':lua require("dapui").toggle() <CR>', {silent = true})
+      vim.api.nvim_set_keymap('n', '<leader>dD', ':lua require("dapui").float_element("scopes") <CR>', {silent = true})
+      vim.api.nvim_set_keymap('n', '<leader>dS', ':lua require("dapui").float_element("stacks") <CR>', {silent = true})
+      vim.api.nvim_set_keymap('n', '<leader>dB', ':lua require("dapui").float_element("breakpoints") <CR>', {silent = true})
+
+    end,
   }
 
 
@@ -206,7 +257,7 @@ hooks.add("install_plugins", function(use)
   }
 
   use { "beauwilliams/focus.nvim",
-    cmd = { 'FocuseDisable'},
+    cmd = { 'FocusDisable'},
     config = function()
       require("focus").setup({
         excluded_filetypes = {'toggleterm', 'Trouble', 'NvimTree', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks'},
@@ -214,7 +265,7 @@ hooks.add("install_plugins", function(use)
       })
     end,
     setup = function()
-      vim.api.nvim_set_keymap("n", '<c-w>=', ':FocusMaxOrEqual <CR>', {})
+      vim.api.nvim_set_keymap("n", '<c-w>t', ':FocusMaxOrEqual <CR>', {})
     end
   }
 
@@ -224,6 +275,7 @@ hooks.add("install_plugins", function(use)
       config = function()
         require("toggleterm").setup{
           start_in_insert = true,
+          shade_terminals = false,
         }
       end,
       setup = function()

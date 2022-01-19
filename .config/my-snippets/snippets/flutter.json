@@ -4,15 +4,14 @@
         "description": "AAA test",
         "body": [
             "test(",
-            "\t'$1',",
-            "\t() async {",
+            "\t'$1',() async {",
             "\t\t// arrange",
             "\t\t$2",
             "\t\t// act",
             "\t\t$3",
             "\t\t// assert",
             "\t\t$4",
-            "\t},",
+            "\t}",
             ");"
         ],
         "description": "Create unit test"

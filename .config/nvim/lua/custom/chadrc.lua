@@ -34,6 +34,9 @@ M.mappings = {
       prev_line = "<Up>",
    },
    terminal = {
+      new_horizontal = "<M-p>h",
+      new_vertical = "<M-p>v",
+      new_window = "<M-p>w",
       esc_termmode = {
         '<c-\\>', -- since the default sequence is ctrl-\ ctrl-n (logical alias)
         '<c-s-up>', '<c-s-down>', --since ctrl-shift-up is used for resizing window
