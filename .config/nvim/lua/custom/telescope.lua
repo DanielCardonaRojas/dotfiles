@@ -194,6 +194,7 @@ function M.search_configs()
       "~/dotFilesConfig.sh",
       "~/readme.md",
       "~/.bash_profile",
+      "~/.gitconfig",
     },
     cwd = "~/.config/nvim/",
     layout_strategy = "horizontal",

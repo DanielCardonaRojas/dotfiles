@@ -29,6 +29,7 @@
 	c = commit
 	ca = commit --amend --no-edit
 	co = checkout
+	branch = branch -r
 	s = status
 	r = rebase
 	lg = log -15 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
