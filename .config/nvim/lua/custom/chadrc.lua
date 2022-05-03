@@ -1,132 +1,96 @@
--- IMPORTANT NOTE : This is the user config, can be edited. Will be preserved if updated with internal updater
--- This file is for NvChad options & tools, custom settings are split between here and 'lua/custom/init.lua'
+-- Just an example, supposed to be placed in /lua/custom/
+
+local cmp = require('cmp')
 
 local M = {}
-M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
-
-
--- NOTE: To use this, make a copy with `cp example_chadrc.lua chadrc.lua`
-
---------------------------------------------------------------------
-
--- To use this file, copy the structure of `core/default_config.lua`,
--- examples of setting relative number & changing theme:
-
-M.options = {
-   updatetime = 1700,
-   relativenumber = false,
-   nvChad = {
-      insert_nav = false, -- navigation in insertmode
-   },
-}
 
 M.ui = {
-  theme = "monekai",
-  italic_comments = true,
+   theme = "catppuccin",
+   theme_toggle = { "catppuccin", "onedark" },
 }
 
+local userPlugins = require "custom.plugins"
 
 M.mappings = {
-   new_tab = "<C-T>", -- open a new vim tab
-   update_nvchad = "<leader>cu",
-   insert_nav = {
-      next_line = "<Down>",
-      prev_line = "<Up>",
-   },
-   terminal = {
-      new_horizontal = "<M-p>h",
-      new_vertical = "<M-p>v",
-      new_window = "<M-p>w",
-      esc_termmode = {
-        '<c-\\>', -- since the default sequence is ctrl-\ ctrl-n (logical alias)
-        '<c-s-up>', '<c-s-down>', --since ctrl-shift-up is used for resizing window
-        '<Esc><space>',
-        '<c-space>',
-      },
-      esc_hide_termmode = {}, -- Is handled by toggle term configuration
-   },
+  nvimtree = {
+     mode_opts = { silent = false }, -- this is completely optional
+     n = {
+        ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "?   toggle nvimtree" },
+     },
+  },
+
+  ["nvim-telescope/telescope.nvim"] = {
+    n = {
+            ["<leader>t"] = { "<cmd> Telescope <CR>",  "  help page" },
+            ["z="] = { "<cmd> Telescope spell_suggest <CR>", "   Spell suggest"},
+            ["<leader>ls"] = { "<cmd> Telescope lsp_document_symbols <CR>", "  lsp symbols"},
+            -- find
+            ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "  find files" },
+            ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
+            ["<leader>fs"] = { "<cmd> Telescope live_grep <CR>", "  live grep" },
+            ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
+            ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
+            ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
+            ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
+
+            -- git
+            ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
+            ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "  git status" },
+
+            -- pick a hidden term
+            ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "   pick hidden term" },
+
+            -- theme switcher
+            ["<leader>ct"] = { "<cmd> Telescope themes <CR>", "   nvchad themes" },
+         },
+  }
 }
 
--- NvChad included plugin options & overrides
 M.plugins = {
-   options = {
-        luasnip = {
-          snippet_path = {'~/development/friendly-snippets', '~/.config/my-snippets' }
-        },
-        lspconfig = {
-         -- path of file containing setups of different lsps (ex : "custom.plugins.lspconfig"), read the docs for more info
-         setup_lspconf = "custom.lspconfig",
-        },
-        nvimtree = {
-            enable_git = 1,
-            ui = {
-               auto_resize  = true,
-               allow_resize = true,
-               side = "left",
-               width = 40,
-               hide_root_folder = false,
-            },
-        },
+   user = userPlugins,
+   remove = {
+      "NvChad/nvterm",
+      "max397574/better-escape.nvim",
    },
-   default_plugin_config_replace = {
-     telescope = "custom.telescope",
-     nvim_cmp = "custom.cmp",
-     gitsigns= "custom.gitsigns"
-   },
-   status = {
-    esc_insertmode = false,
-    dashboard = true
-   }
-}
-
-M.mappings.plugins = {
-   nvimtree = {
-      toggle = "<leader>e",
-      focus = "<leader>E",
-   },
-   telescope = {
-      buffers = "<leader>o",
-      find_files = "<leader>ff",
-      find_hiddenfiles = "<leader>fa",
-      git_commits = "<leader>gc",
-      git_status = "<leader>gs",
-      help_tags = "<leader>fh",
-      live_grep = "<leader>fs",
-      oldfiles = "<leader>fo",
-      themes = "<leader>ct", -- NvChad theme picker
-      -- media previews within telescope finders
-      telescope_media = {
-         media_files = "<leader>fp",
+   override = {
+      ["nvim-treesitter/nvim-treesitter"] = {
+          ensure_installed = {
+            "dart",
+            "swift",
+            "rust",
+            "go",
+         },
       },
-   },
-   dashboard = {
-      bookmarks = "<leader>bm",
-      new_file = "<leader>fn", -- basically create a new buffer
-      open = "<leader>db", -- open dashboard
-      session_load = "<leader>sl", -- load a saved session
-      session_save = "<leader>ss", -- save a session
-   },
-   lspconfig = {
-      declaration = "gD",
-      definition = "gd",
-      hover = "K",
-      implementation = "gi",
-      signature_help = "gk",
-      add_workspace_folder = "<leader>la",
-      remove_workspace_folder = "<leader>lr",
-      list_workspace_folders = "<leader>lw",
-      type_definition = "<leader>D",
-      rename = "<F2>",
-      code_action = "<leader>.",
-      references = "gr",
-      float_diagnostics = "ge",
-      goto_prev = "[e",
-      goto_next = "]e",
-      set_loclist = "<leader>q",
-      formatting = "<leader>lm",
+      ["kyazdani42/nvim-tree.lua"] = {
+         git = {
+            enable = true,
+         },
+         view = {
+            side = "left",
+            width = 40,
+            auto_resize  = true,
+            allow_resize = true,
+         },
+      },
+      ["akinsho/bufferline.nvim"] = {
+         options = {
+            max_name_length = 25,
+            max_prefix_length = 25,
+            tab_size = 30,
+         },
+      },
+
+     ["hrsh7th/nvim-cmp"] = {
+         mapping = {
+            ["<C-p>"] = cmp.mapping.select_prev_item(),
+            ["<C-k>"] = cmp.mapping.select_prev_item(),
+            ["<C-n>"] = cmp.mapping.select_next_item(),
+            ["<C-j>"] = cmp.mapping.select_next_item(),
+          }
+     }
+      --------------
    },
 
 }
-
 
 return M
