@@ -1,7 +1,0 @@
-vim.cmd [[ autocmd BufEnter *.dart :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s") ]]
-vim.cmd [[ autocmd BufEnter NvimTree :NvimTreeRefresh ]]
-vim.cmd [[ autocmd CursorHold * :lua vim.diagnostic.open_float() ]]
-vim.cmd [[ autocmd BufWritePre *.dart lua vim.lsp.buf.formatting() ]]
--- vim.cmd [[ autocmd BufEnter,FileType *.dart set colorcolumn=81]]
--- vim.cmd [[ autocmd UIEnter * :hi Normal guibg=NONE ctermbg=NONE ]]
-vim.cmd [[ autocmd BufEnter log :set nonumber nowrap ]]

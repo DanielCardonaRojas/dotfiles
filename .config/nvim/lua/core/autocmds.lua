@@ -5,13 +5,19 @@
 -- vim.cmd[[ au InsertEnter * set norelativenumber ]]
 -- vim.cmd[[ au InsertLeave * set relativenumber ]]
 
--- Don't show any numbers inside terminals
--- vim.cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
-
--- Don't show status line on certain windows
-vim.cmd [[ autocmd BufEnter,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
-
 -- Open a file from its last left off position
 -- vim.cmd [[ au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
 -- File extension specific tabbing
 -- vim.cmd [[ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+
+
+
+
+-- CUSTOM AUTOCMD
+vim.cmd [[ autocmd BufEnter *.dart :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s") ]]
+vim.cmd [[ autocmd BufEnter NvimTree :NvimTreeRefresh ]]
+vim.cmd [[ autocmd CursorHold * :lua vim.diagnostic.open_float() ]]
+vim.cmd [[ autocmd BufWritePre *.dart lua vim.lsp.buf.formatting() ]]
+-- vim.cmd [[ autocmd BufEnter,FileType *.dart set colorcolumn=81]]
+-- vim.cmd [[ autocmd UIEnter * :hi Normal guibg=NONE ctermbg=NONE ]]
+vim.cmd [[ autocmd BufEnter log :set nonumber nowrap ]]

@@ -6,7 +6,7 @@ end
 
 vim.opt.completeopt = "menuone,noselect"
 
-cmp.setup {
+local options = {
    snippet = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
@@ -37,7 +37,7 @@ cmp.setup {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
       },
-      ["<Tab>"] = function(fallback)
+      ["<Tab>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_next_item()
          elseif require("luasnip").expand_or_jumpable() then
@@ -45,8 +45,11 @@ cmp.setup {
          else
             fallback()
          end
-      end,
-      ["<S-Tab>"] = function(fallback)
+      end, {
+         "i",
+         "s",
+      }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_prev_item()
          elseif require("luasnip").jumpable(-1) then
@@ -54,7 +57,10 @@ cmp.setup {
          else
             fallback()
          end
-      end,
+      end, {
+         "i",
+         "s",
+      }),
    },
    sources = {
       { name = "nvim_lsp" },
@@ -64,3 +70,8 @@ cmp.setup {
       { name = "path" },
    },
 }
+
+-- check for any override
+options = require("core.utils").load_override(options, "hrsh7th/nvim-cmp")
+
+cmp.setup(options)
