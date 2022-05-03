@@ -14,8 +14,16 @@ M.configure = function()
   --     name = "Launch flutter",
   --     dartSdkPath = os.getenv('HOME').."/fvm/default/bin/cache/dart-sdk/",
   --     flutterSdkPath = os.getenv('HOME').."/fvm/default/",
-  --     -- program = "${workspaceFolder}/lib/main.dart",
-  --     -- cwd = "${workspaceFolder}",
+  --     program = "${workspaceFolder}/lib/main.dart",
+  --     cwd = "${workspaceFolder}",
+  --   },
+  --   {
+  --     type = "dart",
+  --     request = "launch",
+  --     name = "Launch dart",
+  --     dartSdkPath = os.getenv('HOME').."/fvm/default/bin/cache/dart-sdk/",
+  --     program = "${file}",
+  --     cwd = "${workspaceFolder}",
   --   }
   -- }
 
@@ -25,3 +33,4 @@ M.configure = function()
 end
 
 return M
+

@@ -1,11 +1,11 @@
-local colors = require("colors").get()
-
 local present, bufferline = pcall(require, "bufferline")
 if not present then
    return
 end
 
-bufferline.setup {
+local colors = require("base16").get_colors("base_30")
+
+local options = {
    options = {
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
       buffer_close_icon = "",
@@ -16,7 +16,7 @@ bufferline.setup {
       right_trunc_marker = "",
       max_name_length = 14,
       max_prefix_length = 13,
-      tab_size = 20,
+      tab_size = 30,
       show_tab_indicators = true,
       enforce_regular_tabs = false,
       view = "multiwindow",
@@ -135,3 +135,8 @@ bufferline.setup {
       },
    },
 }
+
+-- check for any override
+options = require("core.utils").load_override(options, "akinsho/bufferline.nvim")
+
+bufferline.setup(options)

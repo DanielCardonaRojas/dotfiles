@@ -1,4 +1,11 @@
-local colors = require("colors").get()
+local present, feline = pcall(require, "feline")
+
+if not present then
+   return
+end
+
+local colors = require("base16").get_colors("base_30")
+
 local lsp = require "feline.providers.lsp"
 local lsp_severity = vim.diagnostic.severity
 
@@ -43,40 +50,32 @@ local icon_styles = {
    },
 }
 
-local config = require("core.utils").load_config().plugins.options.statusline
-
--- statusline style
-local user_statusline_style = config.style
-local statusline_style = icon_styles[user_statusline_style]
-
--- show short statusline on small screens
-local shortline = config.shortline == false and true
+local separator = require("core.utils").load_config().plugins.options.statusline.separator_style
+local separator_style = icon_styles[separator]
 
 -- Initialize the components table
 local components = {
    active = {},
-   inactive = {},
 }
 
-table.insert(components.active, {})
-table.insert(components.active, {})
-table.insert(components.active, {})
-
-components.active[1][1] = {
-   provider = statusline_style.main_icon,
+local main_icon = {
+   provider = separator_style.main_icon,
 
    hl = {
       fg = colors.statusline_bg,
       bg = colors.nord_blue,
    },
 
-   right_sep = { str = statusline_style.right, hl = {
-      fg = colors.nord_blue,
-      bg = colors.lightbg,
-   } },
+   right_sep = {
+      str = separator_style.right,
+      hl = {
+         fg = colors.nord_blue,
+         bg = colors.lightbg,
+      },
+   },
 }
 
-components.active[1][2] = {
+local file_name = {
    provider = function()
       local filename = vim.fn.expand "%:t"
       local extension = vim.fn.expand "%:e"
@@ -87,25 +86,21 @@ components.active[1][2] = {
       end
       return " " .. icon .. " " .. filename .. " "
    end,
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 70
-   end,
    hl = {
       fg = colors.white,
       bg = colors.lightbg,
    },
 
-   right_sep = { str = statusline_style.right, hl = { fg = colors.lightbg, bg = colors.lightbg2 } },
+   right_sep = {
+      str = separator_style.right,
+      hl = { fg = colors.lightbg, bg = colors.lightbg2 },
+   },
 }
 
-components.active[1][3] = {
+local dir_name = {
    provider = function()
       local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
       return "  " .. dir_name .. " "
-   end,
-
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 80
    end,
 
    hl = {
@@ -113,7 +108,7 @@ components.active[1][3] = {
       bg = colors.lightbg2,
    },
    right_sep = {
-      str = statusline_style.right,
+      str = separator_style.right,
       hi = {
          fg = colors.lightbg2,
          bg = colors.statusline_bg,
@@ -121,71 +116,84 @@ components.active[1][3] = {
    },
 }
 
-components.active[1][4] = {
-   provider = "git_diff_added",
+local diff = {
+   add = {
+      provider = "git_diff_added",
+      hl = {
+         fg = colors.grey_fg2,
+         bg = colors.statusline_bg,
+      },
+      icon = " ",
+   },
+
+   change = {
+      provider = "git_diff_changed",
+      hl = {
+         fg = colors.grey_fg2,
+         bg = colors.statusline_bg,
+      },
+      icon = "  ",
+   },
+
+   remove = {
+      provider = "git_diff_removed",
+      hl = {
+         fg = colors.grey_fg2,
+         bg = colors.statusline_bg,
+      },
+      icon = "  ",
+   },
+}
+
+local git_branch = {
+   provider = "git_branch",
    hl = {
       fg = colors.grey_fg2,
       bg = colors.statusline_bg,
    },
-   icon = " ",
+   icon = "  ",
 }
--- diffModfified
-components.active[1][5] = {
-   provider = "git_diff_changed",
-   hl = {
-      fg = colors.grey_fg2,
-      bg = colors.statusline_bg,
+
+local diagnostic = {
+   error = {
+      provider = "diagnostic_errors",
+      enabled = function()
+         return lsp.diagnostics_exist(lsp_severity.ERROR)
+      end,
+
+      hl = { fg = colors.red },
+      icon = "  ",
    },
-   icon = "   ",
-}
--- diffRemove
-components.active[1][6] = {
-   provider = "git_diff_removed",
-   hl = {
-      fg = colors.grey_fg2,
-      bg = colors.statusline_bg,
+
+   warning = {
+      provider = "diagnostic_warnings",
+      enabled = function()
+         return lsp.diagnostics_exist(lsp_severity.WARN)
+      end,
+      hl = { fg = colors.yellow },
+      icon = "  ",
    },
-   icon = "  ",
+
+   hint = {
+      provider = "diagnostic_hints",
+      enabled = function()
+         return lsp.diagnostics_exist(lsp_severity.HINT)
+      end,
+      hl = { fg = colors.grey_fg2 },
+      icon = "  ",
+   },
+
+   info = {
+      provider = "diagnostic_info",
+      enabled = function()
+         return lsp.diagnostics_exist(lsp_severity.INFO)
+      end,
+      hl = { fg = colors.green },
+      icon = "  ",
+   },
 }
 
-components.active[1][7] = {
-   provider = "diagnostic_errors",
-   enabled = function()
-      return lsp.diagnostics_exist(lsp_severity.ERROR)
-   end,
-
-   hl = { fg = colors.red },
-   icon = "  ",
-}
-
-components.active[1][8] = {
-   provider = "diagnostic_warnings",
-   enabled = function()
-      return lsp.diagnostics_exist(lsp_severity.WARN)
-   end,
-   hl = { fg = colors.yellow },
-   icon = "  ",
-}
-
-components.active[1][9] = {
-   provider = "diagnostic_hints",
-   enabled = function()
-      return lsp.diagnostics_exist(lsp_severity.HINT)
-   end,
-   hl = { fg = colors.grey_fg2 },
-   icon = "  ",
-}
-
-components.active[1][10] = {
-   provider = "diagnostic_info",
-   enabled = function()
-      return lsp.diagnostics_exist(lsp_severity.INFO)
-   end,
-   hl = { fg = colors.green },
-   icon = "  ",
-}
-
-components.active[2][1] = {
+local lsp_progress = {
    provider = function()
       local Lsp = vim.lsp.util.get_progress_messages()[1]
 
@@ -217,13 +225,10 @@ components.active[2][1] = {
 
       return ""
    end,
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 80
-   end,
    hl = { fg = colors.green },
 }
 
-components.active[3][1] = {
+local lsp_icon = {
    provider = function()
       if next(vim.lsp.buf_get_clients()) ~= nil then
          return "  LSP"
@@ -231,30 +236,7 @@ components.active[3][1] = {
          return ""
       end
    end,
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 70
-   end,
    hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
-}
-
-components.active[3][2] = {
-   provider = "git_branch",
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 70
-   end,
-   hl = {
-      fg = colors.grey_fg2,
-      bg = colors.statusline_bg,
-   },
-   icon = "  ",
-}
-
-components.active[3][3] = {
-   provider = " " .. statusline_style.left,
-   hl = {
-      fg = colors.one_bg2,
-      bg = colors.statusline_bg,
-   },
 }
 
 local mode_colors = {
@@ -287,8 +269,17 @@ local chad_mode_hl = function()
    }
 end
 
-components.active[3][4] = {
-   provider = statusline_style.left,
+local empty_space = {
+   provider = " " .. separator_style.left,
+   hl = {
+      fg = colors.one_bg2,
+      bg = colors.statusline_bg,
+   },
+}
+
+-- this matches the vi mode color
+local empty_spaceColored = {
+   provider = separator_style.left,
    hl = function()
       return {
          fg = mode_colors[vim.fn.mode()][2],
@@ -297,8 +288,8 @@ components.active[3][4] = {
    end,
 }
 
-components.active[3][5] = {
-   provider = statusline_style.vi_mode_icon,
+local mode_icon = {
+   provider = separator_style.vi_mode_icon,
    hl = function()
       return {
          fg = colors.statusline_bg,
@@ -307,47 +298,38 @@ components.active[3][5] = {
    end,
 }
 
-components.active[3][6] = {
+local empty_space2 = {
    provider = function()
       return " " .. mode_colors[vim.fn.mode()][1] .. " "
    end,
    hl = chad_mode_hl,
 }
 
-components.active[3][7] = {
-   provider = statusline_style.left,
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 90
-   end,
+local separator_right = {
+   provider = separator_style.left,
    hl = {
       fg = colors.grey,
       bg = colors.one_bg,
    },
 }
 
-components.active[3][8] = {
-   provider = statusline_style.left,
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 90
-   end,
+local separator_right2 = {
+   provider = separator_style.left,
    hl = {
       fg = colors.green,
       bg = colors.grey,
    },
 }
 
-components.active[3][9] = {
-   provider = statusline_style.position_icon,
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 90
-   end,
+local position_icon = {
+   provider = separator_style.position_icon,
    hl = {
       fg = colors.black,
       bg = colors.green,
    },
 }
 
-components.active[3][10] = {
+local current_line = {
    provider = function()
       local current_line = vim.fn.line "."
       local total_line = vim.fn.line "$"
@@ -361,17 +343,52 @@ components.active[3][10] = {
       return " " .. result .. "%% "
    end,
 
-   enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(winid) > 90
-   end,
-
    hl = {
       fg = colors.green,
       bg = colors.one_bg,
    },
 }
 
-require("feline").setup {
+local function add_table(a, b)
+   table.insert(a, b)
+end
+
+-- components are divided in 3 sections
+local left = {}
+local middle = {}
+local right = {}
+
+-- left
+add_table(left, main_icon)
+add_table(left, file_name)
+add_table(left, dir_name)
+add_table(left, diff.add)
+add_table(left, diff.change)
+add_table(left, diff.remove)
+add_table(left, diagnostic.error)
+add_table(left, diagnostic.warning)
+add_table(left, diagnostic.hint)
+add_table(left, diagnostic.info)
+
+add_table(middle, lsp_progress)
+
+-- right
+add_table(right, lsp_icon)
+add_table(right, git_branch)
+add_table(right, empty_space)
+add_table(right, empty_spaceColored)
+add_table(right, mode_icon)
+add_table(right, empty_space2)
+add_table(right, separator_right)
+add_table(right, separator_right2)
+add_table(right, position_icon)
+add_table(right, current_line)
+
+components.active[1] = left
+components.active[2] = middle
+components.active[3] = right
+
+feline.setup {
    theme = {
       bg = colors.statusline_bg,
       fg = colors.fg,

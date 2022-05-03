@@ -1,11 +1,12 @@
-local present, icons = pcall(require, "nvim-web-devicons")
+local present, devicons = pcall(require, "nvim-web-devicons")
+
 if not present then
    return
 end
 
-local colors = require("colors").get()
+local colors = require("base16").get_colors("base_30")
 
-icons.setup {
+local options = {
    override = {
       c = {
          icon = "",
@@ -144,3 +145,8 @@ icons.setup {
       },
    },
 }
+
+-- check for any override
+options = require("core.utils").load_override(options, "kyazdani42/nvim-web-devicons")
+
+devicons.setup(options)
