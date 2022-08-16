@@ -1,0 +1,64 @@
+matches:
+  # Signature
+  - trigger: ":sig"
+    replace: "Best regards,\nDaniel Cardona"
+
+  # Emails
+  - trigger: ":em"
+    replace: "d.cardona.rojas@gmail.com"
+
+  # Shell
+  # URLS
+  - trigger: ":linkedin"
+    replace: "https://www.linkedin.com/in/decaroj/"
+  - trigger: ":devprofile"
+    replace: "https://danielcardona.dev/"
+  - trigger: ":github"
+    replace: "https://github.com/DanielCardonaRojas"
+
+  # Addresses
+  - trigger: ":home"
+    replace: "Calle 81 sur # 63 - 105 Tierra Fresca, Int 70"
+
+  # Coding
+  - trigger: ":print"
+    replace: "print(\"$|$\")"
+
+  # Emojis
+  - trigger: ":lol"
+    replace: "🤣🤣🤣"
+
+  - trigger: ":facepalm"
+    replace: "🤦🏽"
+
+  # Phones
+  - trigger: ":phone"
+    replace: "+57 3116419582"
+
+  # Date
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  - trigger: ":fecha"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y"
+
+  # Print the output of a shell command
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
