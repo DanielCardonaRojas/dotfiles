@@ -13,7 +13,9 @@ window:
 
   padding:
     x: 2
-    y: 2
+    y: 16
+  dynamic_padding: false
+  decorations: buttonless
 
 font:
   use_thin_strokes: false
@@ -82,4 +84,21 @@ colors:
 background_opacity: 0.95
 live_config_reload: true
 key_bindings:
-  - { key: Key6, mods: Control, chars: "\x1e" }
+  # Change to the previous tmux window
+  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
+  # Change to the next tmux window
+  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  # Split the current pane into two, left and right
+  - { key: N, mods: Command|Shift, chars: "\x02\x25" }
+  # Split the current pane into two, top and bottom.
+  - { key: N, mods: Command, chars: "\x02\x22" }
+  # Type <escape>:w<enter> to save neovim
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
+  # Create a new tmux window
+  - { key: T, mods: Command, chars: "\x02\x63" }
+  # Break the current tmux pane out of the tmux window
+  - { key: T, mods: Command|Shift, chars: "\x02\x21" }
+  # Kill the current tmux pane (and window if last pane)
+  - { key: W, mods: Command, chars: "\x02\x78" }
+  # Toggle the zoom state of the current tmux pane
+  - { key: Z, mods: Command, chars: "\x02\x7a" }
