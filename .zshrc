@@ -25,6 +25,16 @@ ff() {
   fi
 }
 
+d() {
+  local directory=$(find ~/development ~/Documents ~/.config -mindepth 1 -maxdepth 3 -type d -not -path '*/\.git/*' | fzf)
+
+  if [ -z $selected_file ]; then
+    return
+  fi
+
+  cd $directory
+}
+
 fs() {
   skat # In ~/.config/scripts
 }
@@ -50,6 +60,10 @@ gif-mov() {
 mp4() {
   name=$(echo $1 | cut -d'.' -f1)
   ffmpeg -i $1 ${name}.mp4
+}
+
+scaleWidth() {
+  ffmpeg -i $1 -vf scale=$2:-1 "scaled_$1"
 }
 
 # Bookmark directories
@@ -87,8 +101,6 @@ export PATH="$PATH:$HOME/fvm/default/bin" # Flutter global version as managed by
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export LC_CTYPE=en_US.UTF-8
-export VISUAL=nvim
-export EDITOR=nvim
 
 
 eval "$(starship init zsh)"
