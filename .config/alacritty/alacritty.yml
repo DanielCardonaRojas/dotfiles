@@ -1,6 +1,15 @@
 # TERM: alacritty
 TERM: xterm-256color
 
+shell:
+  program: /usr/local/bin/tmux
+  args:
+    - new-session
+    - -A
+    - -D
+    - -s
+    - main
+
 cursor:
   shape: Block
   blinking: Always
@@ -13,12 +22,12 @@ window:
 
   padding:
     x: 2
-    y: 16
+    y: 2
   dynamic_padding: false
   decorations: buttonless
 
 font:
-  use_thin_strokes: false
+  use_thin_strokes: true
   normal:
     family: "VictorMono Nerd Font"
     style: Medium

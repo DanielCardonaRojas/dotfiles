@@ -31,9 +31,40 @@ matches:
   - trigger: ":facepalm"
     replace: "🤦🏽"
 
-  # Phones
+  - trigger: "xD"
+    replace: "😂"
+
+  - trigger: ":D"
+    replace: "😄"
+
+  - trigger: ":)"
+    replace: "😊"
+
+  - trigger: ":'("
+    replace: "😢"
+
+  - trigger: ":''("
+    replace: "😭"
+
+  - trigger: ":o"
+    replace: "😮"
+    word: true
+
+  - trigger: ":o"
+    replace: "😱"
+    word: true
+      
+  - trigger: "B)"
+    replace: "😎"
+    word: true
+
+  # Phones and numbers
   - trigger: ":phone"
     replace: "+57 3116419582"
+  - trigger: ":cc"
+    replace: "1037608906"
+  - trigger: ":bc"
+    replace: "23440683908"
 
   # Date
   - trigger: ":date"
