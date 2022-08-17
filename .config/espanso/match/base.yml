@@ -31,9 +31,13 @@ matches:
   - trigger: ":facepalm"
     replace: "🤦🏽"
 
-  # Phones
+  # Phones and numbers
   - trigger: ":phone"
     replace: "+57 3116419582"
+  - trigger: ":cc"
+    replace: "1037608906"
+  - trigger: ":bc"
+    replace: "23440683908"
 
   # Date
   - trigger: ":date"
