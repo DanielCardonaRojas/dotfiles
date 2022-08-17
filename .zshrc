@@ -33,6 +33,10 @@ lzc() {
   lazygit --git-dir=$HOME/.cfg --work-tree=$HOME
 }
 
+installNvimConfig() {
+  ~/.config/scripts/install_nvim_config.sh
+}
+
 gif-mov() {
    movie=$1
    height=$(mdls -name kMDItemPixelHeight ${movie} | grep -o '[0-9]\+')
