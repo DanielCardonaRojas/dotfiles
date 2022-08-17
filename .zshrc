@@ -102,5 +102,8 @@ export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export LC_CTYPE=en_US.UTF-8
 
+export VISUAL=nvim
+export EDITOR=nvim
+
 
 eval "$(starship init zsh)"
