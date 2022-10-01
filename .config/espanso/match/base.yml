@@ -22,7 +22,7 @@ matches:
 
   # Coding
   - trigger: ":print"
-    replace: "print(\"$|$\")"
+    replace: "print(\">>> $|$\")"
 
   # Emojis
   - trigger: ":lol"
