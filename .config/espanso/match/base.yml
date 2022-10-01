@@ -3,6 +3,9 @@ matches:
   - trigger: ":sig"
     replace: "Best regards,\nDaniel Cardona"
 
+  - trigger: ":me"
+    replace: "Daniel Cardona Rojas"
+
   # Emails
   - trigger: ":em"
     replace: "d.cardona.rojas@gmail.com"
