@@ -17,6 +17,7 @@ Setup:
 git clone --bare https://github.com/DanielCardonaRojas/dotfiles $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
+config config --local remote.fetch "+refs/heads/*:refs/remotes/origin/*"
 config checkout
 ```
 
