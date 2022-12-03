@@ -2,13 +2,11 @@
 TERM: xterm-256color
 
 shell:
-  program: /usr/local/bin/tmux
+  program: /bin/zsh
   args:
-    - new-session
-    - -A
-    - -D
-    - -s
-    - main
+    - --login
+    - -c
+    - tmux new-session -A -s main
 
 cursor:
   shape: Block
