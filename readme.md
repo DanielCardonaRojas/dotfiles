@@ -21,6 +21,12 @@ config config --local remote.fetch "+refs/heads/*:refs/remotes/origin/*"
 config checkout
 ```
 
+## Other installations steps
+
+```
+ln -s /Applications/Alacritty.app/Contents/MacOS/alacritty /usr/local/bin
+```
+
 ## Install binaries
 
 Most binaries are installed with [nix package manager](https://nixos.org/download.html) through [home-manager](https://github.com/nix-community/home-manager)
@@ -59,20 +65,7 @@ Documentation as to how to setup most Language servers is available  [here](http
 
 Here are some of the ones used in this config: 
 
-```
-# jsonls, html, cssls
-npm i -g vscode-langservers-extracted
-
-#lua 
-brew install lua-language-server
-
-# rust-analyzer
-brew install rust-analyzer
-
-```
-
-
-## Kmonad setup
+## Kmonad setup (Incomplete)
 
 
 - Give input monitoring permission to kmonad

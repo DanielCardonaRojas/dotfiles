@@ -1,0 +1,43 @@
+#! /bin/zsh
+
+DIR=$1
+
+if [ -x "$(command -v fd)" ]; then
+  PROJECT_NAME=$(fd . -t d -d 1 -E '*.playground' -L --strip-cwd-prefix --base-directory $DIR | fzf)
+else
+  PROJECT_NAME=$(find -L ~/projects -maxdepth 1 -type d -not -name '*.playground' | tr '\n' '\0' | xargs -0 -n 1 basename | fzf)
+fi
+
+PROJECT_PATH="$DIR/$PROJECT_NAME"
+session_name="$PROJECT_NAME"
+
+if [ -z "$PROJECT_PATH" ]; then
+    exit 1
+fi
+
+cd $PROJECT_PATH
+
+not_in_tmux() {
+  [ -z "$TMUX" ]
+}
+
+session_exists() {
+  tmux has-session -t "=$session_name"
+}
+
+create_detached_session() {
+  (TMUX='' tmux new-session -Ad -s "$session_name")
+}
+
+create_if_needed_and_attach() {
+  if not_in_tmux; then
+    tmux new-session -As "$session_name"
+  else
+    if ! session_exists; then
+      create_detached_session
+    fi
+    tmux switch-client -t "$session_name"
+  fi
+}
+
+create_if_needed_and_attach

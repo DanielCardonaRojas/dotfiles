@@ -6,7 +6,10 @@ ZSH_THEME="robbyrussell"
 plugins=(git zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.bash_profile
+
+if [ -f $HOME/.bash_profile ]; then
+  source $HOME/.bash_profile
+fi
 
 
 KEYTIMEOUT=1

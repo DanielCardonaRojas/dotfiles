@@ -13,7 +13,7 @@ hyper - 1 : skhd -k "ctrl - 4"; skhd -k "ctrl - 1"
 hyper - 2 : skhd -k "ctrl - 5"; skhd -k "ctrl - 2"
 hyper - 3 : skhd -k "ctrl - 6"; skhd -k "ctrl - 3"
 
-hyper - 0x24 : wezterm
+hyper - 0x24 : alacritty
  
 
 # =================== YABAI ================
