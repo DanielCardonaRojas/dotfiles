@@ -9,11 +9,12 @@ return {
     "nvim-neotest/neotest-plenary",
     "sidlatau/neotest-dart",
   },
-  init = function()
-    vim.api.nvim_set_keymap("n", "<leader>dT", ':lua require("neotest").run.run(vim.fn.expand("%")) <CR>', {})
-    vim.api.nvim_set_keymap("n", "<leader>dt", ':lua require("neotest").run.run() <CR>', {})
-    vim.api.nvim_set_keymap("n", "<leader>ds", ':lua require("neotest").summary.toggle() <CR>', {})
-  end,
+  keys = {
+    { "<leader>tn", ':lua require("neotest").run.run() <CR>', desc = "Test nearest" },
+    { "<leader>tf", ':lua require("neotest").run.run(vim.fn.expand("%")) <CR>', desc = "Test file" },
+    { "<leader>ts", ':lua require("neotest").summary.toggle() <CR>', desc = "Tests summary" },
+  },
+  init = function() end,
   config = function()
     require("neotest").setup({
       icons = {
@@ -29,7 +30,9 @@ return {
           ignore_file_types = { "python", "vim", "lua" },
         }),
         require("neotest-dart")({
-          command = "flutter",
+          command = "fvm flutter",
+          -- command = "dart",
+          use_lsp = true,
         }),
       },
     })
