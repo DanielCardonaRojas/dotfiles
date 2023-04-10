@@ -8,6 +8,7 @@ local searchDirs = {
   "~/.config/lazygit",
   "~/.config/nixpkgs",
   "~/.config/my-snippets",
+  "~/.config/espanso/match/base.yml",
   "~/.zshrc",
   "~/.gitconfig",
   "~/.config/wezterm",
@@ -74,6 +75,7 @@ return {
     -- find in dotfiles
     {
       "<leader>f.",
+      desc = "find dotfiles",
       function()
         require("telescope.builtin").find_files({
           prompt_title = "Config Find",
@@ -89,6 +91,7 @@ return {
     -- search dotfiles
     {
       "<leader>f,",
+      desc = "search dotfiles",
       function()
         require("telescope.builtin").live_grep({
           prompt_title = "Config Search",
