@@ -70,8 +70,6 @@ return {
   keys = {
     -- disable the keymap to grep files
     { "<leader>/", false },
-    -- lsp_document_symbols
-    { "<leader>ls", "<cmd>Telescope lsp_document_symbols <CR>" },
     -- find in dotfiles
     {
       "<leader>f.",
