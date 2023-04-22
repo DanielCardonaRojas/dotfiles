@@ -23,6 +23,12 @@ matches:
   - trigger: ":home"
     replace: "Calle 81 sur # 63 - 105 Tierra Fresca, Int 70"
 
+  - trigger: ":dir"
+    replace: "Calle 81 sur # 63 - 105 Tierra Fresca, Int 70"
+
+  - trigger: ":nequi"
+    replace: 4093550004842047
+
   # Coding
   - trigger: ":print"
     replace: "print(\">>> $|$\")"
@@ -31,7 +37,7 @@ matches:
   - trigger: ":lol"
     replace: "🤣🤣🤣"
 
-  - trigger: ":facepalm"
+  - trigger: ":fp"
     replace: "🤦🏽"
 
   - trigger: "xD"
