@@ -64,6 +64,18 @@ return {
       find_files = {
         path_display = { "smart" },
         previewer = false,
+        layout_config = {
+          height = 0.3,
+          width = 0.4,
+        },
+      },
+      git_files = {
+        path_display = { "smart" },
+        previewer = false,
+        layout_config = {
+          height = 0.3,
+          width = 0.4,
+        },
       },
     },
   },
