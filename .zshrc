@@ -104,6 +104,7 @@ export PATH="$PATH:$HOME/fvm/default/bin" # Flutter global version as managed by
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.local/share/bob/nvim-bin"
+export PATH="$PATH":"$HOME/.local/share/nvim/mason/bin"
 export LC_CTYPE=en_US.UTF-8
 
 export VISUAL=nvim
