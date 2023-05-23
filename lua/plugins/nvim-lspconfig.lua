@@ -12,6 +12,7 @@ return {
     },
     servers = {
       dartls = {},
+      marksman = {},
     },
   },
 }
