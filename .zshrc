@@ -6,6 +6,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.config/atuin/atuin.zshrc
 
 if [ -f $HOME/.bash_profile ]; then
   source $HOME/.bash_profile
@@ -103,6 +104,8 @@ export PATH="$HOME/.config/scripts:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin" # Flutter global version as managed by fvm
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"usr/local/go/bin"
+export PATH="$PATH":"$HOME/go/bin"
 export PATH="$PATH":"$HOME/.local/share/bob/nvim-bin"
 export PATH="$PATH":"$HOME/.local/share/nvim/mason/bin"
 export LC_CTYPE=en_US.UTF-8
