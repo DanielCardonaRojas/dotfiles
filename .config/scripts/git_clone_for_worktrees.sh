@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
 # Examples of call:
@@ -25,10 +25,13 @@ cd "$name"
 # hotfix-bug-12
 # ...
 git clone --bare "$url" .bare
-echo "gitdir: ./.bare" > .git
+echo "gitdir: ./.bare" >.git
 
 # Explicitly sets the remote origin fetch so we can fetch remote branches
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 
 # Gets all branches from origin
 git fetch origin
+
+# Set upstream for each branch for some reason branches are not associated with remote branches by default
+git for-each-ref --format='%(refname:short)' refs/heads | xargs -n1 -I{} git branch --set-upstream-to=origin/{} {}
