@@ -18,6 +18,7 @@ git clone --bare https://github.com/DanielCardonaRojas/dotfiles $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config config --local remote.fetch "+refs/heads/*:refs/remotes/origin/*"
+config for-each-ref --format='%(refname:short)' refs/heads | xargs -n1 -I{} git branch --set-upstream-to=origin/{} {}
 config checkout
 ```
 
