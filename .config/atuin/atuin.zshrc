@@ -57,4 +57,5 @@ zle -N _atuin_search_widget _atuin_search
 zle -N _atuin_up_search_widget _atuin_up_search
 
 bindkey '^r' _atuin_search_widget
+bindkey '^s' _atuin_search_widget
 
