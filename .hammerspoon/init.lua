@@ -5,9 +5,10 @@ spoon.RecursiveBinder.escapeKey = { {}, "escape" } -- Press escape to abort
 
 local singleKey = spoon.RecursiveBinder.singleKey
 
+local hyper = { "shift", "ctrl", "cmd", "alt" }
+
 local function nextWindowForApp()
 	-- local tildeKeyCode = 50
-	local hyper = { "shift", "ctrl", "cmd", "alt" }
 	hs.eventtap.keyStroke(hyper, "p")
 	-- local result = hs.execute("~/.config/scripts/nextWindow.sh")
 end
@@ -59,5 +60,29 @@ local keyMap = {
 		end,
 	},
 }
+
+hs.hotkey.bind(hyper, "x", function()
+	launchFocusOrSwitch("Xcode")
+end)
+
+hs.hotkey.bind(hyper, "t", function()
+	launchFocusOrSwitch("Alacritty")
+end)
+
+hs.hotkey.bind(hyper, "b", function()
+	launchFocusOrSwitch("Google Chrome")
+end)
+
+hs.hotkey.bind(hyper, "s", function()
+	launchFocusOrSwitch("Slack")
+end)
+
+hs.hotkey.bind(hyper, "g", function()
+	launchFocusOrSwitch("Fork")
+end)
+
+hs.hotkey.bind(hyper, "f", function()
+	launchFocusOrSwitch("Finder")
+end)
 
 hs.hotkey.bind({ "option" }, "space", spoon.RecursiveBinder.recursiveBind(keyMap))
