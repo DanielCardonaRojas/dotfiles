@@ -85,4 +85,8 @@ hs.hotkey.bind(hyper, "f", function()
 	launchFocusOrSwitch("Finder")
 end)
 
+hs.hotkey.bind(hyper, "Z", function()
+	launchFocusOrSwitch("zoom.us")
+end)
+
 hs.hotkey.bind({ "option" }, "space", spoon.RecursiveBinder.recursiveBind(keyMap))
