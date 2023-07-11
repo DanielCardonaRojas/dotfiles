@@ -112,6 +112,8 @@ export LC_CTYPE=en_US.UTF-8
 
 export VISUAL=nvim
 export EDITOR=nvim
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
 
 
 eval "$(starship init zsh)"
