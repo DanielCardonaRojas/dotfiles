@@ -12,6 +12,14 @@ if [ -f $HOME/.bash_profile ]; then
   source $HOME/.bash_profile
 fi
 
+# Aliases
+
+alias lazygit="lazygit -ucf \"$HOME/.config/lazygit/catppuccin/frappe.yml,$HOME/.config/lazygit/config.yml\""
+alias cd='cd -P'
+alias g='lazygit'
+alias goto="cd -P"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias vi='nvim'
 
 KEYTIMEOUT=1
 
@@ -89,13 +97,6 @@ bookmark() {
 
 }
 
-# Aliases
-
-alias cd='cd -P'
-alias g='lazygit'
-alias goto="cd -P"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias vi='nvim'
 
 # Exports
 
