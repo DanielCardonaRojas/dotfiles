@@ -57,6 +57,6 @@ hyper - down : yabai -m window --stack north
 hyper - u : ~/.config/scripts/yabai_cycle_layout.sh
 # hyper - u : $(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
 
-# Float / Unfloat window
+# Float / Unfloat window hyper + '
 hyper - 0x27 : yabai -m window --toggle float
 

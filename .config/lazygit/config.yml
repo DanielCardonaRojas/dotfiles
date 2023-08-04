@@ -1,3 +1,7 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --syntax-theme Catppuccin-frappe --paging=never
 gui:
   showIcons: true
 
