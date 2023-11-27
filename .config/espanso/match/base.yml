@@ -20,6 +20,9 @@ matches:
     replace: "https://github.com/DanielCardonaRojas"
 
   # Addresses
+  - trigger: ":cel"
+    replace: 3116419582
+
   - trigger: ":home"
     replace: "Calle 81 sur # 63 - 105 Tierra Fresca, Int 70"
 
