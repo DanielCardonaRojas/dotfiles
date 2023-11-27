@@ -14,7 +14,7 @@ cursor:
   blink_interval: 500
 
 window:
-  opacity: 0.95
+  opacity: 0.985
   position:
     x: 0
     y: 0
@@ -60,8 +60,9 @@ import:
   - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
   # - ~/.config/alacritty/dracula/dracula.yml
 live_config_reload: true
-key_bindings: # Get hex code with: xxd -psd
-  # Change to the previous tmux window
+key_bindings: # Get hex code with: xxd -psd 
+  # Hex codes: 02 -> Ctrl + B 0a -> Enter
+  # Change to the previous tmux window 
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
   # Change to the next tmux window
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
@@ -80,3 +81,4 @@ key_bindings: # Get hex code with: xxd -psd
   # Toggle the zoom state of the current tmux pane
   - { key: Z, mods: Command, chars: "\x02\x7a" }
   - { key: G, mods: Command, chars: "\x02\x67" }
+  - { key: G, mods: Command|Shift, chars: "\x02\x47" }
