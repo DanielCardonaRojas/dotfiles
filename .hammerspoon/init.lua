@@ -7,13 +7,26 @@ local singleKey = spoon.RecursiveBinder.singleKey
 
 local hyper = { "shift", "ctrl", "cmd", "alt" }
 
+local function indexOf(tab, val)
+	for index, value in ipairs(tab) do
+		if value == val then
+			return index
+		end
+	end
+
+	return nil
+end
+
 local function nextWindowForApp()
 	-- local tildeKeyCode = 50
 	hs.eventtap.keyStroke(hyper, "p")
-	-- local result = hs.execute("~/.config/scripts/nextWindow.sh")
+	-- local home = os.getenv("HOME")
+	-- Looks like this need to load the user interactive shell first which can be slower and fail
+	-- local out, s, rt, rc = hs.execute(home .. "/.config/scripts/nextWindow.sh", true)
+	-- print(">>> out: " .. out .. " succeeded: " .. type(s) .. " exit code: " .. rc)
 end
 
-local function launchFocusOrSwitch(name)
+local function launchFocusOrCycle(name)
 	local currentApplication = hs.application.frontmostApplication():title()
 	if currentApplication == name then
 		nextWindowForApp()
@@ -23,10 +36,60 @@ local function launchFocusOrSwitch(name)
 	end
 end
 
+local function baseZeroIndex(index)
+	if index ~= nil then
+		if index > 0 then
+			return index - 1
+		end
+	end
+	return 0
+end
+
+local function focusOrCycleThrough(names)
+	local firstName = names[1]
+	local currentApplication = hs.application.frontmostApplication()
+	local allWindowForCurrentApplication = currentApplication:allWindows()
+	local windowCount = #allWindowForCurrentApplication
+	local hasMultipleWindows = windowCount > 1
+	local currentApplicationIndex = indexOf(names, currentApplication:title())
+	local nextIndex = (((baseZeroIndex(currentApplicationIndex)) + 1) % #names) + 1
+	local focusedWindow = currentApplication:focusedWindow()
+	print(
+		">>> currentApplication: "
+			.. currentApplication:title()
+			.. " current index: "
+			.. (currentApplicationIndex or -1)
+			.. " window count: "
+			.. windowCount
+			.. " next index: "
+			.. nextIndex
+	)
+
+	if currentApplicationIndex ~= nil then
+		previousFocusedWindow = currentApplication:title()
+		if hasMultipleWindows then
+			-- Todo we need to communicate from script back to hammerspoon to notify when has cycled through all windows
+			-- so that we can continue to next application otherwise we will loop forever in a single application of multiple windows
+			nextWindowForApp()
+			return
+		end
+	end
+
+	local name = names[nextIndex]
+	local searchResult = hs.application.find(name)
+	if searchResult ~= nil then
+		-- Activating window
+		searchResult:activate()
+		return
+	else
+		return hs.application.launchOrFocus(name)
+	end
+end
+
 local function openOneOf(names)
 	return function()
 		for _, name in pairs(names) do
-			if launchFocusOrSwitch(name) then
+			if launchFocusOrCycle(name) then
 				return
 			end
 		end
@@ -35,22 +98,24 @@ end
 
 local keyMap = {
 	[singleKey("x", "xcode")] = function()
-		launchFocusOrSwitch("Xcode")
+		focusOrCycleThrough("Xcode", "Xcode")
 	end,
 	[singleKey("s", "slack")] = function()
-		launchFocusOrSwitch("Slack")
+		launchFocusOrCycle("Slack")
 	end,
 	[singleKey("g", "git")] = openOneOf({ "Fork", "SourceTree" }),
 	[singleKey("f", "finder")] = function()
-		launchFocusOrSwitch("Finder")
+		launchFocusOrCycle("Finder")
 	end,
 	[singleKey("t", "terminal")] = function()
-		launchFocusOrSwitch("Alacritty")
+		launchFocusOrCycle("Alacritty")
 	end,
 	[singleKey("z", "zoom")] = function()
-		launchFocusOrSwitch("zoom.us")
+		launchFocusOrCycle("zoom.us")
 	end,
-	[singleKey("b", "browser")] = openOneOf({ "Arc", "Chrome", "Google Chrome", "Safari" }),
+	[singleKey("b", "browser")] = function()
+		focusOrCycleThrough({ "Chrome", "Google Chrome", "Arc" })
+	end,
 	[singleKey("d", "domain+")] = {
 		[singleKey("g", "github")] = function()
 			hs.urlevent.openURL("https://github.com")
@@ -62,31 +127,33 @@ local keyMap = {
 }
 
 hs.hotkey.bind(hyper, "x", function()
-	launchFocusOrSwitch("Xcode")
+	launchFocusOrCycle("Xcode")
 end)
 
 hs.hotkey.bind(hyper, "t", function()
-	launchFocusOrSwitch("Alacritty")
+	-- focusOrCycleThrough({ "Alacritty", "Terminal" })
+	launchFocusOrCycle("Alacritty")
 end)
 
 hs.hotkey.bind(hyper, "b", function()
-	launchFocusOrSwitch("Google Chrome")
+	-- focusOrCycleThrough({ "Arc", "Chrome", "Google Chrome", "Safari" })
+	launchFocusOrCycle("Google Chrome")
 end)
 
 hs.hotkey.bind(hyper, "s", function()
-	launchFocusOrSwitch("Slack")
+	launchFocusOrCycle("Slack")
 end)
 
 hs.hotkey.bind(hyper, "g", function()
-	launchFocusOrSwitch("Fork")
+	launchFocusOrCycle("Fork")
 end)
 
 hs.hotkey.bind(hyper, "f", function()
-	launchFocusOrSwitch("Finder")
+	launchFocusOrCycle("Finder")
 end)
 
 hs.hotkey.bind(hyper, "Z", function()
-	launchFocusOrSwitch("zoom.us")
+	launchFocusOrCycle("zoom.us")
 end)
 
 hs.hotkey.bind({ "option" }, "space", spoon.RecursiveBinder.recursiveBind(keyMap))

@@ -12,4 +12,5 @@ if [[ $NEXT_ID != "null" ]]; then
 	yabai -m window --focus $NEXT_ID
 else
 	echo "could not find another instance of: $CURRENT_WIN_NAME"
+	exit 1
 fi

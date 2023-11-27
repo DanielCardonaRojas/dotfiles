@@ -126,8 +126,6 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 export GPG_TTY=$(tty)
 
-display-popup -E -h 30% -w 60
-
 
 
 eval "$(starship init zsh)"
