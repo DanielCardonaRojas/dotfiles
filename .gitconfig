@@ -37,6 +37,7 @@
         reauthor =  "!f() { git commit --amend --no-edit --no-verify --author \"Daniel Cardona Rojas <$1>\"; }; f"
         setemail =  "!f() { git config --local user.email <$1>; }; f"
   oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent "${1:-main}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+  remote-diff = !zsh -c ~/.config/scripts/remote_diff.sh -
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
