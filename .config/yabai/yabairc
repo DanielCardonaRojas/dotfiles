@@ -42,6 +42,9 @@ yabai -m rule --add app="^Calendar$" manage=off layer=above
 yabai -m rule --add app="^Notes$" manage=off layer=above
 yabai -m rule --add app="^QuickTime Player$" manage=off layer=above
 yabai -m rule --add app="Font Book" manage=off layer=above
+yabai -m rule --add app="Control Room" manage=off layer=above
+yabai -m rule --add app="Console" manage=off layer=above
+yabai -m rule --add app="Simulator" manage=off layer=above
 
 
 # Space labels 3 desktops per display
