@@ -24,10 +24,10 @@ matches:
     replace: 3116419582
 
   - trigger: ":home"
-    replace: "Calle 81 sur # 63 - 105 Tierra Fresca, Int 70"
+    replace: "Calle 16A # 43B - 165, Int 321"
 
   - trigger: ":dir"
-    replace: "Calle 81 sur # 63 - 105 Tierra Fresca, Int 70"
+    replace: "Calle 16A # 43B - 165, Int 321"
 
   - trigger: ":nequi"
     replace: 4093550004842047
