@@ -14,6 +14,7 @@ fi
 
 # Aliases
 
+alias ghe='GH_ENTERPRISE_TOKEN=$(gh auth token --hostname github.mlbam.net) GH_HOST="github.mlbam.net" gh'
 alias lazygit="lazygit -ucf \"$HOME/.config/lazygit/catppuccin/frappe.yml,$HOME/.config/lazygit/config.yml\""
 alias cd='cd -P'
 alias g='lazygit'
