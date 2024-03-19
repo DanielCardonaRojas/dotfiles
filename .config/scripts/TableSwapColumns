@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+# Purpose: Swap columns in a markdown table
+# Usage: Provide two column numbers separated by a space. Columns start at index one.
+
+# Get column numbers, and add one to offset the first "empty" column
+COL_1=$(expr $1 + 1)
+COL_2=$(expr $2 + 1)
+
+# awk statement to swap columns
+AWK_STMT="BEGIN{FS=\"|\"; OFS=\"|\"}{ t = \$$COL_1; \$$COL_1 = \$$COL_2; \$$COL_2 = t; print; }"
+
+# Run awk statement
+awk "${AWK_STMT}"

@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+# Purpose: Remove columns from a markdown table
+# Usage: Provide column numbers separated by a space (first column is 1)
+
+# Process: 'white out' a column then replace '||' with '|'
+
+# Create 'white out' portion of awk statement
+# 1. Increase column number by 1 (as first item is to the left of first '|')
+# 2. Prefix each number with a dollar sign
+# 3. Format as $1=$2=$N=""
+WHITE_OUT=""
+for COLUMN in "$@"; do
+ ADJ_COLUMN=$(expr $COLUMN + 1)
+ WHITE_OUT="${WHITE_OUT}DOLLAR_SIGN${ADJ_COLUMN}="
+done
+WHITE_OUT=$(echo "${WHITE_OUT}" | sed 's/DOLLAR_SIGN/$/g' | awk '{print $0 "\"\"" }')
+
+# Create awk statement
+AWK_STMT="BEGIN{FS=\"|\"; OFS=\"|\"}{${WHITE_OUT}; print \$0}"
+
+# 1. Run awk statement
+# 2. Replace duplicate "||" with single "|"
+# 3. Reformat table
+# 4. Remove empty row
+awk "${AWK_STMT}" |
+ tr -s "|" |
+ column -t -s '|' -o '|' |
+ grep -v '^|$'

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Purpose: Format markdown table
+
+# Process...
+# 1. Replace tabs with spaces
+# 2. Shrink duplicate spaces
+# 3. Create table assuming '|' as the delimiter for both input and output
+# 4. Ensure minimum 'spacer row' is '---'
+#    Note: case "||||" requires duplicate gsub replacement.
+# 5. Format table again to expand for larger columns
+# 6. Update (resized) 'spacer row', i.e. change ' ' to '-'
+
+tr '\t' ' ' |
+ tr -s ' ' |
+ column -t -s '|' -o '|' |
+ awk '
+NR == 2 {
+  gsub(/ /, "");
+  gsub(/\-/, "");
+  gsub(/\|\|/, "|---|");
+  gsub(/\|\|/, "|---|");
+  print
+};
+NR != 2 {print $0}' |
+ column -t -s '|' -o '|' |
+ awk '
+NR == 2 {
+  gsub(/ /, "-");
+  print
+};
+NR != 2 {print $0}'
