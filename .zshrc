@@ -118,6 +118,7 @@ export PATH="$PATH":"usr/local/go/bin"
 export PATH="$PATH":"$HOME/go/bin"
 export PATH="$PATH":"$HOME/.local/share/bob/nvim-bin"
 export PATH="$PATH":"$HOME/.local/share/nvim/mason/bin"
+export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
 export LC_CTYPE=en_US.UTF-8
 
 export VISUAL=nvim
