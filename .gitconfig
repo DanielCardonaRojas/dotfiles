@@ -28,6 +28,7 @@
 
 [rebase]
   autosquash = true
+  updateRefs = true
 
 [alias]
 	c = commit
