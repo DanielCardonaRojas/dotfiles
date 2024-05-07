@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/daniel.cardona/.gitignore_global
+	excludesfile = /Users/danielcardona/.gitignore_global
 	editor= nvim
 	pager = delta
 [difftool "sourcetree"]
