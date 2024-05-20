@@ -8,6 +8,12 @@ plugins=(git zsh-vi-mode)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.config/atuin/atuin.zshrc
 
+# Setup a custom zsh completions directory
+fpath=(~/.zsh/completions $fpath)
+# Enable completion system
+autoload -Uz compinit
+compinit
+
 if [ -f $HOME/.bash_profile ]; then
   source $HOME/.bash_profile
 fi

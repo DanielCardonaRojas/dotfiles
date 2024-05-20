@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Determine the top-level directory of the current repository
+REPO_PATH=$(git rev-parse --show-toplevel)
+
+# Ensure the provided path is a git repository
+if [ ! -d "$REPO_PATH/.git" ]; then
+    echo "Error: $REPO_PATH is not a git repository."
+    exit 1
+fi
+
+# Derive the repository name from the provided path
+REPO_NAME=$(basename "$REPO_PATH")
+BACKUP_DIR="/tmp/repo_backups/$REPO_NAME"
+LOG_FILE="/tmp/repo_backups/${REPO_NAME}_backup.log"
+
+# Ensure the backup directory exists
+mkdir -p "$BACKUP_DIR"
+
+# Logging function
+log() {
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+# Acquire lock file to prevent concurrent executions
+LOCK_FILE="/tmp/repo_backups/${REPO_NAME}_backup.lock"
+exec 200>$LOCK_FILE
+flock -n 200 || {
+    log "Another instance of the script is running. Exiting."
+    exit 1
+}
+
+log "Starting backup for repository $REPO_NAME"
+
+# Get the current branch name
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+mkdir -p "$BACKUP_DIR/$CURRENT_BRANCH"
+
+# Define the parent branch (usually 'main')
+PARENT_BRANCH="main"
+
+# Generate a timestamp
+TIMESTAMP=$(date +'%Y%m%d%H%M%S')
+
+# Create a unique bundle file name using the branch name and timestamp
+CURRENT_BRANCH_NAME=$(basename "$CURRENT_BRANCH")
+BUNDLE_PATH="$BACKUP_DIR/$CURRENT_BRANCH/${CURRENT_BRANCH_NAME}_$TIMESTAMP.bundle"
+
+# Step 1: Create a bundle file with the commits from the current branch not in the parent branch
+log "Creating bundle for branch '$CURRENT_BRANCH' up to its parent '$PARENT_BRANCH' at $BUNDLE_PATH"
+git bundle create "$BUNDLE_PATH" "$PARENT_BRANCH..$CURRENT_BRANCH"
+
+if [ $? -ne 0 ]; then
+    log "Failed to create bundle for branch '$CURRENT_BRANCH'"
+    exit 1
+else
+    log "Bundle created at $BUNDLE_PATH"
+fi
+
+log "Backup for repository $REPO_NAME completed successfully"
+
+# Release the lock
+flock -u 200
+

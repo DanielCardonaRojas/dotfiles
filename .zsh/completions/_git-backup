@@ -1,0 +1,50 @@
+#compdef git-backup
+
+# Define the directory where your bundle files are stored
+BACKUP_DIR="/tmp/repo_backups/docgen"
+
+__git-backup-restore() {
+    local cur
+    cur=${words[CURRENT]}
+
+    # List bundle files in the backup directory
+    local bundles
+    
+    bundles=(${${(f)"$(_call_program bundles git rev-parse --show-toplevel | xargs basename | xargs -I {} find "/tmp/repo_backups/{}" -type f -name '*.bundle' 2>/dev/null)"}})
+
+    # Generate completions from the list of bundle files
+    _describe -t files 'backup restore' bundles
+}
+
+_git-backup ()
+{
+	local curcontext="$curcontext" state line
+	typeset -A opt_args
+
+	_arguments -C \
+		':command:->command' \
+		'*::options:->options'
+
+	case $state in
+		(command)
+
+			local -a subcommands
+			subcommands=(
+				'restore:Restore a branch from the bundles backup directory.'
+				'save:Save a branch as a bundle to the backup directory.'
+				'list:List branches that have been backed up as a bundle file.'
+			)
+			_describe -t commands 'git backup' subcommands
+		;;
+
+		(options)
+			case $line[1] in
+                (restore)
+                    __git-backup-restore
+                ;;
+			esac
+		;;
+	esac
+}
+
+compdef _git-backup git-backup

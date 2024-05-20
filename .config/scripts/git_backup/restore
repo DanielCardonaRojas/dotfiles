@@ -1,0 +1,45 @@
+#!/bin/bash
+
+REPO_PATH=$(git rev-parse --show-toplevel)
+REPO_NAME=$(basename "$REPO_PATH")
+BACKUP_DIR="/tmp/repo_backups/$REPO_NAME"
+
+# Check if a bundle file path is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 branch.bundle"
+    exit 1
+fi
+
+# BUNDLE_PATH="$BACKUP_DIR/$1"
+BUNDLE_PATH="$1"
+LOG_FILE="/tmp/repo_backups/restore.log"
+
+# Logging function
+log() {
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+log "Starting restoration from bundle $BUNDLE_PATH"
+
+# Verify the bundle file
+if ! git bundle verify "$BUNDLE_PATH"; then
+    log "The bundle file is invalid. Aborting."
+    exit 1
+fi
+
+# Fetch the branch from the bundle
+BRANCH_NAME=$(git bundle list-heads "$BUNDLE_PATH" | awk '{print $2}' | sed 's,refs/heads/,,')
+git fetch "$BUNDLE_PATH" "$BRANCH_NAME:refs/heads/$BRANCH_NAME"
+
+if [ $? -ne 0 ]; then
+    log "Failed to fetch branch '$BRANCH_NAME' from bundle"
+    exit 1
+else
+    log "Branch '$BRANCH_NAME' fetched from bundle"
+fi
+
+# Checkout the restored branch
+git checkout "$BRANCH_NAME"
+
+log "Branch '$BRANCH_NAME' has been successfully restored and checked out"
+
