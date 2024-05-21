@@ -1,0 +1,64 @@
+#compdef git-hooks
+
+# Define the directory where your hook files are stored
+
+__git-hooks-install() {
+    local cur
+    cur=${words[CURRENT]}
+
+    # Generate completions from the list of hook files
+    _arguments \
+    '1: :(pre-commit commit-msg post-commit pre-push)' \
+    '*:: :__git-script-list'
+}
+
+__git-script-list() {
+    local cur
+    cur=${words[CURRENT]}
+
+    # List hook files in the hooks directory
+    local hooks
+    
+    hooks=(${${(f)"$(_call_program hooks git rev-parse --show-toplevel | xargs -I {} ls "{}/.githooks/$words[1]" 2>/dev/null)"}})
+
+    # Generate completions from the list of hook files
+    _describe -t files 'hooks files' hooks
+
+}
+
+_git-hooks ()
+{
+	local curcontext="$curcontext" state line
+	typeset -A opt_args
+
+	_arguments -C \
+		':command:->command' \
+		'*::options:->options'
+
+	case $state in
+		(command)
+
+			local -a subcommands
+			subcommands=(
+				'install:Activate one of the available hooks.'
+				'uninstall:Deactivate an installed hook.'
+				'setup:Create the hooks folder structure and edit .git/hooks.'
+				'list:List all available hooks'
+			)
+			_describe -t commands 'git hooks' subcommands
+		;;
+
+		(options)
+			case $line[1] in
+                (install)
+                    __git-hooks-install
+                ;;
+                (uninstall)
+                    __git-hooks-install
+                ;;
+			esac
+		;;
+	esac
+}
+
+compdef _git-hooks git-hooks

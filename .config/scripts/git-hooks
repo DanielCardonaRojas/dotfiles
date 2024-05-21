@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# Get the root directory of the git repository
+REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+
+if [ $? -ne 0 ]; then
+  echo "Error: Not inside a Git repository."
+  exit 1
+fi
+
+HOOKS_DIR="$REPO_ROOT/.githooks"
+GIT_HOOKS_DIR="$REPO_ROOT/.git/hooks"
+TRACKER_SUFFIX="hooks.txt"
+
+# Ensure .githooks directory exists and create event subdirectories if they don't exist
+setup_directories() {
+  mkdir -p "$HOOKS_DIR"
+  for event in pre-commit commit-msg post-commit pre-push; do
+    mkdir -p "${HOOKS_DIR}/${event}"
+  done
+}
+
+# Write to .git/hooks/EVENT to ensure it runs git-hook run EVENT
+setup_git_hooks() {
+  for event in pre-commit commit-msg post-commit pre-push; do
+    local git_hook_file="${GIT_HOOKS_DIR}/${event}"
+    echo "#!/bin/bash" > "$git_hook_file"
+    echo "git-hook run $event" >> "$git_hook_file"
+    chmod +x "$git_hook_file"
+  done
+}
+
+install_hook() {
+  local event="$1"
+  local script="$2"
+  local tracker_file="${HOOKS_DIR}/${event}${TRACKER_SUFFIX}"
+
+  # Ensure the tracker file exists
+  mkdir -p "$(dirname "$tracker_file")"
+  touch "$tracker_file"
+
+  # Add the script to the tracker file if it's not already there
+  if ! grep -Fxq "$script" "$tracker_file"; then
+    echo "$script" >> "$tracker_file"
+    echo "Installed ${script} for ${event}."
+  else
+    echo "${script} is already installed for ${event}."
+  fi
+}
+
+uninstall_hook() {
+  local event="$1"
+  local script="$2"
+  local tracker_file="${HOOKS_DIR}/${event}${TRACKER_SUFFIX}"
+
+  if [ ! -f "$tracker_file" ]; then
+    echo "No scripts installed for ${event}."
+    return
+  fi
+
+  # Remove the script from the tracker file
+  sed -i.bak "\|$script|d" "$tracker_file" && rm "${tracker_file}.bak"
+  echo "Uninstalled ${script} from ${event}."
+}
+
+list_hooks() {
+  for event in pre-commit commit-msg post-commit pre-push; do
+    ls "${HOOKS_DIR}/$event"
+  done
+}
+
+run_hooks() {
+  local event="$1"
+  local tracker_file="${HOOKS_DIR}/${event}${TRACKER_SUFFIX}"
+
+  if [ ! -f "$tracker_file" ]; then
+    echo "No scripts installed for ${event}."
+    return
+  fi
+
+  # Execute each script listed in the tracker file
+  while IFS= read -r script; do
+    if [ -x "$HOOKS_DIR/$event/$script" ]; then
+      "$HOOKS_DIR/$event/$script"
+      if [ $? -ne 0 ]; then
+        echo "Hook ${script} failed for ${event}."
+        exit 1
+      fi
+    else
+      echo "Script ${script} is not executable."
+    fi
+  done < "$tracker_file"
+}
+
+setup() {
+  setup_directories
+  setup_git_hooks
+  echo "Git hooks setup completed."
+}
+
+case "$1" in
+  install)
+    install_hook "$2" "$3"
+    ;;
+  uninstall)
+    uninstall_hook "$2" "$3"
+    ;;
+  list)
+    list_hooks
+    ;;
+  run)
+    run_hooks "$2"
+    ;;
+  setup)
+    setup
+    ;;
+  *)
+    echo "Usage: $0 {install|uninstall|list|run|setup} <event> <script>"
+    exit 1
+    ;;
+esac
+
