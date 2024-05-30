@@ -120,12 +120,8 @@ export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 export PATH="$HOME/.config/scripts:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin" # Flutter global version as managed by fvm
 export PATH="$PATH:$HOME/.config/scripts"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-export PATH="$PATH":"usr/local/go/bin"
-export PATH="$PATH":"$HOME/go/bin"
 export PATH="$PATH":"$HOME/.local/share/bob/nvim-bin"
 export PATH="$PATH":"$HOME/.local/share/nvim/mason/bin"
-export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
 export LC_CTYPE=en_US.UTF-8
 
 export VISUAL=nvim

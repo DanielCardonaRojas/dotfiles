@@ -2,7 +2,7 @@
 
 # Define the directory where your hook files are stored
 
-__git-hooks-install() {
+__git-hooks-activate() {
     local cur
     cur=${words[CURRENT]}
 
@@ -40,8 +40,8 @@ _git-hooks ()
 
 			local -a subcommands
 			subcommands=(
-				'install:Activate one of the available hooks.'
-				'uninstall:Deactivate an installed hook.'
+				'activate:Activate one of the available hooks.'
+				'deactivate:Deactivate an activated hook.'
 				'setup:Create the hooks folder structure and edit .git/hooks.'
 				'list:List all available hooks'
 			)
@@ -50,11 +50,11 @@ _git-hooks ()
 
 		(options)
 			case $line[1] in
-                (install)
-                    __git-hooks-install
+                (activate)
+                    __git-hooks-activate
                 ;;
-                (uninstall)
-                    __git-hooks-install
+                (deactivate)
+                    __git-hooks-activate
                 ;;
 			esac
 		;;
