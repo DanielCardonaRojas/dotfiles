@@ -1,0 +1,4 @@
+---
+author: {{ extra.author }}
+---
+
