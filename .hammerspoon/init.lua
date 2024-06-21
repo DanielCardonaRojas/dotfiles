@@ -116,6 +116,9 @@ local keyMap = {
 	[singleKey("b", "browser")] = function()
 		focusOrCycleThrough({ "Chrome", "Google Chrome", "Arc" })
 	end,
+	[singleKey("w", "WhatsApp")] = function()
+		launchFocusOrCycle("WhatsApp")
+	end,
 	[singleKey("d", "domain+")] = {
 		[singleKey("g", "github")] = function()
 			hs.urlevent.openURL("https://github.com")
@@ -154,6 +157,10 @@ end)
 
 hs.hotkey.bind(hyper, "Z", function()
 	launchFocusOrCycle("zoom.us")
+end)
+
+hs.hotkey.bind(hyper, "w", function()
+	launchFocusOrCycle("WhatsApp")
 end)
 
 hs.hotkey.bind({ "option" }, "space", spoon.RecursiveBinder.recursiveBind(keyMap))
