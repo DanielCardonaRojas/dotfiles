@@ -21,7 +21,7 @@ matches:
 
   # Addresses
   - trigger: ":cel"
-    replace: 3116419582
+    replace: "+57 3116419582"
 
   - trigger: ":home"
     replace: "Calle 16A # 43B - 165, Int 321"
