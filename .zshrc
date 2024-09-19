@@ -135,4 +135,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 
+bindkey '^y' autosuggest-accept
+
+
 eval "$(starship init zsh)"
