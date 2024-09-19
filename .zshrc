@@ -90,6 +90,11 @@ mp4() {
   ffmpeg -i $1 ${name}.mp4
 }
 
+mp4compress() {
+ name=$(echo $1 | cut -d'.' -f1)
+ ffmpeg -i $1 -vf "scale=1280:-2" -c:v libx264 -crf 23 -preset medium -c:a aac -b:a 128k ${name}_compressed.mp4
+}
+
 scaleWidth() {
   ffmpeg -i $1 -vf scale=$2:-1 "scaled_$1"
 }
