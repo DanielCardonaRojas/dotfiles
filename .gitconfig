@@ -56,3 +56,6 @@
     path = ~/.gitconfig-work
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
+	autoupdate = true
