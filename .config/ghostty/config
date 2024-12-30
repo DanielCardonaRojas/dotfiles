@@ -1,0 +1,20 @@
+macos-titlebar-style = hidden
+initial-command = /bin/zsh --login -c tmux new-session -A -s main
+
+
+font-family = SFMono Nerd Font
+font-size = 16
+theme = catppuccin-macchiato
+background-opacity = 0.96
+
+# Keymaps
+
+keybind = cmd+t=text:\x02\x63
+keybind = cmd+shift+left_bracket=text:\x02\x70
+keybind = cmd+shift+right_bracket=text:\x02\x6e
+keybind = cmd+w=text:\x02\x78
+keybind = cmd+g=text:\x02\x67
+keybind = cmd+shift+g=text:\x02\x47
+keybind = cmd+shift+n=text:\x02\x25
+keybind = cmd+n=text:\x02\x22
+keybind = cmd+r=reload_config
