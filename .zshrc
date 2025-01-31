@@ -44,9 +44,13 @@ path() {
   echo $PATH | tr -s ':' '\n'
 }
 
-# Search with fzf and open with neovim (find file)
+# find file with fzf and open with neovim (find file)
 ff() {
-  local selected_file=$(fzf --prompt '  ')
+  if which fd >/dev/null 2>&1; then
+    local selected_file=$(fd --hidden --type f | fzf --prompt '  ')
+  else
+    local selected_file=$(find . -type f | fzf --prompt '  ')
+  fi
 
   if ! [ -z $selected_file ]; then
     nvim $selected_file
