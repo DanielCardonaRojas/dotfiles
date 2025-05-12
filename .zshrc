@@ -22,7 +22,7 @@ fi
 
 alias ghe='GH_ENTERPRISE_TOKEN=$(gh auth token --hostname github.mlbam.net) GH_HOST="github.mlbam.net" gh'
 alias lazygit="lazygit -ucf \"$HOME/.config/lazygit/catppuccin/frappe.yml,$HOME/.config/lazygit/config.yml\""
-alias cd='cd -P'
+# alias cd='cd -P'
 alias g='lazygit'
 alias goto="cd -P"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -148,3 +148,24 @@ bindkey '^y' autosuggest-accept
 
 
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+# A wrapper around the zoxides default cd allowing customization
+cd() {
+  # Navigate to root of git repo if in one using cd !
+  if [[ "$1" == "!" ]]; then
+    local root
+    root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ -n "$root" ]]; then
+      builtin cd "$root" || return
+    else
+      echo "Not inside a Git repository"
+      return 1
+    fi
+  elif [[ "$1" == @* ]]; then
+      # Use the bookmark system
+      builtin cd -P $1 || return
+  else
+    __zoxide_z "$@"  # Use zoxide's logic for everything else
+  fi
+}
