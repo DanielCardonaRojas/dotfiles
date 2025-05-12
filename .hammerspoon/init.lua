@@ -133,12 +133,12 @@ hs.hotkey.bind(hyper, "x", function()
 	launchFocusOrCycle("Xcode")
 end)
 
-hs.hotkey.bind(hyper, "t", function()
+hs.hotkey.bind(hyper, hs.keycodes.map["t"], function()
 	-- focusOrCycleThrough({ "Alacritty", "Terminal" })
 	launchFocusOrCycle("Alacritty")
 end)
 
-hs.hotkey.bind(hyper, "b", function()
+hs.hotkey.bind(hyper, hs.keycodes.map["b"], function()
 	-- focusOrCycleThrough({ "Arc", "Chrome", "Google Chrome", "Safari" })
 	launchFocusOrCycle("Google Chrome")
 end)
@@ -147,7 +147,7 @@ hs.hotkey.bind(hyper, "s", function()
 	launchFocusOrCycle("Slack")
 end)
 
-hs.hotkey.bind(hyper, "g", function()
+hs.hotkey.bind(hyper, hs.keycodes.map["g"], function()
 	launchFocusOrCycle("Fork")
 end)
 
