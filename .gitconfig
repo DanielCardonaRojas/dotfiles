@@ -30,6 +30,9 @@
   autosquash = true
   updateRefs = true
 
+[push]
+    autoSetupRemote = true
+
 [alias]
 	c = commit
 	ca = commit --amend --no-edit
