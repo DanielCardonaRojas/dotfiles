@@ -23,6 +23,9 @@ matches:
   - trigger: ":cel"
     replace: "+57 3116419582"
 
+  - trigger: ":zip"
+    replace: "050021"
+
   - trigger: ":home"
     replace: "Calle 16A # 43B - 165, Int 321"
 
