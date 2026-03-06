@@ -4,3 +4,9 @@ git:
     pager: delta --paging=never
 gui:
   showIcons: true
+customCommands:
+  - key: "<c-d>"
+    context: "commits"
+    command: "git describe --contains {{.SelectedLocalCommit.Hash}}"
+    output: popup
+
